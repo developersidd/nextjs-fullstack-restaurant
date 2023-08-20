@@ -1,8 +1,18 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Providers } from '@/redux/provider';
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import './globals.css';
+import Navbar from '@/components/Navbar/Navbar';
 
-const inter = Inter({ subsets: ['latin'] })
+const helvatica = localFont({
+  src: [
+    { path: '../../public/assets/fonts/Helvetica-Neue-Font/Helvetica Neue UltraLight.ttf', weight: "300" },
+    { path: "../../public/assets/fonts/Helvetica-Neue-Font/Helvetica Neue W01 66 Medium It.otf", weight: "400" },
+    { path: "../../public/assets/fonts/Helvetica-Neue-Font/Helvetica Neue LTW0697BlkCnObl.otf", weight: "700" }
+  ],
+  display: 'swap',
+  variable: '--font-helvatica'
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +26,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={helvatica.className}>
+        <div className="container mx-auto px-4 md:px-8">
+          <Navbar />
+          <Providers>
+            {children}
+          </Providers>
+        </div>
+      </body>
     </html>
   )
 }

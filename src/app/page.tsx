@@ -1,11 +1,10 @@
-import Navbar from "@/components/Navbar/Navbar";
-import SmallDevicesNavbar from "@/components/SmallDevicesNavbar/SmallDevicesNavbar";
+import Banner from "@/components/shared/Banner/Banner";
 
 export default function Home() {
   return (
-    <main className="">
-     {/*<SmallDevicesNavbar /> */}
-     {/*<Navbar />*/}
+    <main className="font-montserrat">
+      <Banner imgName="home-banner.jpg" />
+      
     </main>
   )
 }

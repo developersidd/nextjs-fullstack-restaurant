@@ -9,14 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        helvatica: "var(--font-helvatica)"
+        montserrat: "var(--font-montserrat)",
+        helvatica: "var(--font-helvatica)",
       },
       colors: {
         "primary-yellow": "#CA9C5E",
         "secondary-olive": "#0B1517",
-      }
+      },
     },
   },
   plugins: [],
 }
+
 export default config

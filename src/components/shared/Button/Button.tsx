@@ -1,8 +1,7 @@
-import React from 'react'
-
+import classes from "./button.module.css";
 const Button = ({ title }: { title: string }) => {
     return (
-        <button> {title} </button>
+        <button className={`${classes.classic__btn}`}> {title} </button>
     )
 }
 

@@ -4,7 +4,9 @@ import Menu from "@/components/Menu/Menu";
 import HighlightedMenuItem from "@/components/MenuItem/HighlightedMenuItem";
 import MenuItem from "@/components/MenuItem/MenuItem";
 import MenuToolTip from "@/ui/MenuToolTip";
-
+import Menu1 from "@/assets/images/menu-1.jpg"
+import Menu2 from "@/assets/images/menu-2.jpg"
+import Menu3 from "@/assets/images/menu-3.jpg"
 const AllMenus = () => {
   return (
     <>
@@ -12,7 +14,7 @@ const AllMenus = () => {
       <Menu
         title="The Perfect Patty"
         des="Effortless comfortable full leather lining. Effortless comfortable full leather lining eye-catching unique detail"
-        src="/../../assets/images/menu-1.jpg"
+        src={Menu1}
 
       >
         {/* Here is all menu items */}
@@ -43,7 +45,7 @@ const AllMenus = () => {
         imgFirst={false}
         title="Meet your meat"
         des="Effortless comfortable full leather lining. Effortless comfortable full leather lining eye-catching unique detail"
-        src="/../../assets/images/menu-2.jpg"
+        src={Menu2}
 
       >
         {/* Here is all menu items */}
@@ -73,7 +75,7 @@ const AllMenus = () => {
       <Menu
         title="Delight in every bite"
         des="Effortless comfortable full leather lining. Effortless comfortable full leather lining eye-catching unique detail"
-        src="/../../assets/images/menu-3.jpg"
+        src={Menu3}
 
       >
         {/* Here is all menu items */}

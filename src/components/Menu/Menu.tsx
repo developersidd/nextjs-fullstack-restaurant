@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
-const Menu = ({ imgFirst = true, src, des, title, children }: { children: React.ReactNode, imgFirst?: boolean, src: string, title: string, des: string }) => {
+const Menu = ({ imgFirst = true, src, des, title, children }: { children: React.ReactNode, imgFirst?: boolean, src: StaticImageData, title: string, des: string }) => {
     return (
         <div className='lg:container mx-auto px-6 md:px-10 py-10 md:py-20'>
 

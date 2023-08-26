@@ -18,7 +18,7 @@ const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visib
                             navbarData.map(({ link, title }) => {
                                 const isActive = pathname === link;
                                 return (
-                                    <li onClick={closeNav} key={title} className={` text-lg font-medium ${isActive ? "text-primary-yellow" : ""}`}>
+                                    <li onClick={closeNav} key={title} className={` text-md font-medium ${isActive ? "text-primary-yellow" : ""}`}>
                                         <Link href={link}> {title} </Link>
                                     </li>
                                 )

@@ -1,24 +1,25 @@
-import React from 'react'
-import Button from '../Button/Button'
-
-type Props = {
-    des: string,
-    title: string,
-    smTitle: string,
-    showDes: boolean
-}
-
-const Titles = ({ des, title, smTitle, showDes }: Props) => {
+import divider from "@/assets/images/single-divider.png";
+import Image from 'next/image';
+const Titles = ({ smTitle, title }: { title: string, smTitle: string }) => {
     return (
-        <div className="text-center text-white mx-auto">
+        <div className="text-center mx-auto px-2 text-white  md:max-w-[75%] lg:max-w-[70%] xl:max-w-[55%] 2xl:max-w-[47%]">
             <h3 className='uppercase lg:text-lg mb-2 md:mb-4 tracking-[3px]'> {smTitle} </h3>
-            <h2 className='mx-auto uppercase drop-shadow-lg shadow-black text-3xl md:text-5xl xl:text-7xl font-bold mb-3 md:mb-4 
-            '> {title}
-            </h2>
-            {
-                showDes ? (<p className='text-sm lg:text-base mx-auto tracking-wide w-full md:max-w-[70%] lg:max-w-[65%] xl:max-w-[45%]'> {des} </p>) : null
-            }
-            <Button title='our menus' path="/menus" />
+            <div className="flex items-center justify-center">
+                <Image
+                    src={divider}
+                    className="max-md:hidden"
+                    alt="divider"
+                />
+                <h2 className='mx-auto drop-shadow-lg shadow-black text-3xl md:text-4xl lg:text-5xl 
+                xl:text-7xl font-bold mb-3 md:mb-4'>
+                    {title}
+                </h2>
+                <Image
+                    src={divider}
+                    className="max-md:hidden"
+                    alt="divider"
+                />
+            </div>
         </div>
     )
 }

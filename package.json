@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@hookform/resolvers": "^3.3.1",
     "@next/font": "^13.4.19",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.5.1",
@@ -22,15 +23,19 @@
     "mongoose": "^7.4.3",
     "next": "13.4.19",
     "postcss": "8.4.28",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.4",
     "react-hot-toast": "^2.4.1",
     "react-redux": "^8.1.2",
+    "react-star-ratings": "^2.3.0",
     "react-tooltip": "^5.21.1",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@types/aos": "^3.0.4"
+    "@types/aos": "^3.0.4",
+    "@types/react-star-ratings": "^2.3.0"
   }
 }

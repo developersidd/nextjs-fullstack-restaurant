@@ -55,13 +55,13 @@ const AllMenus = () => {
             <>
               {ind === 2 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
-                data-tooltip-place="left"
+                data-tooltip-place="left-start"
                 key={name} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
-                  data-tooltip-place="left"
+                  data-tooltip-place="left-start"
 
                   key={name} title={name} des={items} price={price} />)
               }

@@ -5,7 +5,7 @@ import Button from '../shared/Button/Button';
 
 const Recommendation = () => {
     return (
-        <div className='lg:container mx-auto px-6 md:px-8 py-16 md:py-20 h-[100vh] md:flex items-center gap-10 max-md:space-y-10'>
+        <div className='lg:container mx-auto px-6 md:px-8 py-16 md:py-20 h-[100vh] md:flex items-center gap-10 '>
             <div className="w-full md:w-1/2">
 
                 <div className="text-center text-white mx-auto">

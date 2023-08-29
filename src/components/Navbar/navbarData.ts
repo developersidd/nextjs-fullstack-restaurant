@@ -13,8 +13,8 @@ export const navbarData = [
         link: "/menus",
     },
     {
-        title: "Reservation",
-        link: "/reservation",
+        title: "Foods",
+        link: "/foods",
     },
     {
         title: "Contact",

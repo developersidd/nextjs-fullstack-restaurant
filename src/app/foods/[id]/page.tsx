@@ -3,7 +3,7 @@ import FoodDetails from '@/components/FoodDetails/FoodDetails';
 import ImageMagnifier from "@/components/ImageMagnifier/ImageMagnifier";
 import Image from 'next/image';
 
-const FoodItempage = ({ id }: { id: string }) => {
+const FoodItempage = () => {
     return (
         <div className='lg:container mx-auto px-6 md:px-10 py-36'>
             <div className='md:flex items-center justify-between gap-10 max-md:space-y-10 py-16'>

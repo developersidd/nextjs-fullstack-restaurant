@@ -7,7 +7,9 @@ import MenuToolTip from "@/ui/MenuToolTip";
 import Menu1 from "@/assets/images/menu-1.jpg"
 import Menu2 from "@/assets/images/menu-2.jpg"
 import Menu3 from "@/assets/images/menu-3.jpg"
+import useMediaQuery from "@/hooks/useMediaQuery";
 const AllMenus = () => {
+  const mobile = useMediaQuery("768");
   return (
     <>
       {/*  Menu One */}
@@ -23,13 +25,13 @@ const AllMenus = () => {
             <>
               {ind === 0 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
-                data-tooltip-place="right"
+                data-tooltip-place={`${mobile ? "bottom" : "right"}`}
                 key={name} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
-                  data-tooltip-place="right"
+                  data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
                   key={name} title={name} des={items} price={price} />)
               }
@@ -55,13 +57,13 @@ const AllMenus = () => {
             <>
               {ind === 2 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
-                data-tooltip-place="left-start"
+                data-tooltip-place={`${mobile ? "bottom" : "right"}`}
                 key={name} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
-                  data-tooltip-place="left-start"
+                  data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
                   key={name} title={name} des={items} price={price} />)
               }
@@ -85,13 +87,13 @@ const AllMenus = () => {
             <>
               {ind === 3 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
-                data-tooltip-place="right"
+                data-tooltip-place={`${mobile ? "bottom" : "right"}`}
                 key={name} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
-                  data-tooltip-place="right"
+                  data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
                   key={name} title={name} des={items} price={price} />)
               }

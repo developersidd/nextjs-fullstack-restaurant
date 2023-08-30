@@ -1,13 +1,19 @@
+"use client";
 import burger from "@/assets/images/burger.png";
 import FoodDetails from '@/components/FoodDetails/FoodDetails';
 import Image from 'next/image';
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 const FoodItempage = ({ id }: { id: string }) => {
     return (
         <div className='lg:container mx-auto px-6 md:px-10 py-36'>
             <div className='md:flex items-center justify-between gap-10 max-md:space-y-10 py-16'>
-                <div className="w-full md:w-[40%]">
-                    <Image className='max-md:w-[70%]  max-md:h-[70%] mx-auto' src={burger} alt='burger' />
+                <div className="w-full md:w-[40%] rounded-full">
+                    <TransformWrapper smooth={true} >
+                        <TransformComponent wrapperStyle={{ borderRadius: "99999px", cursor: "zoom-in" }}>
+                            <Image className='max-md:w-[70%] max-md:h-[70%] mx-auto rounded-full' src={burger} alt='burger' />
+                        </TransformComponent>
+                    </TransformWrapper>
                 </div>
                 <div className="w-full md:w-[55%]  space-y-3 md:space-y-5">
                     <h3 className='text-white tracking-wider text-xl md:text-2xl lg:text-3xl'>VINCENT </h3>

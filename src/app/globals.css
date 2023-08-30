@@ -10,6 +10,8 @@ html {
      body {
        @apply font-helvatica bg-secondary-olive
        
-  }
+  }}
 
-      }
+  .react-transform-wrapper .transform-component-module_wrapper__SPB86 {
+    border-radius: 99999px !important
+  } 

@@ -9,7 +9,7 @@ const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visib
     const pathname = usePathname();
     return (
         <>
-            <aside className={`bg-secondary-olive lg:hidden lg:invisible  duration-200 transition-transform ${visible ? "translate-x-[0]" : "translate-x-[100%]"} fixed top-0 right-0 w-[50%] py-20 px-10 h-screen z-[9999]`}>
+            <aside className={`bg-secondary-olive lg:hidden lg:invisible  duration-200 transition-transform ${visible ? "translate-x-[0]" : "translate-x-[100%]"} fixed top-0 right-0 w-[65%] py-20 px-10 h-screen z-[9999]`}>
 
                 <XMarkIcon onClick={closeNav} className="cursor-pointer w-9 h-9 text-primary-yellow absolute right-8 top-10" />
                 <nav>
@@ -28,7 +28,7 @@ const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visib
                     </ul>
                 </nav>
             </aside>
-            <div className={`h-screen lg:hidden ${visible ? "visible" : "invisible"} fixed top-0 left-0 bg-black/50 w-[50%] z-[999]`} onClick={closeNav}></div>
+            <div className={`h-screen lg:hidden ${visible ? "visible" : "invisible"} fixed top-0 left-0 bg-black/50 w-[35%] z-[999]`} onClick={closeNav}></div>
         </>
     )
 }

@@ -31,11 +31,10 @@ const SignUpPage = () => {
     resolver: yupResolver(schema),
   });
   // handle sign up
-  const SignUpHandler = (data: any) => {
+  const SignUpHandler = async (data: any) => {
     console.log(errors)
-    const url = uploadImage(data.picture[0])
-    console.log("url:", url)
-    signUp(data)
+    const res = await uploadImage(data.picture[0])
+    signUp({...data, picture: res?.url! })
     console.log(data.picture[0]);
     //reset();
   };

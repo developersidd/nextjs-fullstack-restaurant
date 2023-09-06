@@ -5,8 +5,7 @@ const uploadImage = async (imageFile: any) => {
   console.log("imageFile:", imageFile)
   const formData = new FormData();
   formData.append("file", imageFile);
-  formData.append("upload_preset", "next-js-restaurant");
-  //formData.append("cloud_name", "absiddik123");
+  formData.append("upload_preset", process.env.CLOUDINARY_UPLOAD_PRESET!);
 
 
   try {

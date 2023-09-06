@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import StarRatings from 'react-star-ratings';
 import * as yup from "yup";
-import Input from '../shared/Input/Input';
+import Input from "@/components/shared/Input/Input";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -61,7 +61,7 @@ const FoodReview = () => {
         </div>
         <Input data={{ name: "Author", type: 'text', placeholder: `Enter your Name`, error: errors.author?.message, hookFormRegister: register("author") }} />
         <Input data={{ name: "Email", type: 'email', placeholder: `Enter your Email`, error: errors.email?.message, hookFormRegister: register("email") }} />
-        <button type="submit" className="px-4 py-2 border-2 border-primary-yellow text-white"> SUBMIT </button>
+        <button type="submit" className="rounded px-4 py-2 border-2 border-primary-yellow text-white"> SUBMIT </button>
       </form>
     </div>
   )

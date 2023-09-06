@@ -1,3 +1,4 @@
+import { Burger } from "@/components/3D-Models/burger";
 import AboutComp from "@/components/About/About";
 import FoodCategories from "@/components/FoodCategories/FoodCategories";
 import Foods from "@/components/Foods/Foods";
@@ -19,6 +20,7 @@ export default function Home() {
       </Banner>
       <AboutComp />
       <Recommendation />
+
       <section>
         <Titles smTitle="MAKE FOOD, NOT WAR" title="Our Menus" />
         <AllMenus />

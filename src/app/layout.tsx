@@ -1,12 +1,11 @@
-import Navbar from '@/components/Navbar/Navbar';
-import { Providers } from '@/redux/provider';
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import './globals.css';
-import { Montserrat } from 'next/font/google'
+
+import { Providers } from '@/redux/features/provider';
 import AOSInit from '@/ui/AOSInit';
-import 'react-tooltip/dist/react-tooltip.css'
-import Footer from '@/components/Footer/Footer';
+import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
+import localFont from 'next/font/local';
+import 'react-tooltip/dist/react-tooltip.css';
+import './globals.css';
 const helvatica = localFont({
   src: [
     { path: '../../public/fonts/Helvetica-Neue-Font/Helvetica Neue UltraLight.ttf', weight: "300" },
@@ -31,16 +30,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  
+
   return (
     <html lang="en" className={`${helvatica.variable} ${montserrat.variable}`}>
-        <AOSInit />
+      <AOSInit />
       <body >
-        <Navbar />
         <Providers>
           {children}
         </Providers>
-        <Footer />
       </body>
     </html>
   )

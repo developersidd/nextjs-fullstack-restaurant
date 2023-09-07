@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                         id: user?._id,
                         username: user.username
                     }
-                    const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, { expiresIn: "1d" });
+                    const token = jwt.sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "1d" });
                     // set token user browser
 
                     const response = NextResponse.json({

@@ -28,7 +28,7 @@ const schema = yup.object().shape({
 });
 
 const SignUpPage = () => {
-  const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
+    const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
   console.log("data:", data)
   
   const [isUploadingImg, setIsUploadingImg] = useState(false);

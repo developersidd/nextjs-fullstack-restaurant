@@ -1,5 +1,5 @@
 import emailValidator from "email-validator";
-import mongoose, { Document, Model } from "mongoose";
+import mongoose, { Document, Model, model } from "mongoose";
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -17,11 +17,13 @@ const userSchema = new mongoose.Schema({
             message: (props: any) => `Please provide a valid email address`,
         },
     },
+    picture: {
+        type: String,
+        require: [true, "Please provide an email"],
+    },
     password: {
         type: String,
         required: [true, "Please provide a password"],
-        minLength: 10,
-        maxLength: 30,
     },
     isVerified: {
         type: Boolean,
@@ -44,13 +46,13 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: () => new Date()
     },
-});
+}, { timestamps: true });
 
 interface UserDocument extends Document {
     email: string;
     password: string;
     username: string;
-    picture?: string;
+    picture: string;
     forgorPasswordToken: boolean;
     forgotPasswordTokenExpiry: Date | undefined;
     verifyToken: string;
@@ -59,6 +61,6 @@ interface UserDocument extends Document {
     isAdmin: boolean;
 }
 
-export const User: Model<UserDocument> = mongoose.models.user || mongoose.model("User", userSchema);
+export const User: Model<UserDocument> = mongoose.models.user || mongoose.model("user", userSchema);
 
 export default User;

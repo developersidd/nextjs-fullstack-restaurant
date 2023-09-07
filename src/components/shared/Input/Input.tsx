@@ -12,7 +12,7 @@ const Input = ({ data: {name, type, placeholder, error, hookFormRegister }, ...p
 
   return (
     <div className="mb-6">
-      <label htmlFor={name} className="block mb-2 text-md font-medium text-gray-500">{name} </label>
+      <label htmlFor={name} className="block mb-2 text-md font-medium text-gray-500 capitalize">{name} </label>
       <input {...hookFormRegister} type={type} id={name} className={inputClass} placeholder={placeholder} required />
       <small className="text-red-700 font-bold"> {error} </small>
     </div>

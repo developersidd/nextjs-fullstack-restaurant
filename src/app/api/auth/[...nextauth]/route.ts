@@ -1,20 +1,24 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 
 const authOptions = {
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET!,
+        }),
+        FacebookProvider({
+            clientId: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_ID!,
+            clientSecret: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_SECRET!,
         }),
     ],
     callbacks: {
         async signIn({ user, account }: any) {
-            console.log("user:", user)
 
             if (account.provider === "google") {
                 try {
-                    const res = await fetch(`${process.env.DOMAIN!}/auth/social-media`, {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN!}/auth/social-media`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

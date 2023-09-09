@@ -10,7 +10,8 @@ import * as yup from "yup";
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import SocialMediaAuth from "@/components/SocialMediaAuth/SocialMediaAuth";
-
+import loadingGear from "@/assets/images/loading-gear.gif";
+import Image from "next/image";
 const schema = yup.object().shape({
   username: yup.string().max(45).required(),
   email: yup.string().email().required(),
@@ -28,32 +29,32 @@ const schema = yup.object().shape({
 });
 
 const SignUpPage = () => {
-    const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
+  // rtk sign up Hook
+  const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
   console.log("data:", data)
   
-  const [isUploadingImg, setIsUploadingImg] = useState(false);
-
-  const router = useRouter();
-  
+  // hook form hooks
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
+  
+  const [isUploadingImg, setIsUploadingImg] = useState(false);
+  const router = useRouter();
   console.log("error:", error)
-
+// handle success 
   useEffect(() => {
     if (isSuccess) {
       toast.success("Signed Up Successfully");
       reset();
-      router.push("/");
+      router.push("/signin");
     }
-  }, [isSuccess])
+  }, [isSuccess]);
 
   // handle sign up
   const SignUpHandler = async (data: any) => {
     setIsUploadingImg(true);
     try {
       const url = await uploadImage(data.picture[0]);
-      console.log("url:", url)
       await signUp({ ...data, picture: url });
     } catch (error: any) {
       console.log("error:", error)
@@ -70,7 +71,7 @@ const SignUpPage = () => {
       <div className="rounded-md w-full sm:w-[70%] md:-w-[60%] lg:w-[40%] xl:w-[35%]  p-4 md:p-6 lg:p-8 xl:p-10" style={{
         boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
       }}>
-        <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> Sign In {(isLoading || isUploadingImg) && " ...Loading"} </h3>
+        <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} />  :  " Sign In"  } </h3>
         {/*  Signin form */}
         <div className={`${(isLoading || isUploadingImg)  ? "opacity-40 pointer-events-none" : ""}`}>
 

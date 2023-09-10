@@ -45,7 +45,7 @@ signIn(data)
       <div className="rounded-md w-full sm:w-[70%] md:-w-[60%] lg:w-[40%] xl:w-[35%]  p-4 md:p-6 lg:p-8 xl:p-10" style={{
         boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
       }}>
-        <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {!isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> :  "Sign In"} </h3>
+        <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> :  "Sign In"} </h3>
         {/*  Signin form */}
         <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 

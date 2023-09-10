@@ -61,6 +61,7 @@ signIn(data)
           <div className="text-center mt-5">
             <p className="text-white mb-3 text-lg"> Or Continue with </p>
             <SocialMediaAuth disabled={isLoading} />
+            console.log("SocialMediaAuth:", SocialMediaAuth)
             <p className="mt-8 text-white text-base">
               Don&apos;t have an account ?
               <Link href="/signup" className="font-bold hover:border-b"> Sign Up </Link>

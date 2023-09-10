@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
             validator: (email: string) => emailValidator.validate(email),
             message: (props: any) => `Please provide a valid email address`,
         },
+        
     },
     picture: {
         type: String,

@@ -1,5 +1,4 @@
-import emailValidator from "email-validator";
-import mongoose, { Document, Model, model } from "mongoose";
+import mongoose, { Document, Model } from "mongoose";
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -12,11 +11,11 @@ const userSchema = new mongoose.Schema({
         unique: true,
         immutable: false,
         lowercase: true,
-        validate: {
+    /*    validate: {
             validator: (email: string) => emailValidator.validate(email),
             message: (props: any) => `Please provide a valid email address`,
         },
-        
+      */
     },
     picture: {
         type: String,

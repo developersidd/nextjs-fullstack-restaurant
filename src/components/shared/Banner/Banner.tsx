@@ -10,10 +10,10 @@ const Banner = ({ imgName, children, smTitle, title }: { imgName: string, childr
           <div className="text-center text-white mx-auto">
             <h3 className='uppercase lg:text-lg mb-2 md:mb-4 tracking-[3px]' data-aos="fade-left" data-aos-delay="70"> {smTitle} </h3>
             <h2 className='mx-auto uppercase drop-shadow-lg shadow-black text-3xl md:text-5xl xl:text-7xl 
-            font-bold mb-3 md:mb-4  w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[40%] 
+            font-bold mb-3 md:mb-4  w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[50%] 
             ' data-aos="fade-up" > {title}
             </h2>
-            {children}        
+            {children}
           </div>
         </div>
       </div>

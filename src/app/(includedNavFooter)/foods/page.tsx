@@ -6,7 +6,7 @@ import Image from 'next/image';
 const FoodsPage = () => {
   return (
     <div>
-      <Banner imgName={"bg-[url('../assets/images/foods-banner.jpg')]"} smTitle="Batijah" title="Hello World" />
+      <Banner imgName={"bg-[url('../assets/images/foods-banner.jpg')]"} smTitle="Explore Foods" title="Good Food Good Life" />
       <FoodCategories />
       <Foods />
     </div>

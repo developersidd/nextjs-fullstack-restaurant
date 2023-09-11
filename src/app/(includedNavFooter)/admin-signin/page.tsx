@@ -20,7 +20,7 @@ const schema = yup.object().shape({
 const AdminSignInPage = () => {
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
     const searchParams = useSearchParams();
-    const ADMIN_SECRET = searchParams.get("admin-secret");
+    const ADMIN_SECRET = searchParams?.get("admin-secret") || "";
 
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -38,7 +38,7 @@ const AdminSignInPage = () => {
     }, [isSuccess]);
 
     // handle sign In
-    const SignInHandler = (data: any) => {
+    const adminSignInHandler = (data: any) => {
         signIn(data)
     };
 
@@ -55,7 +55,7 @@ const AdminSignInPage = () => {
                 {/*  Signin form */}
                 <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 
-                    <form className='' onSubmit={handleSubmit(SignInHandler)} >
+                    <form className='' onSubmit={handleSubmit(adminSignInHandler)} >
 
                         <Input data={{ name: "Email", type: 'email', placeholder: `Enter your Email`, error: errors.email?.message, hookFormRegister: register("email") }} />
                         <Input data={{ name: "Password", type: 'password', placeholder: `Enter your Password`, error: errors.password?.message, hookFormRegister: register("password") }} />

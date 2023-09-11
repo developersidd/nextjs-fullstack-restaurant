@@ -17,11 +17,11 @@ const schema = yup.object().shape({
     password: yup.string().min(10).max(30).required(),
 });
 
-const AdminSignInPage = () => {
+const AdminSignInPage = ({searchParams}: {searchParams: any}) => {
+    console.log("searchParams:", searchParams)
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
-    const searchParams = useSearchParams();
-    const ADMIN_SECRET = searchParams?.get("admin-secret") || "";
-
+    //const searchParams = useSearchParams();
+    const ADMIN_SECRET = searchParams["admin-secret"] || "";
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),

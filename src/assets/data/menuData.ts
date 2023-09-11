@@ -1,5 +1,5 @@
-export const menuItems = [
-    [
+export const menuItems = {
+    menuOne: [
         {
             name: "Fried Chicken Salad",
             items: "Chicken / Butter / Veggies",
@@ -53,7 +53,10 @@ export const menuItems = [
             ]
         },
     ],
-    [
+
+
+
+    menuTwo: [
         {
             name: "Lemon-Rosemary Chicken",
             items: "Chicken / Rosemary / Lemon",
@@ -107,7 +110,7 @@ export const menuItems = [
             ]
         },
     ],
-    [
+   menuThree: [
         {
             name: "Salted Fried Chicken",
             items: "Chicken / Olive Oil / Salt",
@@ -161,5 +164,4 @@ export const menuItems = [
             ]
         },
     ],
-
-]
+};

@@ -1,6 +1,6 @@
 import FoodCategories from "@/components/FoodCategories/FoodCategories";
 import Foods from '@/components/Foods/Foods';
-import Banner from "@/dbConfig/Banner";
+import Banner from "@/components/shared/Banner/Banner";
 const FoodsPage = () => {
   return (
     <div>

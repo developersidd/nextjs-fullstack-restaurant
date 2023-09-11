@@ -29,9 +29,7 @@ const Menu = ({ imgFirst = true, src, des, title, children }: { children: React.
                         </p>
                         <div className='pt-8'>
                             {children}
-
                         </div>
-
                     </div>
                 </div>
             </div>

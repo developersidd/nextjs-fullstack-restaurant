@@ -1,4 +1,3 @@
-import Button from '../Button/Button';
 const Banner = ({ imgName, children, smTitle, title }: { imgName: string, children?: React.ReactNode, smTitle: string, title: string }) => {
   return (
     <>

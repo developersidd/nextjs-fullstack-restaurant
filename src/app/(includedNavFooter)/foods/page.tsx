@@ -1,8 +1,6 @@
-import leafRight from "@/assets/images/tiny-leaf.png";
 import FoodCategories from "@/components/FoodCategories/FoodCategories";
 import Foods from '@/components/Foods/Foods';
-import Banner from "@/components/shared/Banner/Banner";
-import Image from 'next/image';
+import Banner from "@/dbConfig/Banner";
 const FoodsPage = () => {
   return (
     <div>

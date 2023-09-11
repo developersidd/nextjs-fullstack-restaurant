@@ -1,12 +1,11 @@
-import { Burger } from "@/components/3D-Models/burger";
 import AboutComp from "@/components/About/About";
 import FoodCategories from "@/components/FoodCategories/FoodCategories";
 import Foods from "@/components/Foods/Foods";
 import AllMenus from "@/components/Menu/AllMenus";
 import Recommendation from "@/components/Recommendation/Recommendation";
-import Banner from "@/components/shared/Banner/Banner";
 import Button from "@/components/shared/Button/Button";
 import Titles from "@/components/shared/Titles/Titles";
+import Banner from "@/dbConfig/Banner";
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import smileyFace from "@/assets/images/smiley-face.png";
 import SocialMediaAuth from "@/components/SocialMediaAuth/SocialMediaAuth";
 import Input from "@/components/shared/Input/Input";
 import { useSigninMutation } from "@/redux/features/signin/signinApi";
+import NotAllowed from "@/ui/NotAllowed";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +22,6 @@ const AdminSignInPage = () => {
     const searchParams = useSearchParams();
     const ADMIN_SECRET = searchParams.get("admin-secret");
 
-    console.log("data:", data)
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
@@ -38,20 +37,13 @@ const AdminSignInPage = () => {
         }
     }, [isSuccess]);
 
-
     // handle sign In
     const SignInHandler = (data: any) => {
         signIn(data)
     };
 
     if (ADMIN_SECRET !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
-        return (
-            <div className="text-white flex items-center justify-center h-screen flex-col">
-                <Image src={smileyFace} className="w-[30%] md:w-[25%] mb-5" alt="smiley-face"  />
-                <h1> Your Are Not Allowed To Access this Page </h1>
-                <Link href="/"> Back to Home </Link>
-            </div>
-        )
+        return <NotAllowed />
     }
 
     return (

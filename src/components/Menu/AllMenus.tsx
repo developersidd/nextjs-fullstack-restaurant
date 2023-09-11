@@ -23,7 +23,7 @@ const AllMenus = () => {
         {
           menuItems[0].map(({ name, items, price, benefits }, ind) => (
             <>
-              {ind === 0 ? (<HighlightedMenuItem
+              {ind === 0 ? (<HighlightedMenuItem 
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
                 key={name} title={name} des={items} price={price}

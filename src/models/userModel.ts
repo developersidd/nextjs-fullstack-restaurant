@@ -11,11 +11,11 @@ const userSchema = new mongoose.Schema({
         unique: true,
         immutable: false,
         lowercase: true,
-    /*    validate: {
-            validator: (email: string) => emailValidator.validate(email),
-            message: (props: any) => `Please provide a valid email address`,
-        },
-      */
+        /*    validate: {
+                validator: (email: string) => emailValidator.validate(email),
+                message: (props: any) => `Please provide a valid email address`,
+            },
+          */
     },
     picture: {
         type: String,
@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: () => new Date()
     },
-}, { timestamps: true });
+});
 
 interface UserDocument extends Document {
     email: string;
@@ -61,6 +61,6 @@ interface UserDocument extends Document {
     isAdmin: boolean;
 }
 
-export const User: Model<UserDocument> = mongoose.models.user || mongoose.model("user", userSchema);
+export const User: Model<UserDocument> = mongoose.models.user || mongoose.model("User", userSchema);
 
 export default User;

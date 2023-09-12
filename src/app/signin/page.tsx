@@ -11,6 +11,12 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import * as yup from "yup";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: 'Sign In - Siddik Restaurant',
+}
 
 
 const schema = yup.object().shape({

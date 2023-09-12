@@ -1,7 +1,13 @@
 import leafLeft from "@/assets/images/home-leaf-right.png";
 import leafRight from "@/assets/images/tiny-leaf.png";
 import AllMenus from '@/components/Menu/AllMenus';
+import { Metadata } from "next";
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+    title: 'Our Menus - Siddik Restaurant',
+  }
+  
 const MenusPage = () => {
     return (
         <div className='font-montserrat relative'>

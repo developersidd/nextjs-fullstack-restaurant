@@ -8,10 +8,11 @@ import HighlightedMenuItem from "@/components/MenuItem/HighlightedMenuItem";
 import MenuItem from "@/components/MenuItem/MenuItem";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import MenuToolTip from "@/ui/MenuToolTip";
+
 const AllMenus = () => {
   const mobile = useMediaQuery("768");
   return (
-    <>
+    <section>
       {/*  Menu One */}
       <Menu
         key={1}
@@ -27,14 +28,14 @@ const AllMenus = () => {
               {ind === 0 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                key={name} title={name} des={items} price={price}
+                key={ind} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                  key={name} title={name} des={items} price={price} />)
+                  key={ind} title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
             </>
@@ -60,14 +61,14 @@ const AllMenus = () => {
               {ind === 2 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                key={name} title={name} des={items} price={price}
+                key={ind} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                  key={name} title={name} des={items} price={price} />)
+                  key={ind} title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
             </>
@@ -90,14 +91,14 @@ const AllMenus = () => {
               {ind === 3 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                key={name} title={name} des={items} price={price}
+                key={ind} title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                  key={name} title={name} des={items} price={price} />)
+                  key={ind} title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
             </>
@@ -105,7 +106,7 @@ const AllMenus = () => {
         }
       </Menu>
 
-    </>
+    </section>
   )
 }
 

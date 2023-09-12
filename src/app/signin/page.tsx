@@ -54,8 +54,6 @@ const SignInPage = () => {
         </div>
 
         <h3 className="text-white mb-4 text-center text-xl  font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Sign In"} </h3>
-
-        <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Sign In"} </h3>
         {/*  Signin form */}
         <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 

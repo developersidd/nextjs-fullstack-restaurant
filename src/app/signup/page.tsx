@@ -32,11 +32,9 @@ const SignUpPage = () => {
   // rtk sign up Hook
   const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
   //console.log("data:", data)
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 1e88f4f3a5d1e268fe2939ca6c6f59bea0292716
+  
+
   // hook form hooks
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
@@ -45,11 +43,8 @@ const SignUpPage = () => {
   const [isUploadingImg, setIsUploadingImg] = useState(false);
   const router = useRouter();
   //console.log("error:", error)
-<<<<<<< HEAD
+
 // handle success 
-=======
-  // handle success 
->>>>>>> 1e88f4f3a5d1e268fe2939ca6c6f59bea0292716
   useEffect(() => {
     if (isSuccess) {
       toast.success("Signed Up Successfully");

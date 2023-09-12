@@ -31,7 +31,7 @@ const schema = yup.object().shape({
 const SignUpPage = () => {
   // rtk sign up Hook
   const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
-  console.log("data:", data)
+  //console.log("data:", data)
   
   // hook form hooks
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -40,7 +40,7 @@ const SignUpPage = () => {
   
   const [isUploadingImg, setIsUploadingImg] = useState(false);
   const router = useRouter();
-  console.log("error:", error)
+  //console.log("error:", error)
 // handle success 
   useEffect(() => {
     if (isSuccess) {

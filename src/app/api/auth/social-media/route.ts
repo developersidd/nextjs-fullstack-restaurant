@@ -31,7 +31,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                 success: true,
                 token
             }, { status: 200 });
-            response.cookies.set("Hello-token", token, {
+            response.cookies.set("token", token, {
                 httpOnly: true
             });
 

@@ -16,7 +16,7 @@ const authOptions = {
     callbacks: {
         async signIn({ user, account }: any) {
 
-            if (account.provider === "google") {
+            if (account.provider === "google" || account.provider === "facebook") {
                 try {
                     const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN!}/auth/social-media`, {
                         method: "POST",

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import SmallDevicesNavbar from '../SmallDevicesNavbar/SmallDevicesNavbar';
 import classes from "./navbar.module.css";
 import { navbarData } from './navbarData';
+
 const Navbar = () => {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
@@ -37,16 +38,17 @@ const Navbar = () => {
       };
     }
   }, [lastScrollY]);
+
   return (
-    <div className={`z-[9999]  bg-transparent ${show ? "shadow-md md:fixed md:h-[95px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/40"  : ""  }`} >
+    <div className={`z-[9999]  bg-transparent ${show ? "shadow-md md:fixed md:h-[95px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/40" : ""}`} >
       <nav className={`lg:container px-6 md:px-10 mx-auto absolute top-0 left-0 right-0  font-helvatica z-[9999]`}>
-        <div className={`flex justify-between items-center ${show ?  "h-[95px]" : "h-[120px]"  } `}>
+        <div className={`flex justify-between items-center ${show ? "h-[95px]" : "h-[120px]"} `}>
 
           <div className='-mt-2 pr-9'>
             <Link href="/">
-            <h1 className="first-letter:text-6xl relative text-white"> S <span className="absolute top-3 text-2xl"> iddik </span>
-              <span className="absolute bottom-2 left-9 text-[9px] text-primary-yellow"> RESTAURANT </span>
-            </h1>
+              <h1 className="first-letter:text-6xl relative text-white"> S <span className="absolute top-3 text-2xl"> iddik </span>
+                <span className="absolute bottom-2 left-9 text-[9px] text-primary-yellow"> RESTAURANT </span>
+              </h1>
             </Link>
           </div>
 

@@ -1,7 +1,7 @@
 import leafLeft from "@/assets/images/home-leaf-right.png";
 import leafRight from "@/assets/images/tiny-leaf.png";
-import Image from 'next/image';
 import AllMenus from '@/components/Menu/AllMenus';
+import Image from 'next/image';
 const MenusPage = () => {
     return (
         <div className='font-montserrat relative'>

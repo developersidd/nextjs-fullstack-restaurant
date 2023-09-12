@@ -37,7 +37,7 @@ const SignInPage = () => {
 
   // handle sign In
   const SignInHandler = (data: any) => {
-signIn(data)
+    signIn(data)
   };
 
   return (
@@ -45,7 +45,15 @@ signIn(data)
       <div className="rounded-md w-full sm:w-[70%] md:-w-[60%] lg:w-[40%] xl:w-[35%]  p-4 md:p-6 lg:p-8 xl:p-10" style={{
         boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
       }}>
-        <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> :  "Sign In"} </h3>
+                  <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""} font-helvatica flex items-center justify-center pr-12 -mt-6 mb-5`}>
+            <Link href="/">
+              <h1 className="first-letter:text-6xl relative text-white"> S <span className="absolute top-3 text-2xl"> iddik </span>
+                <span className="absolute bottom-2 left-9 text-[9px] text-primary-yellow"> RESTAURANT </span>
+              </h1>
+            </Link>
+          </div>
+
+        <h3 className="text-white mb-4 text-center text-xl  font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Sign In"} </h3>
         {/*  Signin form */}
         <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 
@@ -64,7 +72,6 @@ signIn(data)
           <div className="text-center mt-5">
             <p className="text-white mb-3 text-lg"> Or Continue with </p>
             <SocialMediaAuth disabled={isLoading} />
-            console.log("SocialMediaAuth:", SocialMediaAuth)
             <p className="mt-8 text-white text-base">
               Don&apos;t have an account ?
               <Link href="/signup" className="font-bold hover:border-b"> Sign Up </Link>

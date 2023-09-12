@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: () => new Date()
     },
-});
+}, {timestamps: true});
 
 interface UserDocument extends Document {
     email: string;

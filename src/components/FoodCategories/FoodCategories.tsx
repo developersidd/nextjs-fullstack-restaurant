@@ -16,4 +16,9 @@ const FoodCategories = () => {
     )
 }
 
+const foods = [
+    
+]
+
+
 export default FoodCategories

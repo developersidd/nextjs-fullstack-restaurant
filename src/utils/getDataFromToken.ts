@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { NextRequest } from "next/server";
 
-type TokenType = {
+export type TokenType = {
     id: string;
     email: string;
     username: string;

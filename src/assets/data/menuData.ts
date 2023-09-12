@@ -165,3 +165,188 @@ export const menuItems = {
         },
     ],
 };
+
+const foods = [
+        {
+            title: "VINCENT",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 25,
+            category: "burger",
+            image: "https://ibb.co/qF8sbqt",
+            weight: 500,
+            dimension: "5x5"
+        },
+        {
+            title: "MARGHERITA",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 18,
+            category: "burger",
+            image: "https://ibb.co/9VhQrg4",
+            weight: 600,
+            dimension: "4x7"
+        },
+        {
+            title: "DIABLO",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 35,
+            category: "burger",
+            image: "https://ibb.co/MfPBNHC",
+            weight: 700,
+            dimension: "1x1"
+        },
+        {
+            title: "VENETIA",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 55,
+            category: "burger",
+            image: "https://ibb.co/xjJmXm5",
+            weight: 800,
+            dimension: "2x3"
+        },
+        {
+            title: "FLORENCE",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 15,
+            category: "burger",
+            image: "https://ibb.co/k5b5FJ1",
+            weight: 950,
+            dimension: "4x5"
+        },
+        {
+            title: "AMARETTI",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 45,
+            category: "dessert",
+            image: "https://ibb.co/KqVTyBY",
+            weight: 500,
+            dimension: "2x3"
+        },
+        {
+            title: "BOSTRENGO",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 55,
+            category: "dessert",
+            image: "https://ibb.co/h8QztSX",
+            weight: 600,
+            dimension: "3x4"
+        },
+        {
+            title: "BIGNE",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 65,
+            category: "dessert",
+            image: "https://ibb.co/sPvwXMX",
+            weight: 700,
+            dimension: "4x5"
+        },
+        {
+            title: "BUDINO",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 75,
+            category: "dessert",
+            image: "https://ibb.co/dkxWTqz",
+            weight: 800,
+            dimension: "5x6"
+        },
+        {
+            title: "BUDINO DI RICOTTA",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 85,
+            category: "dessert",
+            image: "https://ibb.co/JtS3shv",
+            weight: 900,
+            dimension: "6x7"
+        },
+        {
+            title: "BUCATINI",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 60,
+            category: "pasta",
+            image: "https://ibb.co/DYVdf31",
+            weight: 500,
+            dimension: "2x3"
+        },
+        {
+            title: "CANNELLONI",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 70,
+            category: "pasta",
+            image: "https://ibb.co/pRGsqkz",
+            weight: 600,
+            dimension: "3x4"
+        },
+        {
+            title: "CASUNZIEI",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 80,
+            category: "pasta",
+            image: "https://ibb.co/g7Ws3rR",
+            weight: 700,
+            dimension: "4x5"
+        },
+        {
+            title: "FARFALLE",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 90,
+            category: "pasta",
+            image: "https://ibb.co/yPx1QJb",
+            weight: 800,
+            dimension: "5x6"
+        },
+        {
+            title: "FUSILLI",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 100,
+            category: "pasta",
+            image: "https://ibb.co/QXB5gF2",
+            weight: 900,
+            dimension: "6x7"
+        },
+        {
+            title: "PROSCIUTTO",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 60,
+            category: "pizza",
+            image: "https://ibb.co/kyPXwRr",
+            weight: 500,
+            dimension: "2x3"
+        },
+        {
+            title: "SAPORITA",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 70,
+            category: "pizza",
+            image: "https://ibb.co/h1fJ067",
+            weight: 600,
+            dimension: "3x4"
+        },
+        {
+            title: "CARBONARA",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 80,
+            category: "pizza",
+            image: "https://ibb.co/cgDq2tr",
+            weight: 700,
+            dimension: "4x5"
+        },
+        {
+            title: "PEPPERONI",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 90,
+            category: "pizza",
+            image: "https://ibb.co/vhGswBb",
+            weight: 800,
+            dimension: "5x6"
+        },
+        {
+            title: "MARGHERITA",
+            description: "Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles. Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.",
+            price: 100,
+            category: "pizza",
+            image: "https://ibb.co/XJL4n5n",
+            weight: 900,
+            dimension: "6x7"
+        },
+        
+    
+]

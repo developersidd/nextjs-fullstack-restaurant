@@ -3,15 +3,14 @@
 @tailwind utilities;
 
 
+@layer base {
+  html {}
 
-@layer base{
-html {
+  body {
+    @apply font-helvatica bg-secondary-olive overflow-x-hidden
+  }
 }
-     body {
-       @apply font-helvatica bg-secondary-olive overflow-x-hidden
-       
-  }}
 
-  .react-transform-wrapper .transform-component-module_wrapper__SPB86 {
-    border-radius: 99999px !important
-  } 
+.react-transform-wrapper .transform-component-module_wrapper__SPB86 {
+  border-radius: 99999px !important
+}

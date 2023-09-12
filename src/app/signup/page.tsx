@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import * as yup from "yup";
+import { Metadata } from "next";
+
 const schema = yup.object().shape({
   username: yup.string().max(45).required(),
   email: yup.string().email().required(),
@@ -28,6 +30,11 @@ const schema = yup.object().shape({
     }),
 });
 
+export const metadata: Metadata = {
+  title: 'Sign Up - Siddik Restaurant',
+}
+
+
 const SignUpPage = () => {
   // rtk sign up Hook
   const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
@@ -41,7 +48,8 @@ const SignUpPage = () => {
   const [isUploadingImg, setIsUploadingImg] = useState(false);
   const router = useRouter();
   //console.log("error:", error)
-  // handle success 
+
+// handle success 
   useEffect(() => {
     if (isSuccess) {
       toast.success("Signed Up Successfully");

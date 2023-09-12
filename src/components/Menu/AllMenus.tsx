@@ -15,7 +15,6 @@ const AllMenus = () => {
     <section>
       {/*  Menu One */}
       <Menu
-        key={1}
         title="The Perfect Patty"
         des="Effortless comfortable full leather lining. Effortless comfortable full leather lining eye-catching unique detail"
         src={Menu1}
@@ -24,21 +23,21 @@ const AllMenus = () => {
         {/* Here is all menu items */}
         {
           menuItems?.menuOne?.map(({ name, items, price, benefits }, ind) => (
-            <>
+            <div key={ind}>
               {ind === 0 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                key={ind} title={name} des={items} price={price}
+                 title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                  key={ind} title={name} des={items} price={price} />)
+                   title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
-            </>
+            </div>
           )
 
           )
@@ -46,7 +45,6 @@ const AllMenus = () => {
       </Menu>
       {/*  Menu Two */}
       <Menu
-        key={2}
         imgFirst={false}
         title="Meet your meat"
         des="Effortless comfortable full leather lining. Effortless comfortable full leather lining eye-catching unique detail"
@@ -54,24 +52,23 @@ const AllMenus = () => {
 
       >
         {/* Here is all menu items */}
-
         {
           menuItems?.menuThree?.map(({ name, items, price, benefits }, ind) => (
-            <>
+            <div key={ind}>
               {ind === 2 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                key={ind} title={name} des={items} price={price}
+                 title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                  key={ind} title={name} des={items} price={price} />)
+                   title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
-            </>
+            </div>
           ))
         }
       </Menu>
@@ -81,27 +78,26 @@ const AllMenus = () => {
         title="Delight in every bite"
         des="Effortless comfortable full leather lining. Effortless comfortable full leather lining eye-catching unique detail"
         src={Menu3}
-        key={3}
       >
         {/* Here is all menu items */}
 
         {
           menuItems?.menuThree?.map(({ name, items, price, benefits }, ind) => (
-            <>
+            <div key={ind}>
               {ind === 3 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                key={ind} title={name} des={items} price={price}
+                 title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                  key={ind} title={name} des={items} price={price} />)
+                   title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
-            </>
+            </div>
           ))
         }
       </Menu>

@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     picture: {
         type: String,
         require: [true, "Please provide an email"],
-},
+    },
     password: {
         type: String,
         required: [true, "Please provide a password"],
@@ -56,6 +56,5 @@ interface UserDocument extends Document {
     isAdmin: boolean;
 }
 
-export const User: Model<UserDocument> = mongoose.models.user || mongoose.model("User", userSchema);
-
+const User: Model<UserDocument> = mongoose.models.user || mongoose.model("user", userSchema);
 export default User;

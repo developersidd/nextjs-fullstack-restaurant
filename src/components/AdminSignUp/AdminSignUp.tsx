@@ -1,7 +1,6 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
 import warning from "@/assets/images/warning.png";
-import SocialMediaAuth from "@/components/SocialMediaAuth/SocialMediaAuth";
 import Input from "@/components/shared/Input/Input";
 import { useSignupMutation } from "@/redux/features/signup/signupApi";
 import uploadImage from "@/utils/uploadImage";
@@ -52,9 +51,17 @@ const AdminSignUp = () => {
         if (isSuccess) {
             toast.success("Signed Up Successfully");
             reset();
-            router.push("/signin");
+            router.push(`/admin-signin?admin-secret=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`);
         }
     }, [isSuccess]);
+
+    //  handle error
+    useEffect(() => {
+        if (isError && error) {
+            toast.error(error?.data?.error);
+        }
+    }, [isError]);
+
 
     // handle sign up
     const adminSignUpHandler = async (data: any) => {
@@ -96,7 +103,7 @@ const AdminSignUp = () => {
                         </Link>
                     </div>
 
-                    <h3 className="text-white mb-4 text-center text-xl md:text-2x font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Admin Sign Up"} </h3>
+                    <h3 className="text-white mb-4 text-center text-lg md:text-xl font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Admin Sign Up"} </h3>
                     {/* Admin  Sign Up form */}
                     <div className={`${(isLoading || isUploadingImg) ? "opacity-40 pointer-events-none" : ""}`}>
 
@@ -110,14 +117,11 @@ const AdminSignUp = () => {
 
                             <button disabled={(isLoading || isUploadingImg)} type="submit" className="px-4 py-2 rounded border-2 border-primary-yellow text-white uppercase"> sign up </button>
                         </form>
-
-                        {/*  sign up  with other options */}
+                        {/* bottom section */}
                         <div className="text-center mt-5">
-                            <p className="text-white mb-3 text-lg"> Or Continue with </p>
-                            <SocialMediaAuth disabled={(isLoading || isUploadingImg)} />
                             <p className="mt-8 text-white text-base">
-                                Already have an account ?
-                                <Link href="/signin" className="font-bold hover:border-b"> Sign In </Link>
+                                Already have an admin account ?
+                                <Link href={`/admin-signin?admin-secret=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign In </Link>
                             </p>
                         </div>
                     </div>

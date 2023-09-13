@@ -1,6 +1,5 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import SocialMediaAuth from "@/components/SocialMediaAuth/SocialMediaAuth";
 import Input from "@/components/shared/Input/Input";
 import { useSigninMutation } from "@/redux/features/signin/signinApi";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -21,7 +20,6 @@ const schema = yup.object().shape({
 
 const SignIn = () => {
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
-    console.log("error:", error)
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
     });
@@ -34,6 +32,14 @@ const SignIn = () => {
             router.push("/");
         }
     }, [isSuccess])
+
+
+    //  handle error
+    useEffect(() => {
+        if (isError && error) {
+            toast.error(error?.data?.error);
+        }
+    }, [isError]);
 
 
     // handle sign In
@@ -69,10 +75,8 @@ const SignIn = () => {
                         <button type="submit" disabled={isLoading} className="px-4 py-2 rounded border-2 border-primary-yellow text-white uppercase"> sign in  </button>
                     </form>
 
-                    {/*  sign up  with other options */}
+                    {/*  bottom section */}
                     <div className="text-center mt-5">
-                        <p className="text-white mb-3 text-lg"> Or Continue with </p>
-                        <SocialMediaAuth disabled={isLoading} />
                         <p className="mt-8 text-white text-base">
                             Don&apos;t have an account ?
                             <Link href="/signup" className="font-bold hover:border-b"> Sign Up </Link>

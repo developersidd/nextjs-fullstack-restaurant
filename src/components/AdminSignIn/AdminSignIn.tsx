@@ -1,11 +1,9 @@
 "use client"
 import loadingGear from "@/assets/images/loading-gear.gif";
 import warning from "@/assets/images/warning.png";
-import SocialMediaAuth from "@/components/SocialMediaAuth/SocialMediaAuth";
 import Input from "@/components/shared/Input/Input";
 import { useSigninMutation } from "@/redux/features/signin/signinApi";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Metadata } from "next";
 import Image from 'next/image';
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -37,6 +35,13 @@ const AdminSignIn = () => {
         }
     }, [isSuccess]);
 
+    //  handle error
+    useEffect(() => {
+        if (isError && error) {
+            toast.error(error?.data?.error);
+        }
+    }, [isError]);
+
 
     // handle sign In
     const adminSignInHandler = (data: any) => {
@@ -67,7 +72,7 @@ const AdminSignIn = () => {
                     </Link>
                 </div>
 
-                <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Admin Sign In"} </h3>
+                <h3 className="text-white mb-4 text-center text-lg md:text-xl font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Admin Sign In"} </h3>
                 {/*  Admin Signin form */}
                 <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 
@@ -82,13 +87,11 @@ const AdminSignIn = () => {
                         <button type="submit" disabled={isLoading} className="px-4 py-2 rounded border-2 border-primary-yellow text-white uppercase"> sign in  </button>
                     </form>
 
-                    {/*  sign up  with other options */}
+                    {/*  bottom section */}
                     <div className="text-center mt-5">
-                        <p className="text-white mb-3 text-lg"> Or Continue with </p>
-                        <SocialMediaAuth disabled={isLoading} />
                         <p className="mt-8 text-white text-base">
-                            Don&apos;t have an account ?
-                            <Link href="/signup" className="font-bold hover:border-b"> Sign Up </Link>
+                            Don&apos;t have an admin account ?
+                            <Link href={`/admin-signup?admin-secret=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign Up </Link>
                         </p>
                     </div>
                 </div>

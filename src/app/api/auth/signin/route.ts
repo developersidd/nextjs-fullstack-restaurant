@@ -1,8 +1,8 @@
 import connectDb from "@/dbConfig/connectDb";
 import User from "@/models/userModel";
 import bcrypt from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { NextRequest, NextResponse } from "next/server";
 connectDb();
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
@@ -37,7 +37,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                     });
                     return response;
                 } else {
-                    return NextResponse.json({ error: "Invalid Password!" }, { status: 500 });
+                    return NextResponse.json({ error: "Invalid Password!"}, { status: 500 });
                 }
             } else {
                 return NextResponse.json({ error: "User doesn't exists!" }, { status: 500 });

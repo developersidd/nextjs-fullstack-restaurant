@@ -8,4 +8,4 @@ export const foodApi = apiSlice.injectEndpoints({
     }),
 });
 
-export const { useGetFoodsQuery } = foodApi
+export const { useGetFoodsQuery } = foodApi;

@@ -1,6 +1,4 @@
-
 "use client"
-
 import loadingGear from "@/assets/images/loading-gear.gif";
 import warning from "@/assets/images/warning.png";
 import SocialMediaAuth from "@/components/SocialMediaAuth/SocialMediaAuth";
@@ -70,7 +68,7 @@ const AdminSignIn = () => {
                 </div>
 
                 <h3 className="text-white mb-4 text-center text-xl md:text-2xl font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Admin Sign In"} </h3>
-                {/*  Signin form */}
+                {/*  Admin Signin form */}
                 <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 
                     <form className='' onSubmit={handleSubmit(adminSignInHandler)} >

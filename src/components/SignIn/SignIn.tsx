@@ -20,6 +20,7 @@ const schema = yup.object().shape({
 
 const SignIn = () => {
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
+    //const signInError: any = error;
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
     });
@@ -37,7 +38,7 @@ const SignIn = () => {
     //  handle error
     useEffect(() => {
         if (isError && error) {
-            toast.error(error?.data?.error);
+            toast.error((error as any)?.data?.error);
         }
     }, [isError]);
 

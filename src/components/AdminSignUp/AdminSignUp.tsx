@@ -58,7 +58,7 @@ const AdminSignUp = () => {
     //  handle error
     useEffect(() => {
         if (isError && error) {
-            toast.error(error?.data?.error);
+            toast.error((error as any)?.data?.error);
         }
     }, [isError]);
 

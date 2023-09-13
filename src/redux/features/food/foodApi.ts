@@ -3,10 +3,9 @@ import { apiSlice } from "../api/apiSlice";
 
 export const foodApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getFoods: builder.query<{ data: FoodDocument[] }, null>({
-            query: () => "/food",
+        getFoods: builder.query<{ data: FoodDocument[] }, string>({
+            query: (category: string) => `/food?category=${category}`,
         }),
-
     }),
 });
 

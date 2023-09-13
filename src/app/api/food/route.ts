@@ -2,7 +2,7 @@ import connectDb from "@/dbConfig/connectDb";
 import Food from "@/models/foodModel";
 import { NextRequest, NextResponse } from "next/server";
 
-connectDb();
+//connectDb();
 
 export type TokenType = {
     id: string;
@@ -19,12 +19,15 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
                     return NextResponse.json({ error: "Sorry, You are not allowed to access this api!" }, { status: 400 });
                 }*/
         const category = req.nextUrl?.searchParams.get("category") || "";
+        console.log("category:", category)
         let query;
         if (category?.length > 0) {
             query = { category }
-        } 
+        } else {
             query = {}
+        }
         const foods = await Food.find(query);
+        console.log("foods:", foods)
         //console.log("foods:", foods)
 
         return NextResponse.json({ message: "Foods got successfully", data: foods }, { status: 200 });

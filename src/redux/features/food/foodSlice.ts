@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    category: "",
+    category: "burger",
 };
 
 const foodSlice = createSlice({

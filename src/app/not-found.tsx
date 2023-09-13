@@ -14,7 +14,7 @@ const NotFound = () => {
             <Image src={smileyFace} className="w-[40%] md:w-[35%] lg:w-[22%]" alt="smiley-face" />
             <h3 className="font-bold text-xl md:text-3xl xl:text-4xl mb-10 text-center"> The Page you want to access is currently unavailable <span className="text-red-600">!</span>   </h3>
             <button className='px-5 py-2 border-2 border-primary-yellow text-white font-medium font-helvatica'>
-                <Link href="/" > Back to Homes </Link>
+                <Link href="/" > Back to Home </Link>
             </button>
         </div>
     )

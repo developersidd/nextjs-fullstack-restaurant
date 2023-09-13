@@ -10,11 +10,11 @@ const foodSchema = new mongoose.Schema({
         type: String,
         require: [true, "Please provide a description"],
     },
-    
+
     image: {
         type: String,
         require: [true, "Please provide an image url"],
-},
+    },
     category: {
         type: String,
         required: [true, "Please provide a category"],
@@ -28,6 +28,7 @@ const foodSchema = new mongoose.Schema({
         required: [true, "Please provide a price"],
     },
     dimension: {
+        type: String,
         required: [true, "Please provide a dimension"],
     },
 
@@ -39,9 +40,9 @@ const foodSchema = new mongoose.Schema({
         type: Date,
         default: () => new Date()
     },
-}, {timestamps: true});
+}, { timestamps: true });
 
-interface FoodDocument extends Document {
+export interface FoodDocument extends Document {
     title: string;
     description: string;
     price: number;

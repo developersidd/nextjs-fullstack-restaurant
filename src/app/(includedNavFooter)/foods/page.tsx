@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: 'Explore Foods - Siddik Restaurant',
 }
 
-
 const FoodsPage = () => {
 
   return (

@@ -3,7 +3,7 @@ import { useGetFoodsQuery } from "@/redux/features/food/foodApi";
 import FoodItem from '../FoodItem/FoodItem';
 const Foods = () => {
     const { isLoading, error, data } = useGetFoodsQuery(null);
-    console.log("data:", data)
+    //console.log("data:", data)
     const foods = data?.data;
     console.log("error:", error)
     return (

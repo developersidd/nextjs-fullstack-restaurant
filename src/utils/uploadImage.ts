@@ -7,7 +7,7 @@ const uploadImage = async (imageFile: any) => {
   formData.append("upload_preset", process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!);
 
   try {
-    const res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_PROFILE_NAME!}/image/upload`, {
+    const res = await fetch(process.env.NEXT_PUBLIC_CLOUDINARY_API_URL!, {
       method: "POST",
       body: formData
     })

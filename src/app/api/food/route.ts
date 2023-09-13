@@ -2,7 +2,7 @@ import connectDb from "@/dbConfig/connectDb";
 import Food from "@/models/foodModel";
 import { NextRequest, NextResponse } from "next/server";
 
-//connectDb();
+connectDb();
 
 export type TokenType = {
     id: string;

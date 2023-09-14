@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 connectDb();
 
-export type TokenType = {
+ type TokenType = {
     id: string;
-    email: string;
+    isAdmin: boolean;
     username: string;
 }
 

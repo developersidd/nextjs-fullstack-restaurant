@@ -3,9 +3,10 @@ import { NextRequest } from "next/server";
 
 export type TokenType = {
     id: string;
-    email: string;
+    isAdmin: boolean;
     username: string;
 }
+
 const getDataFromToken = (req: NextRequest) => {
     try {
         const token = req.cookies.get('token')?.value || "";

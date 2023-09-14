@@ -3,6 +3,7 @@ import User from "@/models/userModel";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
+
 connectDb();
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
@@ -22,7 +23,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                     // generate token
                     const tokenData = {
                         id: user?._id,
-                        username: user.username
+                        username: user?.username,
+                        admin: user?.isAdmin
                     }
                     const token = jwt.sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "1d" });
                     // set token user browser
@@ -37,7 +39,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                     });
                     return response;
                 } else {
-                    return NextResponse.json({ error: "Invalid Password!"}, { status: 500 });
+                    return NextResponse.json({ error: "Invalid Password!" }, { status: 500 });
                 }
             } else {
                 return NextResponse.json({ error: "User doesn't exists!" }, { status: 500 });

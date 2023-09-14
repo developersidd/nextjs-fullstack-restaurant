@@ -40,7 +40,7 @@ const AdminSignUp = () => {
         resolver: yupResolver(schema),
     });
     const searchParams = useSearchParams();
-    const ADMIN_SECRET = searchParams.get("admin-secret") || "";
+    const ADMIN_SECRET = searchParams.get("${process.env.NEXT_PUBLIC_ASN}") || "";
 
     const [isUploadingImg, setIsUploadingImg] = useState(false);
     const router = useRouter();
@@ -51,7 +51,7 @@ const AdminSignUp = () => {
         if (isSuccess) {
             toast.success("Signed Up Successfully");
             reset();
-            router.push(`/admin-signin?admin-secret=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`);
+            router.push(`/admin/signin?${process.env.NEXT_PUBLIC_ASN}=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`);
         }
     }, [isSuccess]);
 
@@ -121,7 +121,7 @@ const AdminSignUp = () => {
                         <div className="text-center mt-5">
                             <p className="mt-8 text-white text-base">
                                 Already have an admin account ?
-                                <Link href={`/admin-signin?admin-secret=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign In </Link>
+                                <Link href={`/admin/signin?${process.env.NEXT_PUBLIC_ASN}=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign In </Link>
                             </p>
                         </div>
                     </div>

@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 const AdminSignIn = () => {
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
     const searchParams = useSearchParams();
-    const ADMIN_SECRET = searchParams.get("${process.env.NEXT_PUBLIC_ASN}") || "";
+    const ADMIN_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASN!) || "";
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
@@ -91,7 +91,7 @@ const AdminSignIn = () => {
                     <div className="text-center mt-5">
                         <p className="mt-8 text-white text-base">
                             Don&apos;t have an admin account ?
-                            <Link href={`/admin/signup?${process.env.NEXT_PUBLIC_ASN}=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign Up </Link>
+                            <Link href={`/admin/signup?${process.env.NEXT_PUBLIC_ASN!}=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign Up </Link>
                         </p>
                     </div>
                 </div>

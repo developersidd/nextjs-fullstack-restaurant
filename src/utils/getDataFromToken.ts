@@ -7,11 +7,12 @@ export type TokenType = {
     username: string;
 }
 
+
 const getDataFromToken = (req: NextRequest) => {
     try {
         const token = req.cookies.get('token')?.value || "";
         const decodedToken = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!) as TokenType;
-        return decodedToken.id
+        return decodedToken
     } catch (error: any) {
         throw new Error(error.message);
     }

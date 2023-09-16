@@ -1,9 +1,8 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import getDataFromToken from './utils/getDataFromToken';
 
-export function middleware(request: NextRequest) {
-
+export async function middleware(request: NextRequest) {
+    
     const path = request.nextUrl.pathname;
     const adminParams = request.nextUrl.searchParams.get(process.env.NEXT_PUBLIC_ASN!);
     const publicPaths = ["/signin", "/signup"];
@@ -11,8 +10,7 @@ export function middleware(request: NextRequest) {
     const isAdminPath = path.includes("admin");
     const isAdminAuthPath = path.startsWith("/admin/signin") || path.startsWith("/admin/signup");
     const token = request.cookies.get("token")?.value || "";
-    const isAdmin = getDataFromToken(request)?.isAdmin;
-
+    const isAdmin = false;
     // if user logged in and try to login then redirect to home page
     if (isPublicPath && token) {
         return NextResponse.redirect(new URL("/", request.nextUrl));

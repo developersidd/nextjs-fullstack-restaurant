@@ -1,7 +1,7 @@
 import connectDb from "@/dbConfig/connectDb";
 import User from "@/models/userModel";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import { sign } from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
 
 connectDb();
@@ -26,9 +26,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                         username: user?.username,
                         admin: user?.isAdmin
                     }
-                    const token = jwt.sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "1d" });
+                    const token = sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "1d" });
+                    console.log("token:", token)
                     // set token user browser
-
                     const response = NextResponse.json({
                         message: "Logged In Successfully",
                         success: true,

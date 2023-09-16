@@ -43,8 +43,8 @@ const userSchema = new mongoose.Schema({
     },
 }, {timestamps: true});
 
-interface UserDocument extends Document {
-    email: string;
+export interface UserDocument extends Document {
+     email: string;
     password: string;
     username: string;
     picture: string;

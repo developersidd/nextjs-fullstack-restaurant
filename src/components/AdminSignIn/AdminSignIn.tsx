@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import * as yup from "yup";
+
 const schema = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().min(10).max(30).required(),

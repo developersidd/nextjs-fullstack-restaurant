@@ -1,25 +1,27 @@
 import connectDb from "@/dbConfig/connectDb";
+import User from "@/models/userModel";
+import getDataFromToken from "@/utils/getDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 
 connectDb();
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
     try {
-        //const userId = await req.json();
-        const userId = req.nextUrl;
-        console.log("userId:", userId)
+        const { id } = await getDataFromToken(req) || {};
+        const user = await User.findById(id, { __v: 0 , createdAt: 0, updatedAt: 0 });
+
         return NextResponse.json({
-            message: "Hello",
+            message: "User got successfully",
+            data: user,
             success: true
         }, { status: 200 });
     } catch (err: any) {
-
+        return NextResponse.json({ error: "There was an serve site error!" }, { status: 500 });
     };
 };
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
-
         const reqBody = await req.json();
     } catch (err: any) {
 

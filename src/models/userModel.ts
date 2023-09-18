@@ -48,7 +48,7 @@ export interface UserDocument extends Document {
     password: string;
     username: string;
     picture: string;
-    forgorPasswordToken: boolean;
+    forgorPasswordToken: string;
     forgotPasswordTokenExpiry: Date | undefined;
     verifyToken: string;
     verifyTokenExpiry: Date | undefined;

@@ -1,4 +1,6 @@
 "use client";
+import { useAppSelector } from '@/redux/app/hooks';
+import { selectUser } from '@/redux/features/user/userSelector';
 import { Bars3Icon, ShoppingCartIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -6,14 +8,19 @@ import { useEffect, useState } from 'react';
 import SmallDevicesNavbar from '../SmallDevicesNavbar/SmallDevicesNavbar';
 import classes from "./navbar.module.css";
 import { navbarData } from './navbarData';
+import { useGetUserQuery } from '@/redux/features/user/userApi';
 
 const Navbar = () => {
+  const {isLoading} = useGetUserQuery(null)
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const closeNav = () => setVisible(false);
-
+  const { user: { email, picture, username, isAdmin } } = useAppSelector(selectUser);
+  console.log("email:", email)
+  console.log("picture:", picture)
   const [show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+
   // navbar handler
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
@@ -73,12 +80,21 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <div className='hidden lg:block text-white max-md:text-sm'>
-            <Link href="/signin" className={`${classes.nav__btn} ${classes.signin} border-2 border-primary-yellow border-r-0 px-3 md:px-4 py-1 md:py-2 `}> Sign In </Link>
-            <Link href="/signup" className={`${classes.nav__btn} ${classes.signup}  border-2 border-primary-yellow  px-3 md:px-4 py-1 md:py-2 `}> Sign Up </Link>
-          </div>
+          {
+            email ? (
+              <>
+                {email}
+              </>
+            ) :
+              (
+                <div className='hidden lg:block text-white max-md:text-sm'>
+                  <Link href="/signin" className={`${classes.nav__btn} ${classes.signin} border-2 border-primary-yellow border-r-0 px-3 md:px-4 py-1 md:py-2 `}> Sign In </Link>
+                  <Link href="/signup" className={`${classes.nav__btn} ${classes.signup}  border-2 border-primary-yellow  px-3 md:px-4 py-1 md:py-2 `}> Sign Up </Link>
+                </div>
+              )
+          }
 
-          {/* for small Devices */}
+          {/* navbar for small Devices */}
           <div className='lg:hidden flex items-center gap-3'>
             <Link href="/cart" className="relative">
               <ShoppingCartIcon className="w-7 h-7 text-white " />
@@ -87,9 +103,9 @@ const Navbar = () => {
             <Bars3Icon onClick={() => setVisible(true)} className="w-7 h-7 text-white cursor-pointer" />
           </div>
         </div>
-      </nav>
+      </nav >
       <SmallDevicesNavbar closeNav={closeNav} visible={visible} />
-    </div>
+    </div >
   )
 }
 

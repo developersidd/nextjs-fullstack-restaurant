@@ -1,10 +1,11 @@
 import connectDb from "@/dbConfig/connectDb";
 import Food from "@/models/foodModel";
+import getDataFromToken from "@/utils/getDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 
 connectDb();
 
- type TokenType = {
+type TokenType = {
     id: string;
     isAdmin: boolean;
     username: string;
@@ -12,14 +13,9 @@ connectDb();
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
     try {
-        /*const token = req.cookies.get('next-auth.session-token')?.value || req.cookies.get('token')?.value || "";
-        const decodedToken = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!) as TokenType;
-        if (decodedToken && decodedToken?.id) {
-            } else {
-                    return NextResponse.json({ error: "Sorry, You are not allowed to access this api!" }, { status: 400 });
-                }*/
         const category = req.nextUrl?.searchParams.get("category") || "";
-        console.log("category:", category)
+        //const user = await getDataFromToken(req);
+        //console.log("user:", user)
         let query;
         if (category?.length > 0) {
             query = { category }
@@ -27,8 +23,6 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
             query = {}
         }
         const foods = await Food.find(query);
-        console.log("foods:", foods)
-        //console.log("foods:", foods)
 
         return NextResponse.json({ message: "Foods got successfully", data: foods }, { status: 200 });
 

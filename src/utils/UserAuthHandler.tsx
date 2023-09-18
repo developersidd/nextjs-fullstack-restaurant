@@ -1,17 +1,17 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import { useGetUserQuery, useLogoutQuery } from '@/redux/features/user/userApi';
+import { useAppDispatch } from "@/redux/app/hooks";
+import { useGetUserQuery, userApi } from '@/redux/features/user/userApi';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import getDataFromToken from "./getDataFromToken";
+import React from 'react';
 
 const UserAuthHandler = ({ children }: { children: React.ReactNode }) => {
     const { isLoading, data, error } = useGetUserQuery(null)
-    const [skipAction, setSkipAction] = useState(true);
-    useLogoutQuery(null, { skip: skipAction });
+    const dispatch = useAppDispatch();
+
     // logout automically if token expired
     if ((error as any)?.data?.error === "jwt expired") {
-        setSkipAction(false);
+            dispatch(userApi.endpoints.logout.initiate(null))   
     }
     if (isLoading) {
         return <div className="flex items-center justify-center h-screen flex-col">

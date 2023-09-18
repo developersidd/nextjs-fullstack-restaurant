@@ -108,8 +108,8 @@ const SignUp = () => {
                         {/*  bottom section */}
                         <div className="text-center mt-5">
                             <p className="mt-8 text-white text-base">
-                                Don&apos;t have an account ?
-                                <Link href="/signup" className="font-bold hover:border-b"> Sign Up </Link>
+                                Already have an account ?
+                                <Link href="/signin" className="font-bold hover:border-b"> Sign In </Link>
                             </p>
                         </div>
                     </div>

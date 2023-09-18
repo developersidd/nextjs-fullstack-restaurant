@@ -2,11 +2,14 @@
 import { Providers } from '@/redux/features/provider';
 import AOSInit from '@/ui/AOSInit';
 import Toast from '@/ui/Toast';
+import UserAuthHandler from '@/utils/UserAuthHandler';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import 'react-tooltip/dist/react-tooltip.css';
 import './globals.css';
+
+// Font
 const helvatica = localFont({
   src: [
     { path: '../../public/fonts/Helvetica-Neue-Font/Helvetica Neue UltraLight.ttf', weight: "300" },
@@ -15,6 +18,7 @@ const helvatica = localFont({
   ],
   variable: '--font-helvatica',
 });
+
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
@@ -38,7 +42,9 @@ export default function RootLayout({
       <body>
         <Providers>
           <Toast />
-          {children}
+          <UserAuthHandler>
+            {children}
+          </UserAuthHandler>
         </Providers>
       </body>
     </html>

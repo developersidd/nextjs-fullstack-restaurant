@@ -16,7 +16,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
             success: true
         }, { status: 200 });
     } catch (err: any) {
-        return NextResponse.json({ error: "There was an serve site error!" }, { status: 500 });
+        return NextResponse.json({ error: err?.message || "There was an server site error!" }, { status: 500 });
     };
 };
 

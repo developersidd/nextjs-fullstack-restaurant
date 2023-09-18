@@ -1,39 +1,46 @@
 "use client";
 import { useAppSelector } from '@/redux/app/hooks';
 import { selectUser } from '@/redux/features/user/userSelector';
-import { Bars3Icon, ShoppingCartIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftOnRectangleIcon, Bars3Icon, ChartBarIcon, ShoppingCartIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import SmallDevicesNavbar from '../SmallDevicesNavbar/SmallDevicesNavbar';
 import classes from "./navbar.module.css";
 import { navbarData } from './navbarData';
-import { useGetUserQuery } from '@/redux/features/user/userApi';
 
 const Navbar = () => {
-  const {isLoading} = useGetUserQuery(null)
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const closeNav = () => setVisible(false);
   const { user: { email, picture, username, isAdmin } } = useAppSelector(selectUser);
-  console.log("email:", email)
-  console.log("picture:", picture)
-  const [show, setShow] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const [showModal, setShowModal] = useState(false);
+  const modalClasses = showModal ? "visible opacity-100 scale-100" : "invisible opacity-0 scale-50"
   // navbar handler
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY > lastScrollY) {
-        setShow(false);
+        setShowNav(false);
       } else if (lastScrollY < 200) {
-        setShow(false);
+        setShowNav(false);
       } else {
-        setShow(true);
+        setShowNav(true);
       }
     }
     setLastScrollY(window.scrollY);
   }
+
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (typeof window !== "undefined") {
+        const target = e.target as Element;
+        target.classList.contains("navbar-modal") ? null : setShowModal(false)
+      }
+    });
+  }, [])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -47,9 +54,9 @@ const Navbar = () => {
   }, [lastScrollY]);
 
   return (
-    <div className={`z-[9999]  bg-transparent ${show ? "shadow-md md:fixed md:h-[95px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/40" : ""}`} >
+    <div className={`z-[9999]  bg-transparent ${showNav ? "shadow-md md:fixed md:h-[95px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/40" : ""}`} >
       <nav className={`lg:container px-6 md:px-10 mx-auto absolute top-0 left-0 right-0  font-helvatica z-[9999]`}>
-        <div className={`flex justify-between items-center ${show ? "h-[95px]" : "h-[120px]"} `}>
+        <div className={`flex justify-between items-center ${showNav ? "h-[95px]" : "h-[120px]"} `}>
 
           <div className='-mt-2 pr-9'>
             <Link href="/">
@@ -79,20 +86,43 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <div className=' hidden lg:block  max-md:text-sm relative'>
 
-          {
-            email ? (
-              <>
-                {email}
-              </>
-            ) :
-              (
-                <div className='hidden lg:block text-white max-md:text-sm'>
-                  <Link href="/signin" className={`${classes.nav__btn} ${classes.signin} border-2 border-primary-yellow border-r-0 px-3 md:px-4 py-1 md:py-2 `}> Sign In </Link>
-                  <Link href="/signup" className={`${classes.nav__btn} ${classes.signup}  border-2 border-primary-yellow  px-3 md:px-4 py-1 md:py-2 `}> Sign Up </Link>
+            {
+              email ? (
+                <div className="flex gap-4 font-medium font-montserrat items-center">
+                  <Image onClick={() => setShowModal(true)} src={picture} width={60} height={60} className={`${showModal ? "" : "cursor-pointer"} navbar-modal rounded-full md:w-[38px] lg:w-[42px] `} alt={username} />
+
+                  <div className={`navbar-modal shadow absolute p-5  md:w-[200px] 2xl:w-[230px] ${modalClasses} duration-250 transition-all ease-in-out top-12 right-5 rounded-md shadow bg-white`}>
+
+                    <Image src={picture} width={100} height={100} className="user-profile border-2 border-primary-yellow rounded-full mx-auto  md:w-[65px] lg:w-[80px]" alt={username} />
+
+                    <h3 className="text-center  lg:text-lg my-3 capitalize"> {username} </h3>
+                    <hr />
+                    <ul className="mt-4">
+                      <Link href="/dashboard/">
+                        <li className=" mb-3 flex items-center gap-2">
+                          <ChartBarIcon className=" w-8 h-8" />
+                          Dashboard
+                        </li>
+                      </Link>
+                      <li className="cursor-pointer flex items-center  gap-2">
+                        <ArrowLeftOnRectangleIcon className=" w-8 h-8" />  Logout</li>
+                    </ul>
+
+                  </div>
+
+                  <ArrowLeftOnRectangleIcon className="text-white w-9 h-9 cursor-pointer" />
                 </div>
-              )
-          }
+              ) :
+                (
+                  <>
+                    <Link href="/signin" className={`${classes.nav__btn} ${classes.signin} border-2 border-primary-yellow border-r-0 px-3 md:px-4 py-1 md:py-2 `}> Sign In </Link>
+                    <Link href="/signup" className={`${classes.nav__btn} ${classes.signup}  border-2 border-primary-yellow  px-3 md:px-4 py-1 md:py-2 `}> Sign Up </Link>
+                  </>
+                )
+            }
+          </div>
 
           {/* navbar for small Devices */}
           <div className='lg:hidden flex items-center gap-3'>

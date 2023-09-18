@@ -28,7 +28,7 @@ const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visib
                     </ul>
                 </nav>
             </aside>
-            <div className={`h-screen lg:hidden ${visible ? "visible" : "invisible"} fixed top-0 left-0 bg-black/50 w-[35%] z-[999]`} onClick={closeNav}></div>
+            <div className={`h-screen lg:hidden ${visible ? "visible" : "invisible"} fixed top-0 left-0 bg-black/50 w-[35%] z-[9999]`} onClick={closeNav}></div>
         </>
     )
 }

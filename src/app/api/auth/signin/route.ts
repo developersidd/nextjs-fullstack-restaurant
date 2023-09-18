@@ -27,12 +27,14 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                         admin: user?.isAdmin
                     }
                     const token = sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "1d" });
-                    console.log("token:", token)
                     // set token user browser
                     const response = NextResponse.json({
                         message: "Logged In Successfully",
                         success: true,
-                        token
+                        data: {
+                            token,
+                            user
+                        },
                     }, { status: 200 });
                     response.cookies.set("token", token, {
                         httpOnly: true

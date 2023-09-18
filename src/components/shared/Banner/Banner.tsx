@@ -3,7 +3,6 @@ const Banner = ({ imgName, children, smTitle, title }: { imgName: string, childr
     <>
       <div className={`${imgName} h-screen w-full flex items-center justify-center  bg-no-repeat bg-cover bg-center
     `}>
-
         <div className="container mx-auto px-6 md:px-10 z-[999]">
 
           <div className="text-center text-white mx-auto">

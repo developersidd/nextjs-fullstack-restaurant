@@ -26,7 +26,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                         username: user?.username,
                         admin: user?.isAdmin
                     }
-                    const token = sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "1d" });
+                    const token = sign(tokenData, process.env.NEXT_PUBLIC_TOKEN_SECRET!, { expiresIn: "4min" });
                     // set token user browser
                     const response = NextResponse.json({
                         message: "Logged In Successfully",

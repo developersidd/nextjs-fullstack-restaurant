@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 
 export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
-    console.log("path:", path)
     const searchParams = request.nextUrl.searchParams;
     const ADMIN_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASN!);
     const API_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASKN!);

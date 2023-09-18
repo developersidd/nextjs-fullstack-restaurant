@@ -20,13 +20,4 @@ export const navbarData = [
         title: "Contact",
         link: "/contact",
     },
-    {
-        title: "Sign In",
-        link: "/signin",
-    },
-    {
-        title: "Sign Up",
-        link: "/signup",
-    },
-
 ]

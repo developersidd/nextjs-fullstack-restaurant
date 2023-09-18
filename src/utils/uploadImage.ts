@@ -1,6 +1,4 @@
-"use client";
 
-console.log(process.env.NEXT_PUBLIC_CLOUDINARY_PROFILE_NAME!)
 const uploadImage = async (imageFile: any) => {
   const formData = new FormData();
   formData.append("file", imageFile);

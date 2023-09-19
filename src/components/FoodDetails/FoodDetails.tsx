@@ -16,7 +16,7 @@ const FoodDetails = () => {
     } else {
         content = <FoodReview />
     }
-
+    
     return (
         <div className='my-5 md:my-16'>
             <ul className='w-full  flex items-center justify-center gap-3 relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-white z-[99]'>

@@ -82,12 +82,8 @@ const SignUp = () => {
                     boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
                 }}>
 
-                    <div className={`${(isLoading || isUploadingImg) ? "opacity-40 pointer-events-none" : ""} font-helvatica flex items-center justify-center pr-12 -mt-2 md:-mt-6 mb-5`}>
-                        <Link href="/">
-                            <h1 className="first-letter:text-6xl relative text-white"> S <span className="absolute top-3 text-2xl"> iddik </span>
-                                <span className="absolute bottom-2 left-9 text-[9px] text-primary-yellow"> RESTAURANT </span>
-                            </h1>
-                        </Link>
+                    <div className={`${(isLoading || isUploadingImg) ? "opacity-40 pointer-events-none" : ""} font-helvatica flex items-center justify-center  mb-5`}>
+                        
                     </div>
 
                     <h3 className="text-white mb-4 text-center text-lg md:text-xl font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : " Sign Up"} </h3>

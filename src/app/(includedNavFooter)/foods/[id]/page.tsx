@@ -13,6 +13,7 @@ const FoodItemPage = ({ params }: { params: any }) => {
         </div>
     }
     
+    
     return (
         <div className='lg:container mx-auto px-6 md:px-10 py-36'>
             <div className='md:flex items-center justify-between gap-10 max-md:space-y-10 py-16'>

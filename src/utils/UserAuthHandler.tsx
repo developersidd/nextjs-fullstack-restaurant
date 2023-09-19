@@ -1,5 +1,6 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
+import logo from "@/assets/images/logo.png";
 import { useAppDispatch } from "@/redux/app/hooks";
 import { useGetUserQuery, userApi } from '@/redux/features/user/userApi';
 import Image from 'next/image';
@@ -11,11 +12,13 @@ const UserAuthHandler = ({ children }: { children: React.ReactNode }) => {
 
     // logout automically if token expired
     if ((error as any)?.data?.error === "jwt expired") {
-            dispatch(userApi.endpoints.logout.initiate())   
+        dispatch(userApi.endpoints.logout.initiate())
     }
+
     if (isLoading) {
-        return <div className="flex items-center justify-center h-screen flex-col">
-            <Image src={loadingGear} className="w-[100px] md:w-[120px] lg:w-[150px] mb-5" alt="loading-gear" />
+        return <div id="page-loader" className="flex items-center justify-center h-screen flex-col">
+            <Image width={250} height={250} className="w-[170px] lg:w-[220px] 2xl:w-[270px] mx-auto mb-5   object-contain" src={logo} alt="siddik-restaurant" />
+            <Image src={loadingGear} width={150} height={150} className="w-[80px] md:w-[100px] lg:w-[130px] 2xl:w-[160px] block" alt="loading-gear" />
         </div>
     }
 

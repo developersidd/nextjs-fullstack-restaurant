@@ -10,3 +10,13 @@ export type User =  {
    isVerified: boolean;
    isAdmin: boolean;
 }
+
+export type Food = {
+    title: string;
+    description: string;
+    price: number;
+    image: string;
+    weight: number;
+    dimension: string;
+    category: string;
+}

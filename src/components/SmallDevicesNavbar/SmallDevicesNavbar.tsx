@@ -26,7 +26,7 @@ const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visib
                         email && (
                             <>
                                 <Image src={picture} width={100} height={100} className="user-profile border-2 border-primary-yellow rounded-full  w-[75px] sm:w-[90px]" alt={username} />
-                                <h3 className="text-white text-lg my-3 capitalize"> {username} Ab Siddik </h3>
+                                <h3 className="text-white text-lg my-3 capitalize"> {username} </h3>
                             </>
                         )
                     }

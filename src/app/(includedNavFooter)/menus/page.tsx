@@ -6,12 +6,11 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: 'Our Menus - Siddik Restaurant',
-  }
-  
+}
+
 const MenusPage = () => {
     return (
-        <div className='font-montserrat relative'>
-
+        <div className='font-montserrat relative overflow-x-hidden'>
             <div className={`h-[80vh] w-full flex items-center justify-center 
     `}>
                 <Image

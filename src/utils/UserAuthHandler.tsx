@@ -15,7 +15,7 @@ const UserAuthHandler = ({ children }: { children: React.ReactNode }) => {
     }
     if (isLoading) {
         return <div className="flex items-center justify-center h-screen flex-col">
-            <Image src={loadingGear} className="w-[120px] md:w-[150px] lg:w-[200px] mb-5" alt="loading-gear" />
+            <Image src={loadingGear} className="w-[100px] md:w-[120px] lg:w-[150px] mb-5" alt="loading-gear" />
         </div>
     }
 

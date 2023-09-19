@@ -6,12 +6,12 @@ import Image from 'next/image';
 import React from 'react';
 
 const UserAuthHandler = ({ children }: { children: React.ReactNode }) => {
-    const { isLoading, data, error } = useGetUserQuery(null)
+    const { isLoading, data, error } = useGetUserQuery()
     const dispatch = useAppDispatch();
 
     // logout automically if token expired
     if ((error as any)?.data?.error === "jwt expired") {
-            dispatch(userApi.endpoints.logout.initiate(null))   
+            dispatch(userApi.endpoints.logout.initiate())   
     }
     if (isLoading) {
         return <div className="flex items-center justify-center h-screen flex-col">

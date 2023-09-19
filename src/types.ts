@@ -10,3 +10,9 @@ export type User =  {
    isVerified: boolean;
    isAdmin: boolean;
 }
+
+export type QueryResponse<DataType> = {
+    data: DataType,
+    success: boolean,
+    message: string
+} 

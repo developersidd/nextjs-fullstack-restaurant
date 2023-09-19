@@ -1,10 +1,10 @@
-import { User } from "@/types";
+import type { QueryResponse, User } from "@/types";
 import { apiSlice } from "../api/apiSlice";
 import { setUser } from "./userSlice";
 
 export const userApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getUser: builder.query<{ data: User }, null>({
+        getUser: builder.query<QueryResponse<User>, void>({
             query: () => `/user?${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`,
             async onQueryStarted(arg, { dispatch, queryFulfilled, }) {
                 const res = await queryFulfilled;
@@ -16,7 +16,7 @@ export const userApi = apiSlice.injectEndpoints({
                 }
             }
         }),
-        logout: builder.query<null, null>({
+        logout: builder.query<QueryResponse<string>, void>({
             query: () => `/auth/logout?${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`,
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
                 const res = await queryFulfilled;

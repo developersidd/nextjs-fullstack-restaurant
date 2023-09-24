@@ -38,7 +38,7 @@ const Navbar = () => {
   
   // handle user logout
   const handleLogout = () => {
-    dispatch(userApi.endpoints.logout.initiate(null))
+    dispatch(userApi.endpoints.logout.initiate())
   }
 
   // handle close modal on click outside

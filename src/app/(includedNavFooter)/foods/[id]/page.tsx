@@ -3,6 +3,11 @@ import FoodDetails from '@/components/FoodDetails/FoodDetails';
 import ImageMagnifier from "@/components/ImageMagnifier/ImageMagnifier";
 import { useGetFoodQuery } from "@/redux/features/food/foodApi";
 import Image from 'next/image';
+export const generateMetadata = ({ params: { id } }: { params: { id: string } }) => {
+    return {
+        
+    }
+}
 
 const FoodItemPage = ({ params }: { params: any }) => {
     const { isLoading, data: food } = useGetFoodQuery(params?.id);
@@ -12,8 +17,8 @@ const FoodItemPage = ({ params }: { params: any }) => {
             <Image src={loadingGear} className="w-[100px] md:w-[120px] lg:w-[150px] mb-5" alt="loading-gear" />
         </div>
     }
-    
-    
+
+
     return (
         <div className='lg:container mx-auto px-6 md:px-10 py-36'>
             <div className='md:flex items-center justify-between gap-10 max-md:space-y-10 py-16'>

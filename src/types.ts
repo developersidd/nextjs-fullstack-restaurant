@@ -11,13 +11,19 @@ export type User =  {
    isAdmin: boolean;
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281
 export type QueryResponse<DataType> = {
     data: DataType,
     success: boolean,
     message: string
 } 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281
 export type Food = {
     title: string;
     description: string;
@@ -27,4 +33,7 @@ export type Food = {
     dimension: string;
     category: string;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281

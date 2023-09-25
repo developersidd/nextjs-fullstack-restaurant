@@ -11,7 +11,7 @@ const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visib
     const dispatch = useAppDispatch();
     const { user: { email, picture, username, isAdmin } } = useAppSelector(selectUser);
     const  handleLogout =() => {
-         dispatch(userApi.endpoints.logout.initiate(null))   
+         dispatch(userApi.endpoints.logout.initiate())   
     }
     
     const pathname = usePathname();

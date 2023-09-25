@@ -28,6 +28,21 @@ const Navbar = () => {
     }
     setLastScrollY(window.scrollY);
   }
+  
+  // handle user logout
+  const handleLogout = () => {
+    dispatch(userApi.endpoints.logout.initiate())
+  }
+
+  // handle close modal on click outside
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (typeof window !== "undefined") {
+        const target = e.target as Element;
+        target.classList.contains("navbar-modal") ? null : setShowModal(false)
+      }
+    });
+  }, [])
 
   // handle show navbar on scroll
   useEffect(() => {

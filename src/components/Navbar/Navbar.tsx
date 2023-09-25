@@ -1,4 +1,6 @@
 "use client";
+import { useAppDispatch } from '@/redux/app/hooks';
+import { userApi } from '@/redux/features/user/userApi';
 import Logo from '@/ui/Logo';
 import { Bars3Icon, ShoppingCartIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
@@ -28,21 +30,6 @@ const Navbar = () => {
     }
     setLastScrollY(window.scrollY);
   }
-  
-  // handle user logout
-  const handleLogout = () => {
-    dispatch(userApi.endpoints.logout.initiate())
-  }
-
-  // handle close modal on click outside
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      if (typeof window !== "undefined") {
-        const target = e.target as Element;
-        target.classList.contains("navbar-modal") ? null : setShowModal(false)
-      }
-    });
-  }, [])
 
   // handle show navbar on scroll
   useEffect(() => {
@@ -63,7 +50,7 @@ const Navbar = () => {
           {/*  logo */}
           <div className=''>
             <Link href="/">
-            <Logo />
+              <Logo />
             </Link>
           </div>
 

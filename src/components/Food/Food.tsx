@@ -3,12 +3,13 @@ import loadingGear from "@/assets/images/loading-gear.gif";
 import FoodDetails from '@/components/FoodDetails/FoodDetails';
 import ImageMagnifier from "@/components/ImageMagnifier/ImageMagnifier";
 import { useGetFoodQuery } from "@/redux/features/food/foodApi";
-import { Food } from "@/types";
+import type { TypeFood } from "@/types";
 import Image from 'next/image';
 
 const Food = ({ id }: { id: string }) => {
     const { isLoading, data: food } = useGetFoodQuery(id);
     const { image, description, price, title } = food?.data || {};
+
     if (isLoading) {
         return <div className="flex items-center justify-center h-screen flex-col">
             <Image src={loadingGear} className="w-[100px] md:w-[120px] lg:w-[150px] mb-5" alt="loading-gear" />

@@ -1,8 +1,8 @@
-import { User } from "@/types";
+import { TypeUser } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 type InitialState = {
-    user: User
+    user: TypeUser
 }
 
 const initialState: InitialState = {

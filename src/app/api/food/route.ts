@@ -14,8 +14,6 @@ type TokenType = {
 export const GET = async (req: NextRequest, res: NextResponse) => {
     try {
         const category = req.nextUrl?.searchParams.get("category") || "";
-        //const user = await getDataFromToken(req);
-        //console.log("user:", user)
         let query;
         if (category?.length > 0) {
             query = { category }

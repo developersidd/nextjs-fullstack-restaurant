@@ -1,5 +1,5 @@
 import { FoodDocument } from "@/models/foodModel";
-import type { Food } from "@/types";
+import type { TypeFood } from "@/types";
 import { QueryResponse } from "@/types";
 import { apiSlice } from "../api/apiSlice";
 
@@ -8,7 +8,7 @@ export const foodApi = apiSlice.injectEndpoints({
         getFoods: builder.query<QueryResponse<FoodDocument[]>, string>({
             query: (category: string) => `/food?category=${category}&${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`,
         }),
-        getFood: builder.query<{ data: Food }, string>({
+        getFood: builder.query<{ data: TypeFood }, string>({
             query: (id: string) => `/food/${id}?${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`,
         }),
     }),

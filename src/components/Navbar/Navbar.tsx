@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import SmallDevicesNavbar from '../SmallDevicesNavbar/SmallDevicesNavbar';
 import NavbarRightContent from './NavbarRightContent';
 import { navbarData } from './navbarData';
+import { userApi } from '@/redux/features/user/userApi';
+import { useAppDispatch } from '@/redux/app/hooks';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -14,6 +16,7 @@ const Navbar = () => {
   const closeNav = () => setVisible(false);
   const [showNav, setShowNav] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const dispatch = useAppDispatch();
 
   // navbar handler
   const controlNavbar = () => {

@@ -5,7 +5,6 @@ export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
     const searchParams = request.nextUrl.searchParams;
     const ADMIN_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASN!);
-    console.log("ADMIN_SECRET:", ADMIN_SECRET)
     const API_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASKN!);
     const publicPaths = ["/signin", "/signup"];
     const isPublicPath = publicPaths.includes(path);

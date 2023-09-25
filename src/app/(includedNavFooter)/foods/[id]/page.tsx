@@ -1,21 +1,22 @@
 import Food from "@/components/Food/Food";
+import { axiosHttp } from "@/utils/axios";
 import { NextPage } from "next";
 
-<<<<<<< HEAD
+export const generateMetadata =  async({ params: { id } }: { params: { id: string } }) => {
+    try{
+    const data = await axiosHttp.get(`/food/${id}?${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`)
+    const {title, category} =data?.data?.data || {};
+    console.log("title:", title)
+    return {
+        title: `Siddik Restaurant - ${category?.toUpperCase()} : ${title?.toUpperCase()} `
+    }
+    }catch(err:any){
+    }
+}
+
+
 const FoodPage: NextPage<{ params: { id: string } }> = ({ params }) => {
     const id = params?.id;
-=======
-const FoodItemPage = ({ params }: { params: any }) => {
-    const { isLoading, data: food } = useGetFoodQuery(params?.id);
-    const { image, description, price, title } = food?.data || {};
-    if (isLoading) {
-        return <div className="flex items-center justify-center h-screen flex-col">
-            <Image src={loadingGear} className="w-[100px] md:w-[120px] lg:w-[150px] mb-5" alt="loading-gear" />
-        </div>
-    }
-    
-    
->>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281
     return (
         <>
             <Food id={id} />

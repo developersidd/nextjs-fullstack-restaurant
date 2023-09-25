@@ -1,4 +1,4 @@
-export type User =  {
+export type TypeUser =  {
     email: string;
    password: string;
    username: string;
@@ -11,20 +11,14 @@ export type User =  {
    isAdmin: boolean;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281
 export type QueryResponse<DataType> = {
     data: DataType,
     success: boolean,
     message: string
 } 
-<<<<<<< HEAD
-=======
 
->>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281
-export type Food = {
+export type TypeFood = {
     title: string;
     description: string;
     price: number;
@@ -33,7 +27,3 @@ export type Food = {
     dimension: string;
     category: string;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4283c75f40229d6daf2bc5241ae6ac68527db281

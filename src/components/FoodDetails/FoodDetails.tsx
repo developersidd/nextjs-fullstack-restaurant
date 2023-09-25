@@ -6,7 +6,7 @@ import FoodReview from '../FoodReview/FoodReview';
 const desMenu = ["description", "additional information", "reviews"]
 const FoodDetails = () => {
     const [category, setCategory] = useState("description");
-
+    
     // decide what to render in Bottom Description
     let content = null;
     if (category === "description") {

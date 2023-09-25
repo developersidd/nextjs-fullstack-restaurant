@@ -1,6 +1,7 @@
 import React from 'react';
 
 const FoodDescription = () => {
+  //const food = useAppSelector(selectFood)
   return (
     <div className="text-white">
       <p>

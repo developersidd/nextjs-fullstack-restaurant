@@ -12,9 +12,7 @@ type TokenType = {
 
 export const GET = async (req: NextRequest, { params }: { params: any }) => {
     try {
-        console.log("params:", params)
-        const foodId = params.slug;
-        console.log("foodId:", foodId)
+        const foodId = params?.foodId;
         const food = await Food.findById(foodId);
 
         return NextResponse.json({ message: "Food got successfully", data: food, success: true }, { status: 200 });

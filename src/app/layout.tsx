@@ -9,7 +9,7 @@ import localFont from 'next/font/local';
 import 'react-tooltip/dist/react-tooltip.css';
 import './globals.css';
 
-// Font
+// Fonts
 const helvatica = localFont({
   src: [
     { path: '../../public/fonts/Helvetica-Neue-Font/Helvetica Neue UltraLight.ttf', weight: "300" },

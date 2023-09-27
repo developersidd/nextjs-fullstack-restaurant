@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <div className={`z-[9999]  bg-transparent ${showNav ? "shadow-md md:fixed md:h-[95px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/40" : ""}`} >
-      <nav className={`lg:container px-6 md:px-10 mx-auto absolute top-0 left-0 right-0  font-helvatica z-[9999]`}>
+      <nav className={`lg:container px-5 md:px-10 mx-auto absolute top-0 left-0 right-0  font-helvatica z-[9999]`}>
         <div className={`flex justify-between items-center ${showNav ? "h-[95px]" : "h-[120px]"} `}>
           {/*  logo */}
           <div className=''>

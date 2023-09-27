@@ -3,12 +3,11 @@ import loadingGear from "@/assets/images/loading-gear.gif";
 import FoodDetails from '@/components/FoodDetails/FoodDetails';
 import ImageMagnifier from "@/components/ImageMagnifier/ImageMagnifier";
 import { useGetFoodQuery } from "@/redux/features/food/foodApi";
-import type { TypeFood } from "@/types";
 import Image from 'next/image';
 
 const Food = ({ id }: { id: string }) => {
     const { isLoading, data: food } = useGetFoodQuery(id);
-    const { image, description, price, title } = food?.data || {};
+    const { image, description, price, title } = food?.data?.food || {};
 
     if (isLoading) {
         return <div className="flex items-center justify-center h-screen flex-col">
@@ -17,7 +16,7 @@ const Food = ({ id }: { id: string }) => {
     }
 
     return (
-        <div className='lg:container mx-auto px-6 md:px-10 py-36'>
+        <div className='lg:container mx-auto px-5 md:px-10 py-36'>
             <div className='md:flex items-center justify-between gap-10 max-md:space-y-10 py-16'>
                 <div className="w-[70%] mx-auto md:w-[40%] rounded-full">
 

@@ -4,7 +4,7 @@ import { navbarData } from '../Navbar/navbarData'
 const Footer = () => {
     return (
         <>
-            <div className='lg:container mx-auto px-6 md:px-10 py-10 flex gap-y-8 flex-col md:flex-row items-center md:justify-between justify-center'>
+            <div className='lg:container mx-auto px-5 md:px-10 py-10 flex gap-y-8 flex-col md:flex-row items-center md:justify-between justify-center'>
                 <div className='max-md:pr-[6rem] w-full md:w-[32%] mx-auto max-md:text-center'>
                     <Link href="/" className="inline-block ">
                         <h1 className="first-letter:text-8xl relative text-primary-yellow"> S <span className="absolute top-5 text-4xl"> iddik </span>

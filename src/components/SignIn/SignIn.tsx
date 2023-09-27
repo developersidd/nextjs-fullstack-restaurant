@@ -1,9 +1,8 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import Logo from "@/ui/Logo";
-import logo from "@/assets/images/logo.png";
 import Input from "@/components/shared/Input/Input";
 import { useSigninMutation } from "@/redux/features/signin/signinApi";
+import Logo from "@/ui/Logo";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +21,7 @@ const schema = yup.object().shape({
 
 const SignIn = () => {
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
-    //const signInError: any = error;
+    console.log("error:", error)
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
     });
@@ -59,7 +58,7 @@ const SignIn = () => {
                     <Logo />
                 </div>
 
-                <h3 className="text-white mb-4 text-center text-xl  font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Sign In"} </h3>
+                <h3 className="text-white mb-4 text-center text-lg md:text-xl xl:text-2xl  font-bold"> {isLoading ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : "Sign In"} </h3>
                 {/*  Signin form */}
                 <div className={`${isLoading ? "opacity-40 pointer-events-none" : ""}`}>
 

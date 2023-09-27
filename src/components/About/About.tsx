@@ -20,7 +20,7 @@ const AboutComp = () => {
                 className="absolute h-[140px] w-[140px] md:h-[200px] md:w-[200px] lg:w-[200px] lg:h-[200px] xl:w-[300px] xl:h-[340px] -top-16 md:top-[-18%]  z-[99] right-0"
                 alt="restaurant"
             />
-            <div className='lg:container mx-auto px-6 md:px-10 py-20 md:py-26 md:flex items-center justify-start gap-10 max-md:space-y-10'>
+            <div className='lg:container mx-auto px-5 md:px-10 py-20 md:py-26 md:flex items-center justify-start gap-10 max-md:space-y-10'>
                 <div className="w-full md:w-[45%]">
                     <Image
 

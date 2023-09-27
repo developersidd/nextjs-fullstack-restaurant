@@ -23,7 +23,7 @@ const Foods = () => {
     } else {
         // display data
         content = (
-            <div className='lg:container mx-auto grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 px-6 md:px-10 py-20 font-montserrat'>
+            <div className='lg:container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 px-6 md:px-10 py-20 font-montserrat'>
                 {foods?.map((item) => {
                     return (
                         <FoodItem item={item} key={item._id} />

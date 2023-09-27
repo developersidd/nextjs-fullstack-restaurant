@@ -2,6 +2,7 @@
 import loadingGear from "@/assets/images/loading-gear.gif";
 import Input from "@/components/shared/Input/Input";
 import { useSignupMutation } from "@/redux/features/signup/signupApi";
+import Logo from "@/ui/Logo";
 import uploadImage from "@/utils/uploadImage";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
@@ -83,10 +84,10 @@ const SignUp = () => {
                 }}>
 
                     <div className={`${(isLoading || isUploadingImg) ? "opacity-40 pointer-events-none" : ""} font-helvatica flex items-center justify-center  mb-5`}>
-                        
+                    <Logo />                            
                     </div>
 
-                    <h3 className="text-white mb-4 text-center text-lg md:text-xl font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : " Sign Up"} </h3>
+                    <h3 className="text-white mb-4 text-center text-lg md:text-xl xl:text-2xl font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : " Sign Up"} </h3>
                     {/*  Signin form */}
                     <div className={`${(isLoading || isUploadingImg) ? "opacity-40 pointer-events-none" : ""}`}>
 

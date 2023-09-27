@@ -9,8 +9,9 @@ const baseQuery = fetchBaseQuery({
 export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: async (arg, api, extraOptions) => {
-        let path = `${arg}${arg?.includes("?") ? `&` : "?"}${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`;
-        const result = await baseQuery(path, api, extraOptions);
+        const path = `${(arg?.url || arg)?.includes("?") ? `&` : "?"}${process.env.NEXT_PUBLIC_ASKN}=${process.env.NEXT_PUBLIC_API_SECRET}`;
+        const totalPath = typeof arg === "string" ? `${arg}${path}` : { ...arg, url: `${arg?.url}${path}` }
+        const result = await baseQuery(totalPath, api, extraOptions);
         return result;
     },
     endpoints: (builder) => ({}),

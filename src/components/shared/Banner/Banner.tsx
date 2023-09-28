@@ -19,5 +19,5 @@ const Banner = ({ imgName, children, smTitle, title }: { imgName: string, childr
     </>
   )
 }
-
+  
 export default Banner;

@@ -7,7 +7,8 @@ import { useEffect } from 'react';
 const AOSInit = () => {
     useEffect(() => {
         AOS.init({
-            duration: 1500
+            duration: 1500,
+            once: true,
         });
     }, [])
     return null

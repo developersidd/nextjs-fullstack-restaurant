@@ -27,14 +27,14 @@ const AllMenus = () => {
               {ind === 0 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                 title={name} des={items} price={price}
+                title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                   title={name} des={items} price={price} />)
+                  title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
             </div>
@@ -58,14 +58,14 @@ const AllMenus = () => {
               {ind === 2 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                 title={name} des={items} price={price}
+                title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                   title={name} des={items} price={price} />)
+                  title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
             </div>
@@ -87,14 +87,14 @@ const AllMenus = () => {
               {ind === 3 ? (<HighlightedMenuItem
                 data-tooltip-id={`item-${name}`}
                 data-tooltip-place={`${mobile ? "bottom" : "right"}`}
-                 title={name} des={items} price={price}
+                title={name} des={items} price={price}
                 tag="New" />
               )
                 :
                 (<MenuItem data-tooltip-id={`item-${name}`}
                   data-tooltip-place={`${mobile ? "bottom" : "right"}`}
 
-                   title={name} des={items} price={price} />)
+                  title={name} des={items} price={price} />)
               }
               <MenuToolTip name={name} data={benefits} />
             </div>

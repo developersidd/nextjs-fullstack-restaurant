@@ -11,7 +11,8 @@ const FoodsPage = () => {
 
   return (
     <div>
-      <Banner imgName={"bg-[url('../assets/images/foods-banner.jpg')]"} smTitle="Explore Foods" title="Good Food Good Life" />
+      <Banner imgName={"bg-[url('../assets/images/foods-banner.jpg')]"} smTitle="Explore Foods" title="Good food and
+Great vibes" />
       <FoodCategories />
       <Foods />
     </div>

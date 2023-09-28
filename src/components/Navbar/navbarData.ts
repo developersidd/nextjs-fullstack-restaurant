@@ -3,11 +3,6 @@ export const navbarData = [
         title: "Home",
         link: "/",
     },
-
-    {
-        title: "About",
-        link: "/about",
-    },
     {
         title: "Menus",
         link: "/menus",
@@ -15,6 +10,10 @@ export const navbarData = [
     {
         title: "Foods",
         link: "/foods",
+    },
+    {
+        title: "Cart",
+        link: "/cart",
     },
     {
         title: "Contact",

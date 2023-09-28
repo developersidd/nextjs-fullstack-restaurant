@@ -6,7 +6,7 @@ import Button from '../shared/Button/Button';
 const Recommendation = () => {
     return (
         <div className='lg:container mx-auto px-5 md:px-8 py-5 md:py-10  md:flex items-center gap-10'>
-            <div className="w-full md:w-1/2  max-sm:pb-10">
+            <div className="w-full md:w-1/2  max-md:pb-10">
 
                 <div className="text-center text-white mx-auto">
                     <h3 className='uppercase lg:text-lg mb-2 md:mb-4 tracking-[3px]'> DELIGHT IN EVERY BITE </h3>

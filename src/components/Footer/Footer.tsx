@@ -1,16 +1,13 @@
 import Link from 'next/link'
 import { navbarData } from '../Navbar/navbarData'
+import Logo from '@/ui/Logo'
 
 const Footer = () => {
     return (
         <>
             <div className='lg:container mx-auto px-5 md:px-10 py-10 flex gap-y-8 flex-col md:flex-row items-center md:justify-between justify-center'>
                 <div className='max-md:pr-[6rem] w-full md:w-[32%] mx-auto max-md:text-center'>
-                    <Link href="/" className="inline-block ">
-                        <h1 className="first-letter:text-8xl relative text-primary-yellow"> S <span className="absolute top-5 text-4xl"> iddik </span>
-                            <span className="absolute bottom-4 left-[3.6rem] text-[13px] text-primary-yellow"> RESTAURANT </span>
-                        </h1>
-                    </Link>
+                    <Logo />
                 </div>
                 <div className='md:border-r border-primary-yellow md:border-l py-5 max-md:border-t max-md:border-b  w-full md:w-[33%] mx-auto flex items-center justify-center'>
                     <ul className="space-y-3">

@@ -6,7 +6,7 @@ import FoodReview from '../FoodReview/FoodReview';
 const desMenu = ["description", "additional info", "reviews"]
 const FoodDetails = () => {
     const [category, setCategory] = useState("description");
-    
+
     // decide what to render in Bottom Description
     let content = null;
     if (category === "description") {
@@ -16,7 +16,7 @@ const FoodDetails = () => {
     } else {
         content = <FoodReview />
     }
-    
+
     return (
         <div className='my-4 md:my-8 lg:my-10'>
             <ul className='w-full  flex items-center justify-between  sm:justify-center sm:gap-5 relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-white z-[99]'>

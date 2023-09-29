@@ -1,3 +1,4 @@
+import { TypeReview } from "@/types";
 import mongoose, { Document, Model } from "mongoose";
 const foodSchema = new mongoose.Schema({
     title: {
@@ -31,7 +32,12 @@ const foodSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a dimension"],
     },
-
+    reviews: [
+        {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: "review"
+        }
+    ],
     createdAt: {
         type: Date,
         default: () => new Date()
@@ -50,6 +56,7 @@ export interface FoodDocument extends Document {
     weight: number;
     dimension: string;
     category: string;
+    reviews: TypeReview[];
 }
 
 export const Food: Model<FoodDocument> = mongoose.models.food || mongoose.model("food", foodSchema);

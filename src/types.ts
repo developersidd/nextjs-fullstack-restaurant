@@ -29,3 +29,10 @@ export type TypeFood = {
     dimension: string;
     category: string;
 }
+
+export type TypeReview = {
+    reviewerName: string;
+    email: string;
+    message: string;
+    food: TypeFood;
+}

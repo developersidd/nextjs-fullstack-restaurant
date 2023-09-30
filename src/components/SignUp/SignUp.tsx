@@ -34,7 +34,6 @@ const schema = yup.object().shape({
 const SignUp = () => {
     // rtk sign up Hook
     const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();
-    //console.log("data:", data)
 
     // hook form hooks
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -43,7 +42,6 @@ const SignUp = () => {
 
     const [isUploadingImg, setIsUploadingImg] = useState(false);
     const router = useRouter();
-    //console.log("error:", error)
 
     // handle success 
     useEffect(() => {
@@ -84,7 +82,7 @@ const SignUp = () => {
                 }}>
 
                     <div className={`${(isLoading || isUploadingImg) ? "opacity-40 pointer-events-none" : ""} font-helvatica flex items-center justify-center  mb-5`}>
-                    <Logo />                            
+                        <Logo />
                     </div>
 
                     <h3 className="text-white mb-4 text-center text-lg md:text-xl xl:text-2xl font-bold"> {(isLoading || isUploadingImg) ? <Image className="flex mx-auto items-center justify-center" src={loadingGear} alt="loading-gear" width={60} height={60} /> : " Sign Up"} </h3>

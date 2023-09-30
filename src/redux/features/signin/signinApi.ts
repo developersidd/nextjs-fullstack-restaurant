@@ -10,11 +10,13 @@ export const signInApi = apiSlice.injectEndpoints({
                 body: data
             }),
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-                const res = await queryFulfilled;
-                const user = res?.data?.data?.user;
-                if (user?.email) {
-                    dispatch(setUser(user));
-                }
+                try {
+                    const res = await queryFulfilled;
+                    const user = res?.data?.data?.user;
+                    if (user?.email) {
+                        dispatch(setUser(user));
+                    }
+                } catch (error: any) { }
             }
         })
     }),

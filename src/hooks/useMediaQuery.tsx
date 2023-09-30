@@ -1,8 +1,9 @@
-import { useMediaQuery as mediaQuery } from 'react-responsive'
+import { useMediaQuery as mediaQuery } from 'react-responsive';
+
 const useMediaQuery = (width: string, queryType?: string) => {
   queryType = queryType || "max";
 
-    return mediaQuery({ query: `(${queryType === "max" ? "max-width" : "min-width"}: ${width}px)` })
+  return mediaQuery({ query: `(${queryType === "max" ? "max-width" : "min-width"}: ${width}px)` })
 
 }
 

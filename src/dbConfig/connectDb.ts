@@ -5,11 +5,10 @@ const connectDb = async () => {
         await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URL!);
         const connection = mongoose.connection;
         connection.on('error', err => {
-            console.log(err);
             process.exit();
         });
     } catch (error: any) {
-        console.log("DB error:", error)
+        //console.log("DB error:", error)
     }
 }
 export default connectDb;

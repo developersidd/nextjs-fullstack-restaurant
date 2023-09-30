@@ -4,14 +4,15 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import StarRatings from 'react-star-ratings';
 import * as yup from "yup";
-import Input from "@/components/shared/Input/Input";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
   author: yup.string().required(),
   message: yup.string().min(20).max(120).required(),
 });
+
 const FoodReview = () => {
+  //const {  } = useAppSelector(selectFood)?.food || {};
 
   const [rating, setRating] = useState(0);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -38,7 +39,7 @@ const FoodReview = () => {
         <h3 className="mb-5 font-helvatica"> BE THE FIRST TO REVIEW “VINCENT” </h3>
         <div>
 
-        <h3> Your email address will not be published. Required fields are marked * </h3>
+          <h3> Your email address will not be published. Required fields are marked * </h3>
           <StarRatings
             rating={rating}
             starRatedColor="#CA9C5E"
@@ -48,8 +49,8 @@ const FoodReview = () => {
             starHoverColor="#CA9C5E"
             starDimension="30px"
             starSpacing="5px"
-            />
-            </div>
+          />
+        </div>
       </div>
 
       <form className='' onSubmit={handleSubmit(onSubmitHandler)}>
@@ -59,8 +60,6 @@ const FoodReview = () => {
           <small className="text-red-700 font-bold"> {errors.message?.message} </small>
 
         </div>
-        <Input data={{ name: "Author", type: 'text', placeholder: `Enter your Name`, error: errors.author?.message, hookFormRegister: register("author") }} />
-        <Input data={{ name: "Email", type: 'email', placeholder: `Enter your Email`, error: errors.email?.message, hookFormRegister: register("email") }} />
         <button type="submit" className="rounded px-4 py-2 border-2 border-primary-yellow text-white"> SUBMIT </button>
       </form>
     </div>

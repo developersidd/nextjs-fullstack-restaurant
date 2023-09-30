@@ -21,7 +21,6 @@ const schema = yup.object().shape({
 
 const SignIn = () => {
     const [signIn, { isSuccess, data, isLoading, isError, error }] = useSigninMutation();
-    console.log("error:", error)
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
     });

@@ -28,11 +28,11 @@ export type TypeFood = {
     weight: number;
     dimension: string;
     category: string;
+    reviews: TypeReview[];
 }
 
 export type TypeReview = {
-    reviewerName: string;
-    email: string;
+    user: TypeUser;
     message: string;
     food: TypeFood;
 }

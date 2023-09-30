@@ -12,11 +12,14 @@ export const foodApi = apiSlice.injectEndpoints({
         getFood: builder.query<{ data: { food: TypeFood, relatedFoods: TypeFood[] } }, string>({
             query: (id: string) => `/food/${id}`,
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-                const res = await queryFulfilled;
-                if (res?.data) {
-                    console.log("res.data?.data?.relatedFoods:", JSON.stringify(res.data?.data?.relatedFoods))
-                    dispatch(setFood(res.data?.data?.food));
-                    dispatch(setRelatedFoods(res.data?.data?.relatedFoods));
+                try {
+                    const res = await queryFulfilled;
+                    if (res?.data) {
+                        dispatch(setFood(res.data?.data?.food));
+                        dispatch(setRelatedFoods(res.data?.data?.relatedFoods));
+                    }
+                } catch (error: any) {
+
                 }
             }
         }),

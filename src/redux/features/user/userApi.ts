@@ -7,20 +7,26 @@ export const userApi = apiSlice.injectEndpoints({
         getUser: builder.query<QueryResponse<TypeUser>, void>({
             query: () => `/user`,
             async onQueryStarted(arg, { dispatch, queryFulfilled, }) {
-                const res = await queryFulfilled;
-                const user = res?.data?.data;
-                if (user?.email) {
-                    dispatch(setUser(user));
+                try {
+                    const res = await queryFulfilled;
+                    const user = res?.data?.data;
+                    if (user?.email) {
+                        dispatch(setUser(user));
+                    }
+                } catch (error: any) {
+
                 }
             }
         }),
         logout: builder.query<QueryResponse<string>, void>({
             query: () => `/auth/logout`,
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-                const res = await queryFulfilled;
-                if (res?.data) {
-                    dispatch(setUser({}));
-                }
+                try {
+                    const res = await queryFulfilled;
+                    if (res?.data) {
+                        dispatch(setUser({}));
+                    }
+                } catch (error: any) { }
             }
         }),
     }),

@@ -1,19 +1,20 @@
-import { XMarkIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/solid';
+import { useAppDispatch, useAppSelector } from '@/redux/app/hooks';
+import { userApi } from '@/redux/features/user/userApi';
+import { selectUser } from '@/redux/features/user/userSelector';
+import { XMarkIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navbarData } from '../Navbar/navbarData';
-import Image from 'next/image';
-import { useAppSelector, useAppDispatch } from '@/redux/app/hooks';
-import { selectUser } from '@/redux/features/user/userSelector';
-import { userApi } from '@/redux/features/user/userApi';
 
 const SmallDevicesNavbar = ({ closeNav, visible }: { closeNav: () => void, visible: boolean }) => {
     const dispatch = useAppDispatch();
     const { user: { email, picture, username, isAdmin } } = useAppSelector(selectUser);
-    const  handleLogout =() => {
-         dispatch(userApi.endpoints.logout.initiate())   
+
+    const handleLogout = () => {
+        dispatch(userApi.endpoints.logout.initiate())
     }
-    
+
     const pathname = usePathname();
     return (
         <>

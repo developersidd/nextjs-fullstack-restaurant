@@ -9,9 +9,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
 
         const reqBody = await req.json();
-        console.log("reqBody:", reqBody)
         const { username, email, password, picture } = reqBody;
-        console.log("picture:", picture)
 
         if (Array.from(reqBody).every((val: any) => Boolean(val?.length))) {
             //  check if already exists ?
@@ -21,9 +19,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             } else {
                 // hash password
                 const hashedPass = await bcrypt.hash(password, 10);
-                
+
                 // save user to DB
-                const newUser = new User({...reqBody, password: hashedPass});
+                const newUser = new User({ ...reqBody, password: hashedPass });
                 const savedUser = await newUser.save();
                 // Return Response to user
                 return NextResponse.json({
@@ -36,7 +34,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             return NextResponse.json({ error: "Please provide user info!" }, { status: 400 });
         }
     } catch (error: any) {
-        console.log("signup error:", error)
         return NextResponse.json({ error: error.message }, { status: error?.status || 500 });
     }
 }

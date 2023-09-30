@@ -50,7 +50,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             return NextResponse.json({ error: "Please provide user info!" }, { status: 400 });
         }
     } catch (error: any) {
-        console.log("signup error:", error)
         return NextResponse.json({ error: error.message }, { status: error?.status || 500 });
     }
 }

@@ -1,18 +1,7 @@
-import { TypeFood } from "@/types";
+import { TypeFood, TypeUser } from "@/types";
 import mongoose, { Document, Model } from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
-    reviewerName: {
-        type: String,
-        require: [true, "Please provide an Reviewer Name"]
-    },
-    email: {
-        type: String,
-        require: [true, "Please provide an email"],
-        unique: true,
-        immutable: false,
-        lowercase: true,
-    },
     message: {
         type: String,
         require: [true, "Please provide message"],
@@ -22,6 +11,10 @@ const reviewSchema = new mongoose.Schema({
     food: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "food"
+    },
+    user: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "user"
     },
     createdAt: {
         type: Date,
@@ -34,10 +27,8 @@ const reviewSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export interface ReviewDocument extends Document {
-    reviewerName: string;
-    email: string;
+    user: TypeUser;
     message: string;
-    picture: string;
     food: TypeFood
 }
 

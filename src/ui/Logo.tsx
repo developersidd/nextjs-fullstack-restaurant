@@ -1,4 +1,4 @@
-
+"use client"
 import logo from "@/assets/images/logo.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from 'next/image';

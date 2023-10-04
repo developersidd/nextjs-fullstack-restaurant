@@ -35,10 +35,10 @@ const AboutComp = () => {
                     <div className="space-y-5 relative">
 
                         <h3 className="text-white text-lg md:text-xl  tracking-wide">
-                            {("YOUR SPECIAL OCCASION DESTINATION")?.split(" ").map((text, ind) => (<p className="inline-block mr-3" data-aos="fade-right" data-aos-delay={(ind + 1) * 100} key={ind}> {text} </p>))}
+                            {("YOUR SPECIAL OCCASION DESTINATION")?.split(" ").map((text, ind) => (<p className="inline-block mr-1 md:mr-2" data-aos="fade-right" data-aos-delay={(ind + 1) * 100} key={ind}> {text} </p>))}
                         </h3>
 
-                        <h2 className="text-primary-yellow  font-bold text-xl md:text-3xl lg:text-4xl xl:text-5xl"> {("The Wilma is a premium taste that yearns to be savored, ground beef between your teeth").split(" ").map((text, ind) => (<p className="inline-block mr-3" data-aos="fade-left" data-aos-delay={(ind + 1) * 60} key={ind}> {text} </p>))}
+                        <h2 className="text-primary-yellow  font-bold text-xl md:text-3xl lg:text-4xl xl:text-5xl"> {("The Wilma is a premium taste that yearns to be savored, ground beef between your teeth").split(" ").map((text, ind) => (<p className="inline-block mr-1 md:mr-2" data-aos="fade-left" key={ind}> {text} </p>))}
                         </h2>
 
                         <Image

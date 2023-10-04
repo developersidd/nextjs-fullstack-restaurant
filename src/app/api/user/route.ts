@@ -8,7 +8,10 @@ connectDb();
 export const GET = async (req: NextRequest, res: NextResponse) => {
     try {
         const { id } = await getDataFromToken(req) || {};
-        const user = await User.findById(id, { __v: 0 , createdAt: 0, updatedAt: 0 });
+        if (!id) {
+            return null;
+        }
+        const user = await User.findById(id, { __v: 0, createdAt: 0, updatedAt: 0 });
 
         return NextResponse.json({
             message: "User got successfully",

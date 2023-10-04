@@ -1,18 +1,18 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-
 export async function middleware(request: NextRequest) {
+    console.log("request:", request.headers?.get("is_admin"))
     const path = request.nextUrl.pathname;
     const searchParams = request.nextUrl.searchParams;
     const ADMIN_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASN!);
-    const API_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASKN!);
+    const API_SECRET = request.headers?.get("api_secret");
     const publicPaths = ["/signin", "/signup"];
     const isPublicPath = publicPaths.includes(path);
     const isAdminPath = path.includes("admin");
     const isApiPath = path.includes("/api/");
     const isAdminAuthPath = path.startsWith("/admin/signin") || path.startsWith("/admin/signup");
     const token = request.cookies.get("token")?.value || "";
-    const isAdmin = false;
+    const isAdmin = request.headers?.get("is_admin");
 
     // if user logged in and try to login then redirect to home page
     if (isPublicPath && token) {
@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
     }
 
     // if admin logged in return back to home page
-    if (isAdminAuthPath && token || isAdmin) {
+    if ((isAdminAuthPath && token) || isAdmin) {
         return NextResponse.redirect(new URL("/", request.nextUrl));
     }
 

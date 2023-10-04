@@ -30,7 +30,6 @@ const schema = yup.object().shape({
 });
 
 
-
 const SignUp = () => {
     // rtk sign up Hook
     const [signUp, { isSuccess, data, isLoading, isError, error }] = useSignupMutation();

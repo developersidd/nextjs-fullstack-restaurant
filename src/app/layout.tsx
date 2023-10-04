@@ -1,8 +1,7 @@
-
+import InitializeApp from '@/components/InitializeApp/InitializeApp';
 import { Providers } from '@/redux/features/provider';
 import AOSInit from '@/ui/AOSInit';
 import Toast from '@/ui/Toast';
-import UserAuthHandler from '@/utils/UserAuthHandler';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -35,16 +34,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="en" className={`${helvatica.variable} ${montserrat.variable}`}>
       <AOSInit />
       <body>
         <Providers>
           <Toast />
-          <UserAuthHandler>
+          <InitializeApp>
             {children}
-          </UserAuthHandler>
+          </InitializeApp>
         </Providers>
       </body>
     </html>

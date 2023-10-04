@@ -2,13 +2,11 @@ import { TypeFood } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 type TypeInitialState = {
-    category: string,
     food: TypeFood,
     relatedFoods: TypeFood[]
 };
 
 const initialState: TypeInitialState = {
-    category: "burger",
     food: {
         _id: "",
         title: "",
@@ -18,6 +16,7 @@ const initialState: TypeInitialState = {
         weight: 0,
         dimension: "",
         category: "",
+        reviews: []
     },
     relatedFoods: []
 };
@@ -26,9 +25,6 @@ const foodSlice = createSlice({
     name: "food",
     initialState,
     reducers: {
-        filterFoodByCategory: (state, action) => {
-            state.category = action.payload
-        },
         setFood: (state, action) => {
             state.food = action.payload
         },
@@ -38,5 +34,5 @@ const foodSlice = createSlice({
     }
 });
 
-export const { filterFoodByCategory, setFood, setRelatedFoods } = foodSlice.actions;
+export const { setFood, setRelatedFoods } = foodSlice.actions;
 export default foodSlice.reducer; 

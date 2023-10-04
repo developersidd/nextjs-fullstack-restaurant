@@ -2,6 +2,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseQuery = fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_DOMAIN!}`,
     prepareHeaders: async (headers, { getState, endpoint }) => {
+        headers.set("API_SECRET", process.env.NEXT_PUBLIC_API_SECRET!)
+        const isAdmin = (getState() as any)?.user?.user?.isAdmin!
+        console.log("isAdmin:", isAdmin)
+        if (isAdmin) {
+            headers.set("IS_ADMIN", isAdmin)
+        }
         return headers;
     }
 });

@@ -1,3 +1,6 @@
+export type TypeSearchParams = {
+    [key: string]: string | string[] | undefined;
+}
 export type TypeUser = {
     _id: string;
     email: string;
@@ -36,3 +39,4 @@ export type TypeReview = {
     message: string;
     food: TypeFood;
 }
+

@@ -6,8 +6,9 @@ import Recommendation from "@/components/Recommendation/Recommendation";
 import Banner from "@/components/shared/Banner/Banner";
 import Button from "@/components/shared/Button/Button";
 import Titles from "@/components/shared/Titles/Titles";
+import type { TypeSearchParams } from "@/types";
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: TypeSearchParams }) {
   return (
     <main className="font-montserrat">
       <Banner imgName="bg-[url('../assets/images/home-banner.jpg')]" title="Taste The Difference" smTitle="MORE FLAVOR FOR LESS">
@@ -25,7 +26,7 @@ export default function Home() {
         <AllMenus />
       </section>
       <section>
-        <FoodCategories />
+        <FoodCategories searchParams={searchParams} />
         <Foods />
       </section>
     </main>

@@ -1,13 +1,13 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import { useAppSelector } from "@/redux/app/hooks";
 import { useGetFoodsQuery } from "@/redux/features/food/foodApi";
-import { selectFood } from "@/redux/features/food/foodSelector";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import FoodItem from '../FoodItem/FoodItem';
 
 const Foods = () => {
-    const { category } = useAppSelector(selectFood);
+    const searchParams = useSearchParams();
+    const category = searchParams.get('category') || "burger";
     const { isLoading, isFetching, error, data } = useGetFoodsQuery(category);
     const foods = data?.data;
 

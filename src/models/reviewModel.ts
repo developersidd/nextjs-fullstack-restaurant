@@ -17,8 +17,9 @@ const reviewSchema = new mongoose.Schema({
         type: Number,
         require: [true, "Please provide Rating"],
     },
+
     user: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "user"
     }
 }, { timestamps: true });

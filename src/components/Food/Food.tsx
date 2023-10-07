@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Food = ({ id }: { id: string }) => {
     const { isLoading, data: food } = useGetFoodQuery(id);
-    const { image, description, price, title } = food?.data?.food || {};
+    const { image, description, price, title, reviews } = food?.data?.food || {};
 
     if (isLoading) {
         return <div className="flex items-center justify-center h-screen flex-col">

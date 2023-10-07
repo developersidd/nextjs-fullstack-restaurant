@@ -8,7 +8,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const UserAuthHandler = ({ children }: { children?: React.ReactNode }) => {
-    const token = hasCookie("token");
+    const token = hasCookie("token", { httpOnly: true });
     console.log("token:", token)
     const { isLoading, error } = useGetUserQuery(null, {
         skip: process.env.NODE_ENV !== "production" ? false : !token

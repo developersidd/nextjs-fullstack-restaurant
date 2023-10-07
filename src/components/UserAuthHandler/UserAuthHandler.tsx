@@ -3,15 +3,14 @@ import loadingGear from "@/assets/images/loading-gear.gif";
 import logo from "@/assets/images/logo.png";
 import { useAppDispatch } from "@/redux/app/hooks";
 import { useGetUserQuery, userApi } from '@/redux/features/user/userApi';
-import { hasCookie } from 'cookies-next';
+import { getCookie, hasCookie } from 'cookies-next';
 import Image from 'next/image';
 import React from 'react';
 
 const UserAuthHandler = ({ children }: { children?: React.ReactNode }) => {
     const token = hasCookie("token", { httpOnly: true });
-    console.log("token:", token)
     const { isLoading, error } = useGetUserQuery(null, {
-        skip: process.env.NODE_ENV !== "production" ? false : !token
+        skip: process.env.NODE_ENV !== "production" ? false : token
     });
     const dispatch = useAppDispatch();
 

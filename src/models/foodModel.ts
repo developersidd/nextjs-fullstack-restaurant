@@ -38,14 +38,6 @@ const foodSchema = new mongoose.Schema({
             ref: "review"
         }
     ],
-    createdAt: {
-        type: Date,
-        default: () => new Date()
-    },
-    updatedAt: {
-        type: Date,
-        default: () => new Date()
-    },
 }, { timestamps: true });
 
 export interface FoodDocument extends Document {

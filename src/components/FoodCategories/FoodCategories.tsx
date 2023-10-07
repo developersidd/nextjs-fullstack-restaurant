@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Titles from '../shared/Titles/Titles';
 import type { TypeSearchParams } from '../../types';
+import Titles from '../shared/Titles/Titles';
 const categories = ["burger", "dessert", "pasta", "pizza"];
 
 const FoodCategories = ({ searchParams }: { searchParams: TypeSearchParams }) => {

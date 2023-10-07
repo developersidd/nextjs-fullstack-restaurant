@@ -25,16 +25,19 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
         const { id } = await getDataFromToken(req);
         const { foodId, message, rating } = await req.json() || {};
-        console.log("{ foodId, message, rating }:", { foodId, message, rating })
         if (foodId && message && id && rating) {
             const review = new Review({ message, food: foodId, user: id, rating });
             await review.save();
-            await Food.findByIdAndUpdate(foodId, { $set: { reviews: { $push: review?._id } } })
+            await Food.findByIdAndUpdate(foodId, { $push: { reviews: review._id } });
+            return NextResponse.json({
+                message: "Reviews Added successfully",
+                data: review,
+                success: true
+            }, { status: 200 });
         } else {
-
+            return NextResponse.json({ error: "There was an server site error!" }, { status: 500 });
         }
     } catch (err: any) {
-        console.log("err:", err)
-
+        return NextResponse.json({ error: "There was an server site error!" }, { status: 500 });
     }
 };

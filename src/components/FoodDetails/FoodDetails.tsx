@@ -31,9 +31,11 @@ const FoodDetails = ({ searchParams }: { searchParams: { [key: string]: string |
                         ${category === menu?.split(" ")?.join("") ? "bg-gray-700   text-primary-yellow" :
                                 "text-white"}`}
                             key={menu}>
-
-
-                            <Link href={`?details=${menu?.split(" ")?.join("")}`} scroll={false} className="focus:outline-none  uppercase tracking-widest"> {menu} </Link>
+                            <Link
+                                href={`?${new URLSearchParams({
+                                    details: menu?.split(" ")?.join("")
+                                })}`}
+                                scroll={false} className="focus:outline-none  uppercase tracking-widest"> {menu} </Link>
                         </li>
                     )
                 })}

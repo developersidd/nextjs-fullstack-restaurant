@@ -33,18 +33,10 @@ const userSchema = new mongoose.Schema({
     forgotPasswordTokenExpiry: Date,
     verifyToken: String,
     verifyTokenExpiry: Date,
-    createdAt: {
-        type: Date,
-        default: () => new Date()
-    },
-    updatedAt: {
-        type: Date,
-        default: () => new Date()
-    },
-}, {timestamps: true});
+}, { timestamps: true });
 
 export interface UserDocument extends Document {
-     email: string;
+    email: string;
     password: string;
     username: string;
     picture: string;

@@ -1,6 +1,5 @@
 import connectDb from "@/dbConfig/connectDb";
 import Food from "@/models/foodModel";
-import getDataFromToken from "@/utils/getDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 
 connectDb();

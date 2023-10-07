@@ -19,7 +19,7 @@ const Food = ({ id }: { id: string }) => {
             <div className="w-[70%] mx-auto md:w-[40%] rounded-full">
 
                 <ImageMagnifier style={{ borderRadius: "99999px", cursor: "zoom-in" }}>
-                    <Image className='w-full h-full  mx-auto rounded-full' width={700} height={700} src={image!} alt={title!} />
+                    <Image className='w-full h-full  mx-auto rounded-full' width={700} height={700} src={image || ""} alt={title || ""} />
                 </ImageMagnifier>
 
             </div>

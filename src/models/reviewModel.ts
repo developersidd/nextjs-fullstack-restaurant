@@ -20,21 +20,14 @@ const reviewSchema = new mongoose.Schema({
     user: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "user"
-    },
-    createdAt: {
-        type: Date,
-        default: () => new Date()
-    },
-    updatedAt: {
-        type: Date,
-        default: () => new Date()
-    },
+    }
 }, { timestamps: true });
 
 export interface ReviewDocument extends Document {
     user: TypeUser;
+    food: TypeFood;
     message: string;
-    food: TypeFood
+    rating: number
 }
 
 const Review: Model<ReviewDocument> = mongoose.models.review || mongoose.model("review", reviewSchema);

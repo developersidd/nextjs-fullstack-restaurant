@@ -14,9 +14,9 @@ const schema = yup.object().shape({
 });
 
 const FoodReview = () => {
-  const [addReview, { isLoading, isError, error, isSuccess }] = useAddReviewMutation();
-  console.log("error:", error);
-  const { _id: foodId, title } = useAppSelector(selectFood)?.food || {};
+  const [addReview, { isLoading, data, isError, error, isSuccess }] = useAddReviewMutation();
+  const { _id: foodId, title, reviews } = useAppSelector(selectFood)?.food || {};
+  console.log("reviews:", reviews)
   const dispatch = useAppDispatch();
   const [rating, setRating] = useState(0);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -27,15 +27,14 @@ const FoodReview = () => {
     if (isLoading) {
       toast.loading("Adding Review");
     } else if (isSuccess) {
-      toast.success("Review Added");
+      toast.success((data as any)?.message);
       reset();
     } else if (isError) {
-      toast.error("There was an Error!");
+      toast.error((error as any)?.data?.error);
     }
   }, [isError, isSuccess, isLoading]);
 
   const onSubmitHandler = (data: any) => {
-    console.log("{ message: data?.message, rating, foodId }:", { message: data?.message, rating, foodId })
     addReview({ message: data?.message, rating, foodId });
   };
 

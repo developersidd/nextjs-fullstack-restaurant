@@ -6,6 +6,7 @@ export async function middleware(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const ADMIN_SECRET = searchParams.get(process.env.NEXT_PUBLIC_ASN!);
     const API_SECRET = request.headers?.get("api_secret");
+    console.log("API_SECRET:", API_SECRET)
     // paths
     const publicPaths = ["/signin", "/signup"];
     const isPublicPath = publicPaths.includes(path);
@@ -14,7 +15,6 @@ export async function middleware(request: NextRequest) {
     const isAdminAuthPath = path.startsWith("/admin/signin") || path.startsWith("/admin/signup");
 
     const token = request.cookies.get("token")?.value || "";
-    const isAdmin = request.headers?.get("is_admin");
 
     // if user logged in and try to login then redirect to home page
     if (isPublicPath && token) {
@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
     }
 
     // if admin logged in return back to home page
-    if ((isAdminAuthPath && token) || isAdmin) {
+    if (isAdminAuthPath && token) {
         return NextResponse.redirect(new URL("/", request.nextUrl));
     }
 

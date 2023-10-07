@@ -4,7 +4,7 @@ import { setUser } from "./userSlice";
 
 export const userApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getUser: builder.query<QueryResponse<TypeUser>, void>({
+        getUser: builder.query<QueryResponse<TypeUser>, null>({
             query: () => `/user`,
             async onQueryStarted(arg, { dispatch, queryFulfilled, }) {
                 try {

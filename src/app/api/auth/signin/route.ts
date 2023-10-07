@@ -36,6 +36,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
                             user
                         },
                     }, { status: 200 });
+
                     response.cookies.set("token", token, {
                         httpOnly: true
                     });

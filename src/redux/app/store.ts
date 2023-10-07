@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     api: apiSlice.reducer,
     food: foodSlice,
-    user: userSlice
+    user: userSlice,
   },
   devTools: process.env.NODE_ENV !== "production",
   middleware: (gDM) => gDM().concat(apiSlice.middleware)

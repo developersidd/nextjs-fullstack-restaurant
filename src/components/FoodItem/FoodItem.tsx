@@ -1,9 +1,9 @@
 import addToCartImage from "@/assets/images/add_to_cart.png";
-import { FoodDocument } from '@/models/foodModel';
+import type { TypeFood } from "@/types";
 import Image from 'next/image';
 import Link from 'next/link';
 
-const FoodItem = ({ item: { title, description, price, category, image, _id } }: { item: FoodDocument }) => {
+const FoodItem = ({ item: { title, description, price, category, image, _id } }: { item: TypeFood }) => {
     return (
         <div className='p-3 text-center z-[999]'>
             <Link href={`/foods/${_id}`} className='inline-block  rounded-full group/image relative w-[250px] h-[250px] mb-3'>

@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 import * as yup from "yup";
 
 const schema = yup.object().shape({

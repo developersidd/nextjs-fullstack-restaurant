@@ -1,31 +1,46 @@
 "use client";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { selectFood } from "@/redux/features/food/foodSelector";
+import { useAddReviewMutation } from "@/redux/features/review/reviewApi";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import StarRatings from 'react-star-ratings';
+import { toast } from "sonner";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  author: yup.string().required(),
   message: yup.string().min(20).max(120).required(),
 });
 
 const FoodReview = () => {
-  //const {  } = useAppSelector(selectFood)?.food || {};
-
+  const [addReview, { isLoading, isError, error, isSuccess }] = useAddReviewMutation();
+  console.log("error:", error);
+  const { _id: foodId, title } = useAppSelector(selectFood)?.food || {};
+  const dispatch = useAppDispatch();
   const [rating, setRating] = useState(0);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
+  useEffect(() => {
+    if (isLoading) {
+      toast.loading("Adding Review");
+    } else if (isSuccess) {
+      toast.success("Review Added");
+      reset();
+    } else if (isError) {
+      toast.error("There was an Error!");
+    }
+  }, [isError, isSuccess, isLoading]);
+
   const onSubmitHandler = (data: any) => {
-    console.log({ data });
-    reset();
+    console.log("{ message: data?.message, rating, foodId }:", { message: data?.message, rating, foodId })
+    addReview({ message: data?.message, rating, foodId });
   };
 
   const ratingChanged = (newRating: any) => {
-    console.log(newRating);
+    console.log("newRating:", typeof newRating)
     setRating(newRating)
   };
 
@@ -39,7 +54,7 @@ const FoodReview = () => {
         <h3 className="mb-5 font-helvatica"> BE THE FIRST TO REVIEW “VINCENT” </h3>
         <div>
 
-          <h3> Your email address will not be published. Required fields are marked * </h3>
+          <h3> Add your Review </h3>
           <StarRatings
             rating={rating}
             starRatedColor="#CA9C5E"
@@ -60,8 +75,9 @@ const FoodReview = () => {
           <small className="text-red-700 font-bold"> {errors.message?.message} </small>
 
         </div>
-        <button type="submit" className="rounded px-4 py-2 border-2 border-primary-yellow text-white"> SUBMIT </button>
+        <button type="submit" disabled={isLoading || !rating} className="rounded px-4 py-2 border-2 border-primary-yellow text-white"> SUBMIT </button>
       </form>
+
     </div>
   )
 }

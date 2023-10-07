@@ -37,6 +37,7 @@ export type TypeFood = {
 export type TypeReview = {
     user: TypeUser;
     message: string;
+    rating: number;
     food: TypeFood;
 }
 

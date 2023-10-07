@@ -1,4 +1,3 @@
-import { FoodDocument } from "@/models/foodModel";
 import type { TypeFood } from "@/types";
 import { QueryResponse } from "@/types";
 import { apiSlice } from "../api/apiSlice";
@@ -6,10 +5,10 @@ import { setFood, setRelatedFoods } from "./foodSlice";
 
 export const foodApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getFoods: builder.query<QueryResponse<FoodDocument[]>, string>({
+        getFoods: builder.query<QueryResponse<TypeFood[]>, string>({
             query: (category: string) => `/food?category=${category}`,
         }),
-        getFood: builder.query<{ data: { food: TypeFood, relatedFoods: TypeFood[] } }, string>({
+        getFood: builder.query<QueryResponse<{ food: TypeFood, relatedFoods: TypeFood[] }>, string>({
             query: (id: string) => `/food/${id}`,
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
                 try {
@@ -27,3 +26,4 @@ export const foodApi = apiSlice.injectEndpoints({
 });
 
 export const { useGetFoodsQuery, useGetFoodQuery } = foodApi;
+export const { getFood, getFoods } = foodApi.endpoints;

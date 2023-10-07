@@ -1,11 +1,11 @@
 import InitializeApp from '@/components/InitializeApp/InitializeApp';
 import { Providers } from '@/redux/features/provider';
 import AOSInit from '@/ui/AOSInit';
-import Toast from '@/ui/Toast';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import 'react-tooltip/dist/react-tooltip.css';
+import { Toaster } from 'sonner';
 import './globals.css';
 
 // Fonts
@@ -39,7 +39,7 @@ export default function RootLayout({
       <AOSInit />
       <body>
         <Providers>
-          <Toast />
+          <Toaster richColors />
           <InitializeApp>
             {children}
           </InitializeApp>

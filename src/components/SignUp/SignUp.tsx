@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from 'react-hot-toast';
+import { toast } from "sonner";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
@@ -42,21 +42,16 @@ const SignUp = () => {
     const [isUploadingImg, setIsUploadingImg] = useState(false);
     const router = useRouter();
 
-    // handle success 
+    // handle success & error messages
     useEffect(() => {
         if (isSuccess) {
             toast.success("Signed Up Successfully");
             reset();
             router.push("/signin");
-        }
-    }, [isSuccess]);
-
-    //  handle error
-    useEffect(() => {
-        if (isError && error) {
+        } else if (isError && error) {
             toast.error((error as any)?.data?.error);
         }
-    }, [isError]);
+    }, [isSuccess, isError]);
 
 
     // handle sign up

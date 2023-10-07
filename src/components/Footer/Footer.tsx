@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <>
             <div className='lg:container mx-auto px-5 md:px-10 py-10 flex gap-y-8 flex-col md:flex-row items-center md:justify-between justify-center'>
-                <div className='max-md:pr-[6rem] w-full md:w-[32%] mx-auto max-md:text-center'>
+                <div className='max-md:pr-[6re] w-full md:w-[32%] mx-auto max-md:text-center'>
                     <Logo />
                 </div>
                 <div className='md:border-r border-primary-yellow md:border-l py-5 max-md:border-t max-md:border-b  w-full md:w-[33%] mx-auto flex items-center justify-center'>

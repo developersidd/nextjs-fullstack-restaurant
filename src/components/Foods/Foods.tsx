@@ -8,6 +8,7 @@ import FoodItem from '../FoodItem/FoodItem';
 const Foods = () => {
     const searchParams = useSearchParams();
     const category = searchParams.get('category') || "burger";
+    console.log("category:", category)
     const { isLoading, isFetching, error, data } = useGetFoodsQuery(category);
     const foods = data?.data;
 

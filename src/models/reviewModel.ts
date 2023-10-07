@@ -12,6 +12,11 @@ const reviewSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: "food"
     },
+
+    rating: {
+        type: Number,
+        require: [true, "Please provide Rating"],
+    },
     user: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "user"

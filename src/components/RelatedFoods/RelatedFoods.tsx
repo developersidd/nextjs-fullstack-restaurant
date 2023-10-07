@@ -1,3 +1,4 @@
+"use client";
 import { useAppSelector } from '@/redux/app/hooks';
 import { selectFood } from '@/redux/features/food/foodSelector';
 import { TypeFood } from '@/types';

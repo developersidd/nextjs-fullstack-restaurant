@@ -1,6 +1,6 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { useAppSelector } from "@/redux/app/hooks";
 import { selectFood } from "@/redux/features/food/foodSelector";
 import { useAddReviewMutation } from "@/redux/features/review/reviewApi";
 import { selectUser } from "@/redux/features/user/userSelector";
@@ -20,11 +20,8 @@ const schema = yup.object().shape({
 
 const FoodReview = () => {
   const [addReview, { isLoading, data, isError, error, isSuccess }] = useAddReviewMutation();
-  //console.log("isLoading:", isLoading)
   const { _id: foodId, title, reviews } = useAppSelector(selectFood)?.food || {};
-  console.log("reviews:", reviews)
   const { email } = useAppSelector(selectUser)?.user || {};
-  const dispatch = useAppDispatch();
   const [rating, setRating] = useState(0);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
@@ -33,6 +30,7 @@ const FoodReview = () => {
   useEffect(() => {
     if (isSuccess) {
       toast.success((data as any)?.message);
+      setRating(0);
       reset();
     } else if (isError) {
       toast.error((error as any)?.data?.error);
@@ -50,22 +48,7 @@ const FoodReview = () => {
 
   return (
     <div>
-      {/*  there is no review yet then show this text otherwise show reviews */}
-      {reviews?.length === 0 ?
-        (
-          <div className="text-white">
-            <h4>
-              There are no reviews yet.
-            </h4>
-            <h3 className="mb-5 font-helvatica"> BE THE FIRST TO REVIEW “{title}” </h3>
-          </div>
-        )
-        : (
-          <Reviews reviews={reviews} />
-        )
-      }
-
-      {/* if user isn't logged in then show login option otherwise show add review form */}
+      <Reviews />
       {
         email ? (
           <>
@@ -82,13 +65,11 @@ const FoodReview = () => {
               starSpacing="5px"
             />
 
-
-            <form className='' onSubmit={handleSubmit(onSubmitHandler)}>
+            <form className='' onSubmit={handleSubmit(onSubmitHandler)} id="add-review">
               <div className="my-6">
-                <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-500 dark:text-white capitalize"> Send your feedback </label>
-                <textarea  {...register("message")} className="bg-olive text-gray-400 rounded border-2 border-sandy-brown block w-full p-3 focus:outline-none" name="message" id="" placeholder='Your message' rows={5} required></textarea>
+                <label htmlFor="message" className="block mb-2 text-base font-medium text-gray-500 dark:text-white capitalize"> Send your feedback </label>
+                <textarea  {...register("message")} className="bg-olive text-gray-400 placeholder:text-sm rounded border-2 border-sandy-brown block w-full p-3 focus:outline-none" name="message" id="" placeholder='Your message' rows={5} required></textarea>
                 <small className="text-red-700 font-bold"> {errors.message?.message} </small>
-
               </div>
               <button type="submit" disabled={isLoading || !rating} className="rounded px-4 py-3 border-2 border-sandy-brown text-white">
                 {
@@ -96,9 +77,7 @@ const FoodReview = () => {
                 }
               </button>
             </form>
-          </>
-
-        )
+          </>)
           :
           (
             <>

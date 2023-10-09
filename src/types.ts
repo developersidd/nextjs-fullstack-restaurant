@@ -35,9 +35,15 @@ export type TypeFood = {
 }
 
 export type TypeReview = {
-    user: TypeUser;
+    user: {
+        id: string;
+        picture: string;
+        username: string;
+    };
     message: string;
     rating: number;
+    id: string;
+    createdAt: Date;
     food: TypeFood;
 }
 

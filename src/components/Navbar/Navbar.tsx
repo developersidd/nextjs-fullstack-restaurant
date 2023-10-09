@@ -1,5 +1,5 @@
 "use client";
-import { userApi } from '@/redux/features/user/userApi';
+import { useAppDispatch } from '@/redux/app/hooks';
 import Logo from '@/ui/Logo';
 import { Bars3Icon, ShoppingCartIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import SmallDevicesNavbar from '../SmallDevicesNavbar/SmallDevicesNavbar';
 import NavbarRightContent from './NavbarRightContent';
 import { navbarData } from './navbarData';
-import { useAppDispatch } from '@/redux/app/hooks';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -61,7 +60,7 @@ const Navbar = () => {
               navbarData?.map(({ link, title }) => {
                 const isActive = pathname === link;
                 return (
-                  <li key={title} className={` ${isActive ? "text-primary-yellow" : ""} md:text-md cursor-pointer`}>
+                  <li key={title} className={` ${isActive ? "text-sandy-brown" : ""} md:text-md cursor-pointer`}>
                     <Link href={link}> {title} </Link>
                   </li>
                 )
@@ -72,7 +71,7 @@ const Navbar = () => {
             <li className='relative'>
               <Link href="/cart">
                 <ShoppingCartIcon className="w-7 h-7 md:w-8 md:h-8 text-white" />
-                <span className="shadow-md absolute text-xs md:text-sm -top-[6px] -right-1 bg-primary-yellow w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full "> 10 </span>
+                <span className="shadow-md absolute text-xs md:text-sm -top-[6px] -right-1 bg-sandy-brown w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full "> 10 </span>
               </Link>
             </li>
           </ul>
@@ -84,7 +83,7 @@ const Navbar = () => {
           <div className='lg:hidden flex items-center gap-3'>
             <Link href="/cart" className="relative">
               <ShoppingCartIcon className="w-7 h-7 text-white " />
-              <span className="text-white shadow-md absolute text-xs -top-[6px] -right-1 bg-primary-yellow w-5 h-5 flex items-center justify-center rounded-full "> 0 </span>
+              <span className="text-white shadow-md absolute text-xs -top-[6px] -right-1 bg-sandy-brown w-5 h-5 flex items-center justify-center rounded-full "> 0 </span>
             </Link>
             <Bars3Icon onClick={() => setVisible(true)} className="w-7 h-7 text-white cursor-pointer" />
           </div>

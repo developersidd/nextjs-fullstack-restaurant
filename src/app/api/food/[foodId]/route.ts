@@ -13,7 +13,7 @@ type TokenType = {
 export const GET = async (req: NextRequest, { params }: { params: any }) => {
     try {
         const foodId = params?.foodId;
-        const food = await Food.findById(foodId).populate({
+        const food = await Food.findOne({ _id: foodId }).populate({
             path: 'reviews',
             select: "-food -__v",
             populate: [

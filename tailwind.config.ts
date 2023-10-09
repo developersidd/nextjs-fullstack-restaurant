@@ -13,8 +13,9 @@ const config: Config = {
         helvatica: "var(--font-helvatica)",
       },
       colors: {
-        "primary-yellow": "#CA9C5E",
-        "secondary-olive": "#0B1517",
+        "sandy-brown": "#CA9C5E",
+        "olive": "#0B1517",
+        "light-olive": "#172125",
       },
     },
   },

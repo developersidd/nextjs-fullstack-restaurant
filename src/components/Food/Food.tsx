@@ -25,11 +25,11 @@ const Food = ({ id }: { id: string }) => {
             </div>
             <div className="w-full md:w-[55%]  space-y-3 md:space-y-5">
                 <h3 className='text-white tracking-wider text-2xl md:text-3xl lg:text-3xl'> {title} </h3>
-                <h4 className="text-primary-yellow text-2xl md:text-3xl lg:text-3xl font-bold"> $ {price} </h4>
+                <h4 className="text-sandy-brown text-2xl md:text-3xl lg:text-3xl font-bold"> $ {price} </h4>
                 <p className="text-gray-400 max-sm:pb-5">  {description} </p>
                 <div>
                     <input className="w-12 text-center  py-2 mr-5" defaultValue={1} type="number" name="" id="" />
-                    <button className='px-6 py-2 border-2 border-primary-yellow uppercase font-medium text-white bg-primary-yellow transition-colors hover:bg-secondary-olive'> add to cart </button>
+                    <button className='px-6 py-2 border-2 border-sandy-brown uppercase font-medium text-white bg-sandy-brown transition-colors hover:bg-olive'> add to cart </button>
                 </div>
             </div>
         </div>

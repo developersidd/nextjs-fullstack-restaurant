@@ -6,6 +6,6 @@
 }
     .classic__btn::before{
         content: "";
-        @apply absolute border-t-2 border-b-2 border-primary-yellow  top-0 -left-8 w-[198px] h-full  rounded
+        @apply absolute border-t-2 border-b-2 border-sandy-brown  top-0 -left-8 w-[198px] h-full  rounded
     }
 }

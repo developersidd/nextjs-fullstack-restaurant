@@ -1,6 +1,6 @@
+import Logo from '@/ui/Logo'
 import Link from 'next/link'
 import { navbarData } from '../Navbar/navbarData'
-import Logo from '@/ui/Logo'
 
 const Footer = () => {
     return (
@@ -9,10 +9,10 @@ const Footer = () => {
                 <div className='max-md:pr-[6re] w-full md:w-[32%] mx-auto max-md:text-center'>
                     <Logo />
                 </div>
-                <div className='md:border-r border-primary-yellow md:border-l py-5 max-md:border-t max-md:border-b  w-full md:w-[33%] mx-auto flex items-center justify-center'>
+                <div className='md:border-r border-sandy-brown md:border-l py-5 max-md:border-t max-md:border-b  w-full md:w-[33%] mx-auto flex items-center justify-center'>
                     <ul className="space-y-3">
                         {navbarData.slice(0, 4).map(({ link, title }) => (
-                            <li key={title} className={` text-lg md:text-xl cursor-pointer text-primary-yellow`}>
+                            <li key={title} className={` text-lg md:text-xl cursor-pointer text-sandy-brown`}>
                                 <Link href={link}> {title} </Link>
                             </li>
                         ))}

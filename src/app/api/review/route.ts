@@ -27,7 +27,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         const { foodId, message, rating } = await req.json() || {};
         if (foodId && message && id && rating) {
             const review = new Review({ message, food: foodId, user: id, rating });
-            console.log("review:", review)
             await review.save();
             await Food.updateOne({ _id: foodId }, { $push: { reviews: review._id } });
             return NextResponse.json({

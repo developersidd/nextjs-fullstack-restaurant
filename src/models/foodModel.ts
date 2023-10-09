@@ -35,7 +35,7 @@ const foodSchema = new mongoose.Schema({
     reviews: [
         {
             type: mongoose.Types.ObjectId,
-            ref: "review"
+            ref: "Review"
         }
     ],
 }, { timestamps: true });

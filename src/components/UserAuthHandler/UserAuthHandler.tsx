@@ -9,9 +9,7 @@ import React from 'react';
 
 const UserAuthHandler = ({ children }: { children?: React.ReactNode }) => {
     const token = hasCookie("token", { httpOnly: true });
-    const { isLoading, error } = useGetUserQuery(null, {
-        skip: process.env.NODE_ENV !== "production" ? false : token
-    });
+    const { isLoading, error } = useGetUserQuery();
     const dispatch = useAppDispatch();
 
     // logout automically if token expired

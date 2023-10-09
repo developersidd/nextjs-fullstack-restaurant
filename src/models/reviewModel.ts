@@ -10,7 +10,7 @@ const reviewSchema = new mongoose.Schema({
     },
     food: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "food"
+        ref: "Food"
     },
 
     rating: {
@@ -20,7 +20,7 @@ const reviewSchema = new mongoose.Schema({
 
     user: {
         type: mongoose.Types.ObjectId,
-        ref: "user"
+        ref: "User"
     }
 }, { timestamps: true });
 

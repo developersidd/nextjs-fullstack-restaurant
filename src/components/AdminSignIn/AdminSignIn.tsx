@@ -83,7 +83,7 @@ const AdminSignIn = () => {
                             Forgot password ?
                             <Link href="/reset-password" className="font-bold hover:border-b"> Reset </Link>
                         </small>
-                        <button type="submit" disabled={isLoading} className="px-4 py-2 rounded border-2 border-primary-yellow text-white uppercase"> sign in  </button>
+                        <button type="submit" disabled={isLoading} className="px-4 py-2 rounded border-2 border-sandy-brown text-white uppercase"> sign in  </button>
                     </form>
 
                     {/*  bottom section */}

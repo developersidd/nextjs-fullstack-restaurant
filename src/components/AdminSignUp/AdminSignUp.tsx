@@ -109,7 +109,7 @@ const AdminSignUp = () => {
 
                             <Input data={{ name: "Picture", type: 'file', placeholder: `Upload your picture`, error: errors.picture?.message, hookFormRegister: register("picture") }} />
 
-                            <button disabled={(isLoading || isUploadingImg)} type="submit" className="px-4 py-2 rounded border-2 border-primary-yellow text-white uppercase"> sign up </button>
+                            <button disabled={(isLoading || isUploadingImg)} type="submit" className="px-4 py-2 rounded border-2 border-sandy-brown text-white uppercase"> sign up </button>
                         </form>
                         {/* bottom section */}
                         <div className="text-center mt-5">

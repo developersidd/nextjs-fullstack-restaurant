@@ -8,9 +8,8 @@ export const reviewApi = apiSlice.injectEndpoints({
         getReviews: builder.query<QueryResponse<TypeReview[]>, string>({
             query: (category: string) => `/reviews`,
         }),
-        addReview: builder.mutation<void, { foodId: string, rating: number, message: string }>({
+        addReview: builder.mutation<void, Omit<Omit<TypeReview, 'id'>, 'createdAt'>>({
             query: (review) => {
-                console.log("review:", review)
                 return {
                     url: "/review",
                     method: "POST",

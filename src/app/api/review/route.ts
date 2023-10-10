@@ -6,11 +6,13 @@ import getDataFromToken from "@/utils/getDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 
 connectDb();
+console.log("Review:", Review)
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
     try {
         await checkAdmin(req);
         const reviews = await Review.find({}, { __v: 0 });
+        console.log("Review:", Review)
         return NextResponse.json({
             message: "Reviews got successfully",
             data: reviews,
@@ -27,6 +29,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         const { foodId, message, rating } = await req.json() || {};
         if (foodId && message && id && rating) {
             const review = new Review({ message, food: foodId, user: id, rating });
+            console.log("Review:", Review)
             await review.save();
             await Food.updateOne({ _id: foodId }, { $push: { reviews: review._id } });
             return NextResponse.json({

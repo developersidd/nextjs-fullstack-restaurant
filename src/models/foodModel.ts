@@ -32,6 +32,7 @@ const foodSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a dimension"],
     },
+
 }, { timestamps: true });
 
 export interface FoodDocument extends Document {

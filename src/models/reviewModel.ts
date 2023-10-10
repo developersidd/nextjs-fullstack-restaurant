@@ -9,6 +9,7 @@ const reviewSchema = new mongoose.Schema({
         max: 100
     },
     food: {
+
         id: {
             type: String,
             require: [true, "Please provide Food Id"],
@@ -22,12 +23,10 @@ const reviewSchema = new mongoose.Schema({
             require: [true, "Please provide Food Name"],
         }
     },
-
     rating: {
         type: Number,
         require: [true, "Please provide Rating"],
     },
-
     user: {
         id: {
             type: String,
@@ -56,4 +55,5 @@ export interface ReviewDocument extends Document {
 }
 
 const Review: Model<ReviewDocument> = mongoose.models.review || mongoose.model("review", reviewSchema);
+console.log("Review:", Review)
 export default Review;

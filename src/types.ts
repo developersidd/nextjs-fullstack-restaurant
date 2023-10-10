@@ -36,6 +36,7 @@ export type TypeReview = {
     message: string;
     rating: number;
     id: string;
+    createdAt: Date;
     user: {
         id: string;
         username: string;
@@ -48,4 +49,3 @@ export type TypeReview = {
         title: string;
     };
 }
-

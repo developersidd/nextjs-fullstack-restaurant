@@ -21,9 +21,8 @@ const schema = yup.object().shape({
 const FoodReview = () => {
   const [addReview, { isLoading, data, isError, error, isSuccess }] = useAddReviewMutation();
   //console.log("isLoading:", isLoading)
-  const { _id: foodId, title, reviews } = useAppSelector(selectFood)?.food || {};
-  console.log("reviews:", reviews)
-  const { email } = useAppSelector(selectUser)?.user || {};
+  const { id: foodId, title } = useAppSelector(selectFood)?.food || {};
+  const { email, picture, username, id } = useAppSelector(selectUser)?.user || {};
   const dispatch = useAppDispatch();
   const [rating, setRating] = useState(0);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({

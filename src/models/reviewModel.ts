@@ -9,8 +9,18 @@ const reviewSchema = new mongoose.Schema({
         max: 100
     },
     food: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "Food"
+        id: {
+            type: String,
+            require: [true, "Please provide Food Id"],
+        },
+        picture: {
+            type: String,
+            require: [true, "Please provide Food picture"],
+        },
+        title: {
+            type: String,
+            require: [true, "Please provide Food Name"],
+        }
     },
 
     rating: {
@@ -19,8 +29,22 @@ const reviewSchema = new mongoose.Schema({
     },
 
     user: {
-        type: mongoose.Types.ObjectId,
-        ref: "User"
+        id: {
+            type: String,
+            require: [true, "Please provide Id"],
+        },
+        username: {
+            type: String,
+            require: [true, "Please provide username"],
+        },
+        picture: {
+            type: String,
+            require: [true, "Please provide picture"],
+        },
+        email: {
+            type: String,
+            require: [true, "Please provide email"],
+        },
     }
 }, { timestamps: true });
 

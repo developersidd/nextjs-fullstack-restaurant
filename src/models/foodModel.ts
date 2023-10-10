@@ -32,12 +32,6 @@ const foodSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a dimension"],
     },
-    reviews: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: "Review"
-        }
-    ],
 }, { timestamps: true });
 
 export interface FoodDocument extends Document {
@@ -48,7 +42,6 @@ export interface FoodDocument extends Document {
     weight: number;
     dimension: string;
     category: string;
-    reviews: TypeReview[];
 }
 
 export const Food: Model<FoodDocument> = mongoose.models.food || mongoose.model("food", foodSchema);

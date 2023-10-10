@@ -2,7 +2,7 @@ export type TypeSearchParams = {
     [key: string]: string | string[] | undefined;
 }
 export type TypeUser = {
-    _id: string;
+    id: string;
     email: string;
     password: string;
     username: string;
@@ -15,7 +15,6 @@ export type TypeUser = {
     isAdmin: boolean;
 }
 
-
 export type QueryResponse<DataType> = {
     data: DataType,
     success: boolean,
@@ -23,7 +22,7 @@ export type QueryResponse<DataType> = {
 }
 
 export type TypeFood = {
-    _id: string;
+    id: string;
     title: string;
     description: string;
     price: number;
@@ -31,13 +30,22 @@ export type TypeFood = {
     weight: number;
     dimension: string;
     category: string;
-    reviews: TypeReview[];
 }
 
 export type TypeReview = {
-    user: TypeUser;
     message: string;
     rating: number;
-    food: TypeFood;
+    id: string;
+    user: {
+        id: string;
+        username: string;
+        picture: string;
+        email: string;
+    };
+    food: {
+        id: string;
+        picture: string;
+        title: string;
+    };
 }
 

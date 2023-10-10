@@ -1,6 +1,6 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { useAppSelector } from "@/redux/app/hooks";
 import { selectFood } from "@/redux/features/food/foodSelector";
 import { useAddReviewMutation } from "@/redux/features/review/reviewApi";
 import { selectUser } from "@/redux/features/user/userSelector";
@@ -21,10 +21,8 @@ const schema = yup.object().shape({
 const FoodReview = () => {
   const [addReview, { isLoading, data, isError, error, isSuccess }] = useAddReviewMutation();
 
-  const { id: foodId, title, image } = useAppSelector(selectFood)?.food || {};
-  const { email, picture, username, id } = useAppSelector(selectUser)?.user || {};
-  const dispatch = useAppDispatch();
-
+  const { _id: foodId, title, image } = useAppSelector(selectFood)?.food || {};
+  const { email, picture, username, _id: userId } = useAppSelector(selectUser)?.user || {};
   const [rating, setRating] = useState(0);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
@@ -44,7 +42,7 @@ const FoodReview = () => {
     addReview({
       message: data?.message, rating,
       food: { id: foodId, picture: image, title },
-      user: { email, picture, username, id }
+      user: { email, picture, username, id: userId }
     });
   };
 
@@ -59,8 +57,7 @@ const FoodReview = () => {
       {
         email ? (
           <>
-
-            <h3 className="mb-3 text-white font-helvatica uppercase text-base md:text-xl"> Add your Review </h3>
+            <h3 id="add-review" className="mb-3 text-white font-helvatica uppercase text-base md:text-xl"> Add your Review </h3>
             <StarRatings
               rating={rating}
               starRatedColor="#CA9C5E"
@@ -71,8 +68,7 @@ const FoodReview = () => {
               starDimension="30px"
               starSpacing="5px"
             />
-
-            <form className='' onSubmit={handleSubmit(onSubmitHandler)} id="add-review">
+            <form className='' onSubmit={handleSubmit(onSubmitHandler)}>
               <div className="my-6">
                 <label htmlFor="message" className="block mb-2 text-base font-medium text-gray-500 dark:text-white capitalize"> Send your feedback </label>
                 <textarea  {...register("message")} className="bg-olive text-gray-400 placeholder:text-sm rounded border-2 border-sandy-brown block w-full p-3 focus:outline-none" name="message" id="" placeholder='Your message' rows={5} required></textarea>

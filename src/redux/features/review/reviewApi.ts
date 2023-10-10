@@ -5,8 +5,8 @@ import { apiSlice } from "../api/apiSlice";
 
 export const reviewApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getReviews: builder.query<QueryResponse<TypeReview[]>, string>({
-            query: (category: string) => `/reviews`,
+        getReviews: builder.query<QueryResponse<TypeReview[]>, void | string>({
+            query: (id) => `/review?id=${id}`,
         }),
         addReview: builder.mutation<void, Omit<Omit<TypeReview, 'id'>, 'createdAt'>>({
             query: (review) => {
@@ -15,7 +15,19 @@ export const reviewApi = apiSlice.injectEndpoints({
                     method: "POST",
                     body: review
                 }
-            }
+            },
+            async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+                const patchResult = dispatch(
+                    apiSlice.util.updateQueryData('getReviews', arg.food.id, (draft) => {
+                        ((draft as any)?.data as [])?.push(arg)
+                    })
+                )
+                try {
+                    await queryFulfilled;
+                } catch {
+                    patchResult.undo()
+                }
+            },
         })
     }),
 });

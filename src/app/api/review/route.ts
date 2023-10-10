@@ -1,18 +1,25 @@
 import connectDb from "@/dbConfig/connectDb";
-import Food from "@/models/foodModel";
 import Review from "@/models/reviewModel";
 import checkAdmin from "@/utils/checkAdmin";
 import getDataFromToken from "@/utils/getDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 
 connectDb();
-console.log("Review:", Review)
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
+    const id = req.nextUrl.searchParams.get('id') || "";
     try {
-        await checkAdmin(req);
-        const reviews = await Review.find({}, { __v: 0 });
-        console.log("Review:", Review)
+        let reviews;
+        const { isAdmin } = await getDataFromToken(req);
+        // if trying to get all reviews & admin is true then 
+        if (!id && isAdmin) {
+            await checkAdmin(req);
+            reviews = await Review.find({}, { __v: 0 });
+        } else {
+            reviews = await Review.find({
+                $or: [{ 'user.id': id }, { 'food.id': id },]
+            }, { __v: 0 });
+        }
         return NextResponse.json({
             message: "Reviews got successfully",
             data: reviews,
@@ -26,19 +33,17 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
 export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
         const { id } = await getDataFromToken(req);
-        const { foodId, message, rating } = await req.json() || {};
-        if (foodId && message && id && rating) {
-            const review = new Review({ message, food: foodId, user: id, rating });
-            console.log("Review:", Review)
+        const body = await req.json() || {};
+        if (body?.message && body?.user && body?.food && id && body?.rating) {
+            const review = new Review(body);
             await review.save();
-            await Food.updateOne({ _id: foodId }, { $push: { reviews: review._id } });
             return NextResponse.json({
                 message: "Reviews Added successfully",
                 data: review,
                 success: true
             }, { status: 200 });
         } else {
-            return NextResponse.json({ error: "There was an server site error!" }, { status: 500 });
+            return NextResponse.json({ error: "There was an server site errors!" }, { status: 500 });
         }
     } catch (err: any) {
         console.log("err:", err)

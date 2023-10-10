@@ -2,7 +2,7 @@ export type TypeSearchParams = {
     [key: string]: string | string[] | undefined;
 }
 export type TypeUser = {
-    id: string;
+    _id: string;
     email: string;
     password: string;
     username: string;
@@ -21,8 +21,9 @@ export type QueryResponse<DataType> = {
     message: string
 }
 
+
 export type TypeFood = {
-    id: string;
+    _id: string;
     title: string;
     description: string;
     price: number;

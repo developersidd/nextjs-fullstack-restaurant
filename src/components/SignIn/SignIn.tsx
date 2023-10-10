@@ -31,16 +31,11 @@ const SignIn = () => {
             toast.success("Signed In Successfully");
             reset();
             router.push("/");
-        }
-    }, [isSuccess])
-
-
-    //  handle error
-    useEffect(() => {
-        if (isError && error) {
+        } else if (isError && error) {
             toast.error((error as any)?.data?.error);
         }
-    }, [isError]);
+    }, [isSuccess, isError])
+
 
 
     // handle sign In

@@ -16,7 +16,6 @@ const initialState: TypeInitialState = {
         weight: 0,
         dimension: "",
         category: "",
-        reviews: []
     },
     relatedFoods: []
 };

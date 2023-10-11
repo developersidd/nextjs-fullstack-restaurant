@@ -1,6 +1,6 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import { useAppSelector } from "@/redux/app/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import { selectFood } from "@/redux/features/food/foodSelector";
 import { useAddReviewMutation } from "@/redux/features/review/reviewApi";
 import { selectUser } from "@/redux/features/user/userSelector";
@@ -24,6 +24,7 @@ const FoodReview = () => {
   const { _id: foodId, title, image } = useAppSelector(selectFood)?.food || {};
   const { email, picture, username, _id: userId } = useAppSelector(selectUser)?.user || {};
   const [rating, setRating] = useState(0);
+  const dispatch = useAppDispatch();
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });

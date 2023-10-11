@@ -16,16 +16,22 @@ export const reviewApi = apiSlice.injectEndpoints({
                     body: review
                 }
             },
-            async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-                const patchResult = dispatch(
-                    apiSlice.util.updateQueryData('getReviews', arg.food.id, (draft) => {
-                        ((draft as any)?.data as [])?.push(arg)
-                    })
-                )
+            async onQueryStarted(review, { dispatch, queryFulfilled }) {
+
                 try {
-                    await queryFulfilled;
+                    const data = await queryFulfilled;
+                    console.log("data:", JSON.stringify(data.data));
+                    if (data) {
+                        const patchResult = dispatch(
+                            reviewApi.util.updateQueryData('getReviews', review.food.id, (draft) => {
+                                //draft?.data?.push(data)
+                                //Object.assign(draft, review)
+                                //return [...draft?.data, { ...arg }]
+                            })
+                        )
+                    }
                 } catch {
-                    patchResult.undo()
+                    //patchResult.undo()
                 }
             },
         })

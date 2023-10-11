@@ -55,5 +55,4 @@ export interface ReviewDocument extends Document {
 }
 
 const Review: Model<ReviewDocument> = mongoose.models.review || mongoose.model("review", reviewSchema);
-console.log("Review:", Review)
 export default Review;

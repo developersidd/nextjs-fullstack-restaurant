@@ -10,9 +10,8 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
     const id = req.nextUrl.searchParams.get('id') || "";
     try {
         let reviews;
-        const { isAdmin } = await getDataFromToken(req);
         // if trying to get all reviews & admin is true then 
-        if (!id && isAdmin) {
+        if (!id) {
             await checkAdmin(req);
             reviews = await Review.find({}, { __v: 0 });
         } else {

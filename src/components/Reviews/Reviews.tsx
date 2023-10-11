@@ -14,6 +14,7 @@ const Reviews = () => {
     const { email } = useAppSelector(selectUser)?.user || {};
     const { isLoading, isError, error, data } = useGetReviewsQuery(_id);
     const reviews = data?.data!;
+    console.log("reviews:", reviews)
     const handleAddReview = () => {
         sweetAlert({ icon: "info", title: "Please Log In!", des: "Don't have an account? Please <a href='/signin' style='font-weight:bold'> Register  </a>  to add your opinion." });
     }
@@ -29,6 +30,8 @@ const Reviews = () => {
     }
     else if (isError && error) {
         content = <p className='text-red-600 font-medium p-5 md:p-7 text-center'> There was an server site error! </p>;
+    } else {
+        content = ""
     }
     return (
         <div className='bg-light-olive p-4 md:p-7 rounded-md mb-5 md:mb-10'>
@@ -47,15 +50,15 @@ const Reviews = () => {
             </div>
             <hr className=' h-[1px] border-gray-300 my-11 lg:my-8' />
             <div>
-                {content}
-                {reviews?.length === 0 && (
+
+                {reviews?.length === 0 ? (
                     <div className="text-white text-center py-3 md:py-6">
                         <h4>
                             There are no reviews yet.
                         </h4>
                         <h3 className="mb-5 font-helvatica"> BE THE FIRST TO REVIEW “{title}” </h3>
                     </div>
-                )
+                ) : (content)
                 }
             </div>
         </div>

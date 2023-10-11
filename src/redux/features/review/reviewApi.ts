@@ -20,18 +20,14 @@ export const reviewApi = apiSlice.injectEndpoints({
 
                 try {
                     const data = await queryFulfilled;
-                    console.log("data:", JSON.stringify(data.data));
                     if (data) {
                         const patchResult = dispatch(
                             reviewApi.util.updateQueryData('getReviews', review.food.id, (draft) => {
-                                //draft?.data?.push(data)
-                                //Object.assign(draft, review)
-                                //return [...draft?.data, { ...arg }]
+                                draft?.data?.push((data.data as any)?.data)
                             })
                         )
                     }
                 } catch {
-                    //patchResult.undo()
                 }
             },
         })

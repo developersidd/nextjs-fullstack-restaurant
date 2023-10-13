@@ -17,3 +17,7 @@
 .react-transform-wrapper .transform-component-module_wrapper__SPB86 {
   border-radius: 99999px !important
 }
+
+ .ReactModal__Overlay.ReactModal__Overlay--after-open {
+  z-index: 9999999 !important;
+}

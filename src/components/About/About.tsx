@@ -8,20 +8,17 @@ const AboutComp = () => {
     return (
         <div className="relative">
             <Image
-
                 src={leafRight}
-
                 className="absolute h-[140px] w-[140px] md:h-[170px] md:w-[170px] lg:w-[200px] lg:h-[200px] 2xl:w-[300px] 2xl:h-[340px] -top-16 md:-top-[18%]  z-[99] left-0"
                 alt="leaf"
             />
             <Image
                 src={leafLeft}
-
                 className="absolute h-[140px] w-[140px] md:h-[170px] md:w-[170px] lg:w-[200px] lg:h-[200px] 2xl:w-[300px] 2xl:h-[340px] -top-16 md:top-[-18%]  z-[99] right-0"
                 alt="restaurant"
             />
             {/* left side image */}
-            <div className='lg:container mx-auto px-5 md:px-10 py-20 md:py-26 md:flex items-center justify-start gap-10 max-md:space-y-10'>
+            <div className='lg:container mx-auto px-5 md:px-8 py-10 md:py-14 lg:py-20 md:flex items-center justify-start gap-10 max-md:space-y-10'>
                 <div className="w-full  md:w-[40%]">
                     <Image
                         src={aboutImg}

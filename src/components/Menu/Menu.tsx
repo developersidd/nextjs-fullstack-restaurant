@@ -14,6 +14,7 @@ const Menu = ({ imgFirst = true, src, des, title, children, }: { children: React
                             className={`object-contain w-full border-2 border-sandy-brown `}
                             width={500}
                             height={500}
+                            priority
                         />
                     </div>
 

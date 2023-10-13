@@ -8,13 +8,14 @@ import Image from "next/image";
 import Link from 'next/link';
 import React from 'react';
 import SingleReview from '../Review/Review';
+import { TypeReview } from "@/types";
 
 const Reviews = () => {
     const { title, _id } = useAppSelector(selectFood)?.food || {};
     const { email } = useAppSelector(selectUser)?.user || {};
     const { isLoading, isError, error, data } = useGetReviewsQuery(_id);
     const reviews = data?.data!;
-    console.log("reviews:", reviews)
+
     const handleAddReview = () => {
         sweetAlert({ icon: "info", title: "Please Log In!", des: "Don't have an account? Please <a href='/signin' style='font-weight:bold'> Register  </a>  to add your opinion." });
     }
@@ -26,12 +27,10 @@ const Reviews = () => {
             <Image src={loadingGear} className="w-[60px] md:w-[80px] lg:w-[100px]" alt="loading-gear" />
         </div>)
     } else if (!isLoading && !isError) {
-        content = (reviews?.map((review) => (<SingleReview key={review.id} review={review} />)))
+        content = (reviews?.map((review: TypeReview) => (<SingleReview key={review.id} review={review} />)))
     }
-    else if (isError && error) {
+    else {
         content = <p className='text-red-600 font-medium p-5 md:p-7 text-center'> There was an server site error! </p>;
-    } else {
-        content = ""
     }
     return (
         <div className='bg-light-olive p-4 md:p-7 rounded-md mb-5 md:mb-10'>

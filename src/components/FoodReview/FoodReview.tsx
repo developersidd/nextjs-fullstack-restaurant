@@ -24,7 +24,6 @@ const FoodReview = () => {
   const { _id: foodId, title, image } = useAppSelector(selectFood)?.food || {};
   const { email, picture, username, _id: userId } = useAppSelector(selectUser)?.user || {};
   const [rating, setRating] = useState(0);
-  const dispatch = useAppDispatch();
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });

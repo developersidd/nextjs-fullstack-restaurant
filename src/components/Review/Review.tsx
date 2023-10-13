@@ -10,7 +10,7 @@ const SingleReview = ({ review }: { review: TypeReview }) => {
                 {Array.from(Array(rating).keys())?.map((n) => <StarIcon className="text-sandy-brown h-7 w-7" key={n} />)}
             </div>
             <div className="text-gray-200">
-                <p className="mb-2"> {message}. </p>
+                <p className="text-lg mb-2"> {message}. </p>
                 <p> By, <span className="text-sandy-brown font-bold"> {username} </span> on {moment(createdAt).format('ll')} </p>
                 <hr className='h-[1px]  border-gray-600  my-5 lg:my-7' />
             </div>

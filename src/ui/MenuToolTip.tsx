@@ -1,4 +1,5 @@
-import { Tooltip } from 'react-tooltip'
+"use client";
+import { Tooltip } from 'react-tooltip';
 
 const MenuToolTip = ({ data, name }: { data: { key: string, value: string | number }[], name: string }) => {
     return (

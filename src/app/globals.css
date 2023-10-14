@@ -18,6 +18,3 @@
   border-radius: 99999px !important
 }
 
- .ReactModal__Overlay.ReactModal__Overlay--after-open {
-  z-index: 9999999 !important;
-}

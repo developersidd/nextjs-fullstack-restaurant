@@ -1,7 +1,7 @@
 import AboutComp from "@/components/About/About";
 import FoodCategories from "@/components/FoodCategories/FoodCategories";
 import Foods from "@/components/Foods/Foods";
-import ImageGallery from "@/components/ImageGallery/ImageGallery";
+import GalleryLightBox from "@/components/ImageGallery/GalleryLightBox";
 import AllMenus from "@/components/Menu/AllMenus";
 import Recommendation from "@/components/Recommendation/Recommendation";
 import Banner from "@/components/shared/Banner/Banner";
@@ -31,7 +31,7 @@ export default function Home({ searchParams }: { searchParams: TypeSearchParams 
         <Foods />
       </section>
       <section>
-        <ImageGallery />
+        <GalleryLightBox />
       </section>
     </main>
   )

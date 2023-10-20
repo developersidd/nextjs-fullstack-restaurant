@@ -32,7 +32,8 @@ const SignIn = () => {
             reset();
             router.push("/");
         } else if (isError && error) {
-            toast.error((error as any)?.data?.error);
+            toast.error((error as any)?.data?.error || "There was an error occured");
+            console.log("(error as any)?.data:", (error as any)?.data)
         }
     }, [isSuccess, isError])
 

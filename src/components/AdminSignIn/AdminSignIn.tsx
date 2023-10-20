@@ -1,6 +1,5 @@
 "use client"
 import loadingGear from "@/assets/images/loading-gear.gif";
-import warning from "@/assets/images/warning.png";
 import Input from "@/components/shared/Input/Input";
 import { useSigninMutation } from "@/redux/features/signin/signinApi";
 import Logo from "@/ui/Logo";
@@ -47,19 +46,22 @@ const AdminSignIn = () => {
 
     // handle sign In
     const adminSignInHandler = (data: any) => {
+        if (data?.secret === "" || data?.secret !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
+            return
+        }
         signIn(data)
     };
-
-    if (!ADMIN_SECRET || ADMIN_SECRET !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
-        return (
-            <div className="flex items-center justify-center h-screen flex-col">
-                <Image src={warning} className="w-[40%] md:w-[35%] lg:w-[22%] mb-5" alt="smiley-face" />
-                <h1 className='text-white font-bold text-xl md:text-3xl xl:text-4xl mb-10'> Your Are Not Allowed To Access this Page <span className="text-red-500">!</span>  </h1>
-                <Link href="/" className='px-5 py-2 border-2 border-red-500 text-white font-medium'> Back to Home </Link>
-            </div>
-        )
-    }
-
+    /*
+        if (!ADMIN_SECRET || ADMIN_SECRET !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
+            return (
+                <div className="flex items-center justify-center h-screen flex-col">
+                    <Image src={warning} className="w-[40%] md:w-[35%] lg:w-[22%] mb-5" alt="smiley-face" />
+                    <h1 className='text-white font-bold text-xl md:text-3xl xl:text-4xl mb-10'> Your Are Not Allowed To Access this Page <span className="text-red-500">!</span>  </h1>
+                    <Link href="/" className='px-5 py-2 border-2 border-red-500 text-white font-medium'> Back to Home </Link>
+                </div>
+            )
+        }
+    */
     return (
         <div className="font-montserrat px-5 md:px-10 py-20 md:py-26 flex h-screen items-center justify-center">
             <div className="rounded-md w-full sm:w-[70%] md:-w-[60%] lg:w-[40%] xl:w-[35%]  p-4 md:p-6 lg:p-8 xl:p-10" style={{
@@ -83,6 +85,7 @@ const AdminSignIn = () => {
                             Forgot password ?
                             <Link href="/reset-password" className="font-bold hover:border-b"> Reset </Link>
                         </small>
+                        <Input data={{ name: "secret", type: 'text', placeholder: `This is for admin identification`, error: errors?.secret?.message, hookFormRegister: register("secret") }} />
                         <button type="submit" disabled={isLoading} className="px-4 py-2 rounded border-2 border-sandy-brown text-white uppercase"> sign in  </button>
                     </form>
 

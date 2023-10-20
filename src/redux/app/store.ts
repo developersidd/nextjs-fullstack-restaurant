@@ -1,4 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { Store, configureStore } from "@reduxjs/toolkit";
+import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
+import { createWrapper } from "next-redux-wrapper";
 import { apiSlice } from "../features/api/apiSlice";
 import foodSlice from "../features/food/foodSlice";
 import userSlice from "../features/user/userSlice";
@@ -13,5 +15,7 @@ export const store = configureStore({
   middleware: (gDM) => gDM().concat(apiSlice.middleware)
 });
 
+export type AppStore = ToolkitStore<Store>;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const wrapper = createWrapper<AppStore>(store, { debug: true });

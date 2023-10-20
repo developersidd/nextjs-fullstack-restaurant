@@ -74,17 +74,17 @@ const AdminSignUp = () => {
             setIsUploadingImg(false)
         }
     };
-
-    if (!ADMIN_SECRET || ADMIN_SECRET !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
-        return (
-            <div className="flex items-center justify-center h-screen flex-col">
-                <Image src={warning} className="w-[40%] md:w-[35%] lg:w-[22%] mb-5" alt="smiley-face" />
-                <h1 className='text-white font-bold text-xl md:text-3xl xl:text-4xl mb-10'> Your Are Not Allowed To Access this Page <span className="text-red-500">!</span>  </h1>
-                <Link href="/" className='px-5 py-2 border-2 border-red-500 text-white font-medium'> Back to Home </Link>
-            </div>
-        )
-    }
-
+    /*
+        if (!ADMIN_SECRET || ADMIN_SECRET !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
+            return (
+                <div className="flex items-center justify-center h-screen flex-col">
+                    <Image src={warning} className="w-[40%] md:w-[35%] lg:w-[22%] mb-5" alt="smiley-face" />
+                    <h1 className='text-white font-bold text-xl md:text-3xl xl:text-4xl mb-10'> Your Are Not Allowed To Access this Page <span className="text-red-500">!</span>  </h1>
+                    <Link href="/" className='px-5 py-2 border-2 border-red-500 text-white font-medium'> Back to Home </Link>
+                </div>
+            )
+        }
+    */
 
     return (
         <>

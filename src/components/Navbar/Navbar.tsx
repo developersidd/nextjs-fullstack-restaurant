@@ -20,6 +20,7 @@ const Navbar = () => {
   // navbar handler
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
+      //if last vertical scroll is greather than current vertical scroll then show other don't show 
       if (window.scrollY > lastScrollY) {
         setShowNav(false);
       } else if (lastScrollY < 200) {
@@ -44,9 +45,9 @@ const Navbar = () => {
   }, [lastScrollY]);
 
   return (
-    <div className={`z-[9999]  bg-transparent ${showNav ? "shadow-md md:fixed md:h-[95px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/60" : ""}`} >
+    <div className={`z-[9999]  bg-transparent ${showNav ? "shadow-md md:fixed md:h-[80px] top-0 left-0 w-full transition md:backdrop-blur-sm md:bg-[#0B1517]/40" : ""}`} >
       <nav className={`lg:container px-5 md:px-10 mx-auto absolute top-0 left-0 right-0  font-helvatica z-[9999]`}>
-        <div className={`flex justify-between items-center ${showNav ? "h-[95px]" : "h-[120px]"} `}>
+        <div className={`flex justify-between items-center ${showNav ? "h-[80px]" : "h-[120px]"} `}>
           {/*  logo */}
           <div className=''>
             <Link href="/">

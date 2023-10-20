@@ -41,7 +41,7 @@ export default function RootLayout({
         <Providers>
           <Toaster richColors />
           <InitializeApp>
-            {children}
+          {children}
           </InitializeApp>
         </Providers>
       </body>

@@ -1,6 +1,5 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import protectUserRoutes from './utils/protectUserRoutes';
 export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
     // params
@@ -8,7 +7,22 @@ export async function middleware(request: NextRequest) {
     // paths
     const isApiPath = path.includes("/api/");
 
-    protectUserRoutes(request);
+    const publicPaths = ["/signin", "/signup"];
+    const isPublicPath = publicPaths.includes(path);
+    const isAdminAuthPath = ["admin/signin", "admin/signup"].includes(path);
+    console.log("isAdminAuthPath:", isAdminAuthPath)
+    const token = request.cookies.get("token")?.value || "";
+    //const isApiPath = path.includes("/api/");
+
+    // if user logged in and try to login then redirect to home page
+    if ((isPublicPath || isAdminAuthPath) && token) {
+        return NextResponse.redirect(new URL("/", request.nextUrl));
+    };
+
+    // if user is not logged in but private route then redirect to home page
+    if (!isPublicPath && !token && !isApiPath && !isAdminAuthPath) {
+        return NextResponse.redirect(new URL("/signin", request.nextUrl));
+    }
 
     // protect api routes
     if (isApiPath && API_SECRET !== process.env.NEXT_PUBLIC_API_SECRET) {

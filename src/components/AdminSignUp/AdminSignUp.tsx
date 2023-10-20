@@ -1,9 +1,9 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import warning from "@/assets/images/warning.png";
 import Input from "@/components/shared/Input/Input";
 import { useSignupMutation } from "@/redux/features/signup/signupApi";
 import Logo from "@/ui/Logo";
+import sweetAlert from "@/ui/sweetAlert";
 import uploadImage from "@/utils/uploadImage";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
@@ -18,6 +18,7 @@ const schema = yup.object().shape({
     username: yup.string().max(45).required(),
     email: yup.string().email().required(),
     password: yup.string().min(10).max(30).required(),
+    secret: yup.string().required(),
     picture: yup.mixed()
         .test('required', "You need to provide an image", (value: any) => {
             return value && value.length
@@ -50,7 +51,7 @@ const AdminSignUp = () => {
         if (isSuccess) {
             toast.success("Signed Up Successfully");
             reset();
-            router.push(`/admin/signin?${process.env.NEXT_PUBLIC_ASN!}=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`);
+            router.push(`/admin/signin `);
         }
     }, [isSuccess]);
 
@@ -64,6 +65,9 @@ const AdminSignUp = () => {
 
     // handle sign up
     const adminSignUpHandler = async (data: any) => {
+        if (data?.secret !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
+            return sweetAlert({ icon: "error", title: "OOPS", des: "Admin Secret was wrong!" });
+        }
         setIsUploadingImg(true);
         try {
             const url = await uploadImage(data.picture[0]);
@@ -74,18 +78,6 @@ const AdminSignUp = () => {
             setIsUploadingImg(false)
         }
     };
-    /*
-        if (!ADMIN_SECRET || ADMIN_SECRET !== process.env.NEXT_PUBLIC_ADMIN_SECRET) {
-            return (
-                <div className="flex items-center justify-center h-screen flex-col">
-                    <Image src={warning} className="w-[40%] md:w-[35%] lg:w-[22%] mb-5" alt="smiley-face" />
-                    <h1 className='text-white font-bold text-xl md:text-3xl xl:text-4xl mb-10'> Your Are Not Allowed To Access this Page <span className="text-red-500">!</span>  </h1>
-                    <Link href="/" className='px-5 py-2 border-2 border-red-500 text-white font-medium'> Back to Home </Link>
-                </div>
-            )
-        }
-    */
-
     return (
         <>
 
@@ -108,14 +100,14 @@ const AdminSignUp = () => {
                             <Input data={{ name: "Password", type: 'password', placeholder: `Enter your Password`, error: errors.password?.message, hookFormRegister: register("password") }} />
 
                             <Input data={{ name: "Picture", type: 'file', placeholder: `Upload your picture`, error: errors.picture?.message, hookFormRegister: register("picture") }} />
-
+                            <Input data={{ name: "Admin Secret", type: 'text', placeholder: `This is for admin identification`, error: errors?.secret?.message, hookFormRegister: register("secret") }} />
                             <button disabled={(isLoading || isUploadingImg)} type="submit" className="px-4 py-2 rounded border-2 border-sandy-brown text-white uppercase"> sign up </button>
                         </form>
                         {/* bottom section */}
                         <div className="text-center mt-5">
                             <p className="mt-8 text-white text-base">
                                 Already have an admin account ?
-                                <Link href={`/admin/signin?${process.env.NEXT_PUBLIC_ASN!}=${process.env.NEXT_PUBLIC_ADMIN_SECRET}`} className="font-bold hover:border-b"> Sign In </Link>
+                                <Link href={`/admin/signin `} className="font-bold hover:border-b"> Sign In </Link>
                             </p>
                         </div>
                     </div>

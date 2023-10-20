@@ -1,6 +1,6 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
-import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { useAppSelector } from "@/redux/app/hooks";
 import { selectFood } from "@/redux/features/food/foodSelector";
 import { useAddReviewMutation } from "@/redux/features/review/reviewApi";
 import { selectUser } from "@/redux/features/user/userSelector";

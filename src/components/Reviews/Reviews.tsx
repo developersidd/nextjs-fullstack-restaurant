@@ -3,12 +3,12 @@ import { useAppSelector } from '@/redux/app/hooks';
 import { selectFood } from '@/redux/features/food/foodSelector';
 import { useGetReviewsQuery } from '@/redux/features/review/reviewApi';
 import { selectUser } from '@/redux/features/user/userSelector';
+import { TypeReview } from "@/types";
 import sweetAlert from '@/ui/sweetAlert';
 import Image from "next/image";
 import Link from 'next/link';
 import React from 'react';
 import SingleReview from '../Review/Review';
-import { TypeReview } from "@/types";
 
 const Reviews = () => {
     const { title, _id } = useAppSelector(selectFood)?.food || {};
@@ -17,7 +17,7 @@ const Reviews = () => {
     const reviews = data?.data!;
 
     const handleAddReview = () => {
-        sweetAlert({ icon: "info", title: "Please Log In!", des: "Don't have an account? Please <a href='/signin' style='font-weight:bold'> Register  </a>  to add your opinion." });
+        sweetAlert({ icon: "info", title: "Please Log In!", des: "Don't have an account? Please <a href='/signup' style='font-weight:bold'> Register  </a>  to add your opinion." });
     }
 
     // decide what to render.

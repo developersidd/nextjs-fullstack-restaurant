@@ -2,9 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const protectUserRoutes = (request: NextRequest) => {
     const path = request.nextUrl.pathname;
+    console.log("path:", path)
     const publicPaths = ["/signin", "/signup"];
     const isPublicPath = publicPaths.includes(path);
-    const isAdminAuthPath = path.startsWith("/admin/signin") || path.startsWith("/admin/signup");
+    const isAdminAuthPath = ["admin/signin", "admin/signup"].includes(path);
+    console.log("isAdminAuthPath:", isAdminAuthPath)
     const token = request.cookies.get("token")?.value || "";
     const isApiPath = path.includes("/api/");
 

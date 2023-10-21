@@ -15,7 +15,7 @@ const Banner = ({ imgName, children, smTitle, title }: { imgName: string, childr
           </div>
         </div>
       </div>
-      <div className={`border-8 border-sandy-brown h-screen bg-black/30 absolute top-0  left-0 right-0 mx-auto w-full z-[99]`} />
+      <div className={`border-8 border-sandy-brown h-screen bg-black/25 absolute top-0  left-0 right-0 mx-auto w-full z-[99]`} />
     </>
   )
 }

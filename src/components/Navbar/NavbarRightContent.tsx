@@ -58,8 +58,8 @@ const NavbarRightContent = () => {
             ) :
                 (
                     <>
-                        <Link href="/signin" className={`${classes.nav__btn} ${classes.signin} border-2 border-sandy-brown border-r-0 px-3 md:px-4 py-1 md:py-2 `}> Sign In </Link>
-                        <Link href="/signup" className={`${classes.nav__btn} ${classes.signup}  border-2 border-sandy-brown  px-3 md:px-4 py-1 md:py-2 `}> Sign Up </Link>
+                        <Link href="/signin" className={`${classes.nav__auth__btn} ${classes.signin} border-2 border-sandy-brown border-r-0 px-3 md:px-4 py-1 md:py-2 `}> Sign In </Link>
+                        <Link href="/signup" className={`${classes.nav__auth__btn} ${classes.signup}  border-2 border-sandy-brown  px-3 md:px-4 py-1 md:py-2 `}> Sign Up </Link>
                     </>
                 )
         }

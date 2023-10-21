@@ -25,13 +25,13 @@ const GalleryImages = (props: any) => {
             {props.images.map(({ caption, width, height, classes, src }: any, index: any) => (
                 <a
                     href={src}
-                    className={`${classes}  cursor-pointer group/gallery overflow-hidden`} key={props.galleryID + '-' + index}
+                    className={`${classes}  cursor-pointer group/gallery overflow-hidden rounded-md`} key={props.galleryID + '-' + index}
                     target="_blank"
                     rel="noreferrer"
                     data-pswp-width={width}
                     data-pswp-height={height}
                 >
-                    <div className='h-[260px] sm:h-[290px] md:h-[320px] lg:h-[350px]'>
+                    <div className='h-[260px] sm:h-[290px] md:h-[320px] lg:h-[350px] '>
 
                         <Image className={` object-fill w-full h-full rounded-md duration-300 transition-transform group-hover/gallery:scale-110`} src={src} width={1800} height={1500} alt={caption} />
                     </div>

@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import SmallDevicesNavbar from '../SmallDevicesNavbar/SmallDevicesNavbar';
 import NavbarRightContent from './NavbarRightContent';
+import classes from "./navbar.module.css";
 import { navbarData } from './navbarData';
 
 const Navbar = () => {
@@ -61,8 +62,8 @@ const Navbar = () => {
               navbarData?.map(({ link, title }) => {
                 const isActive = pathname === link;
                 return (
-                  <li key={title} className={` ${isActive ? "text-sandy-brown" : ""} md:text-md cursor-pointer`}>
-                    <Link href={link}> {title} </Link>
+                  <li key={title} className={` ${isActive ? "text-sandy-brown border-b-2 border-sandy-brown " : ""} md:text-md cursor-pointer `}>
+                    <Link href={link} className={`${classes.nav__btn}`}> {title} </Link>
                   </li>
                 )
               }

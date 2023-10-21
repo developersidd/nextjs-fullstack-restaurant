@@ -1,11 +1,12 @@
-.nav__btn{
-position: relative;
+/*  navbar auth hover animation */
+.nav__auth__btn{
+position: relative; 
 overflow: hidden ;
 display: inline-block;
 color: #fff
 }
 
-.nav__btn::before{
+.nav__auth__btn::before{
 position: absolute;
 width: 100%;
 height: 100%;
@@ -17,18 +18,48 @@ transition: transform 0.3s ease-in;
 @apply bg-sandy-brown 
 }
 
-.nav__btn.signin::before {
+.nav__auth__btn.signin::before {
     transform: translateX(-100%);    
 }
 
-.nav__btn.signin:hover::before {
+.nav__auth__btn.signin:hover::before {
     transform: translateX(0);    
 }
 
-.nav__btn.signup::before {
+.nav__auth__btn.signup::before {
     transform: translateX(100%);    
     
 }
-.nav__btn.signup:hover::before {
+.nav__auth__btn.signup:hover::before {
     transform: translateX(0);    
 }
+
+/*  nav link underline animation */
+.nav__btn {
+position: relative;
+display: inline-block;
+}
+
+.nav__btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    bottom: -2px;
+    left: 0;
+    /*  this means which direction you want to end  */
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+    @apply bg-sandy-brown 
+  }
+  
+  .nav__btn:hover::before {
+    /*  this means from which direction you want to start the underline */
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+
+

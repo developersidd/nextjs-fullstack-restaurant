@@ -39,9 +39,9 @@ export default function RootLayout({
       <AOSInit />
       <body>
         <Providers>
-          <Toaster richColors />
+          <Toaster richColors position='top-center' />
           <InitializeApp>
-          {children}
+            {children}
           </InitializeApp>
         </Providers>
       </body>

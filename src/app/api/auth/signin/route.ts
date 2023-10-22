@@ -12,7 +12,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         const reqBody = await req.json();
         const { email, password } = reqBody;
 
-        if (Array.from(reqBody).every((val: any) => Boolean(val?.length))) {
+        if (email && password) {
             //  check if the user already exists ?
             const user = await User.findOne({ email });
             if (user?.email && user?.password) {

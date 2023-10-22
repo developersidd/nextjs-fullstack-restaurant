@@ -1,7 +1,9 @@
 "use client";
 import loadingGear from "@/assets/images/loading-gear.gif";
 import Input from "@/components/shared/Input/Input";
+import { useAppDispatch } from "@/redux/app/hooks";
 import { useSigninMutation } from "@/redux/features/signin/signinApi";
+import { showConfetti } from "@/redux/features/user/userSlice";
 import Logo from "@/ui/Logo";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
@@ -24,19 +26,20 @@ const SignIn = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
     });
+    const dispatch = useAppDispatch();
     const router = useRouter();
 
     useEffect(() => {
         if (isSuccess) {
-            toast.success("Signed In Successfully");
             reset();
+            localStorage.setItem("loggedIn", JSON.stringify(true));
             router.push("/");
+            toast.success("Welcome To SIDDIK Restaurant");
+            dispatch(showConfetti(true))
         } else if (isError && error) {
             toast.error((error as any)?.data?.error || "There was an error occured");
-            console.log("(error as any)?.data:", (error as any)?.data)
         }
     }, [isSuccess, isError])
-
 
 
     // handle sign In
@@ -46,6 +49,7 @@ const SignIn = () => {
 
     return (
         <div className="font-montserrat px-5 md:px-10 py-20 md:py-26 flex h-screen items-center justify-center">
+
             <div className="rounded-md w-full sm:w-[70%] md:-w-[60%] lg:w-[40%] xl:w-[35%]  p-5 md:p-6 lg:p-8 xl:p-10" style={{
                 boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
             }}>

@@ -2,7 +2,8 @@ import { TypeUser } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 type InitialState = {
-    user: TypeUser
+    user: TypeUser,
+    showConfetti: boolean
 }
 
 const initialState: InitialState = {
@@ -18,7 +19,8 @@ const initialState: InitialState = {
         verifyTokenExpiry: undefined,
         isVerified: false,
         isAdmin: false,
-    }
+    },
+    showConfetti: false
 };
 
 const userSlice = createSlice({
@@ -27,9 +29,12 @@ const userSlice = createSlice({
     reducers: {
         setUser: (state, action) => {
             state.user = action.payload
-        }
+        },
+        showConfetti: (state, action) => {
+            state.showConfetti = action.payload;
+        },
     }
 });
 
 export default userSlice.reducer;
-export const { setUser } = userSlice.actions;
+export const { setUser, showConfetti } = userSlice.actions;

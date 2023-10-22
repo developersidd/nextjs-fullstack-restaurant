@@ -1,4 +1,3 @@
-import { useAppDispatch } from "@/redux/app/hooks";
 import { verify } from "jsonwebtoken";
 import { NextRequest } from "next/server";
 
@@ -13,7 +12,6 @@ const getDataFromToken = async (req: NextRequest) => {
         const decodedToken = verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!) as TokenType;
         return decodedToken
     } catch (error: any) {
-        console.log("error:", error)
         throw new Error(error.message);
     }
 }

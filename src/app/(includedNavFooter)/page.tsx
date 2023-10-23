@@ -7,13 +7,14 @@ import Recommendation from "@/components/Recommendation/Recommendation";
 import Banner from "@/components/shared/Banner/Banner";
 import Button from "@/components/shared/Button/Button";
 import Titles from "@/components/shared/Titles/Titles";
+import withAuth from "@/hoc/withAuth";
 import type { TypeSearchParams } from "@/types";
-import FireConfetti from "@/ui/Confetti";
 
 export default function Home({ searchParams }: { searchParams: TypeSearchParams }) {
+  withAuth();
   return (
     <main className="font-montserrat">
-      <FireConfetti />
+
       <Banner imgName="bg-[url('../assets/images/home-banner.jpg')]" title="Taste The Difference" smTitle="MORE FLAVOR FOR LESS">
         {/*  Banner text */}
         <>
@@ -37,4 +38,4 @@ export default function Home({ searchParams }: { searchParams: TypeSearchParams 
       </section>
     </main>
   )
-}
+};

@@ -1,4 +1,4 @@
-import InitializeApp from '@/components/InitializeApp/InitializeApp';
+import UserAuthHandler from '@/components/UserAuthHandler/UserAuthHandler';
 import { Providers } from '@/redux/features/provider';
 import AOSInit from '@/ui/AOSInit';
 import type { Metadata } from 'next';
@@ -39,10 +39,9 @@ export default function RootLayout({
       <AOSInit />
       <body>
         <Providers>
+          <UserAuthHandler />
           <Toaster richColors position='top-center' />
-          <InitializeApp>
-            {children}
-          </InitializeApp>
+          {children}
         </Providers>
       </body>
     </html>

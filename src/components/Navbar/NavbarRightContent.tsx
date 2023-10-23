@@ -1,13 +1,13 @@
-import { useAppDispatch, useAppSelector } from '@/redux/app/hooks';
-import { userApi } from '@/redux/features/user/userApi';
-import { selectUser } from '@/redux/features/user/userSelector';
+import { useAppDispatch } from '@/redux/app/hooks';
+import { useGetUserQuery, userApi } from '@/redux/features/user/userApi';
 import { ArrowLeftOnRectangleIcon, ChartBarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import classes from "./navbar.module.css";
 const NavbarRightContent = () => {
-    const { user: { email, picture, username, isAdmin } } = useAppSelector(selectUser);
+    const { isLoading, error, data } = useGetUserQuery();
+    const { email, picture, username, isAdmin } = data?.data || {};
     const [showModal, setShowModal] = useState(false);
     const modalClasses = showModal ? "visible opacity-100 scale-100" : "invisible opacity-0 scale-50"
     const dispatch = useAppDispatch();
@@ -30,7 +30,7 @@ const NavbarRightContent = () => {
     return <div className=' hidden lg:block  max-md:text-sm relative'>
 
         {
-            email ? (
+            email!?.length > 0 ? (
                 <div className="flex gap-4 font-medium font-montserrat items-center">
                     {/* show modal click on profile image */}
                     <Image onClick={() => setShowModal(true)} src={picture} width={60} height={60} className={`${showModal ? "" : "cursor-pointer"} navbar-modal rounded-full md:w-[38px] lg:w-[42px] `} alt={username} />
